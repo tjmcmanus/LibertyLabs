@@ -14,13 +14,13 @@ references on different operating systems.
   ----------------------------------------------------
   Location Ref.   OS        Absolute Path
   --------------- --------- --------------------------
-  {LAB_HOME}       Windows   C:\\WLP_<version>
+  {LAB_HOME}       Windows   C:\\WLP_`<`version`>`
 
-                   Linux     ~/WLP_<version>
+                   Linux     ~/WLP_`<`version`>`
 
                             Or your choice
 
-                   Mac OSX   ~/WLP_<version>
+                   Mac OSX   ~/WLP_`<`version`>`
 
                             Or your choice
   ----------------------------------------------------
@@ -31,16 +31,16 @@ references on different operating systems.
 Unzip the .zip file appropriate from your platform from USB drive to
 your computer.
 
-For Windows, unzip LibertyPoT_<VERSION>_WIN.zip to c: drive. The
-final directory is C:\\WLP_<VERSION>;
+For Windows, unzip LibertyPoT_`<`VERSION`>`_WIN.zip to c: drive. The
+final directory is C:\\WLP_`<`VERSION`>`
 
-For Linux unzip LibertyPoT_<VERSION>_LINUX.zip to a directory of
+For Linux unzip LibertyPoT_`<`VERSION`>`_LINUX.zip to a directory of
 {LAB_HOME}, e.g, your home directory. The final directory is
-{LAB_HOME}/WLP_<VERSION>
+{LAB_HOME}/WLP_`<`VERSION`>`
 
-For Mac, unzip LibertyPoT_<VERSION>_MAC.zip to a directory of
+For Mac, unzip LibertyPoT_`<`VERSION`>`_MAC.zip to a directory of
 {LAB_HOME}, e.g., your home directory. The final directory is
-{LAB_HOME}/WLP_<VERSIOn>.
+{LAB_HOME}/WLP_`<`VERSION`>`.
 
 [[[[[]{#_Toc141180388 .anchor}]{#_Toc136943190 .anchor}]{#_Toc136939320
 .anchor}]{#_Toc421108583 .anchor}]{#_Ref420351701 .anchor}
