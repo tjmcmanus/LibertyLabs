@@ -14,7 +14,7 @@ references on different operating systems.
   ----------------------------------------------------
   Location Ref.   OS        Absolute Path
   --------------- --------- --------------------------
-  {LAB_HOME}       Windows   C:\\WLP_`<`version`>`
+  {LAB_HOME}       Windows   `C:\\WLP_<version>`
 
                    Linux     ~/WLP_`<`version`>`
 
