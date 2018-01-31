@@ -185,12 +185,12 @@ minute to start as it initializes.
         problems with a preexisting workspace. Please use a clean
         workspace location.**
 
-> ![](media/image2.png){width="4.976760717410324in"
+> ![](./media/image2.png){width="4.976760717410324in"
 > height="2.0610826771653543in"}
 
 1.  Remove the welcome page by clicking on the ‘X’ icon
 
-> ![](media/image3.gif){width="6.476194225721785in"
+> ![](./media/image3.gif){width="6.476194225721785in"
 > height="2.962176290463692in"}
 
 Create Liberty Server in WDT
@@ -200,7 +200,7 @@ a.  At the bottom of the workbench, open the Servers view by clicking
     the Servers tab. Right-click within the windows of the Servers view
     and select New &gt; Server
 
-> ![](media/image4.png){width="3.7843175853018374in"
+> ![](./media/image4.png){width="3.7843175853018374in"
 > height="1.3501170166229222in"}
 
 a.  Under the server type list, expand IBM and select the **Liberty
@@ -208,7 +208,7 @@ a.  Under the server type list, expand IBM and select the **Liberty
     supplied (localhost). Click **Next**. This creates the liberty
     server object in eclipse.
 
-> ![](media/image5.png){width="4.3421992563429574in"
+> ![](./media/image5.png){width="4.3421992563429574in"
 > height="4.150875984251969in"}
 
 a.  Now eclipse needs to associate the ‘localhost’ server with a server
@@ -225,7 +225,7 @@ a.  Now eclipse needs to associate the ‘localhost’ server with a server
 
     III. Click **Next.**
 
-        ![](media/image6.png){width="4.305405730533684in"
+        ![](./media/image6.png){width="4.305405730533684in"
         height="4.671964129483815in"}
 
 b.  To create the server configuration in the runtime, either use the
@@ -234,13 +234,13 @@ b.  To create the server configuration in the runtime, either use the
     screen print will differ and there will be no new button and
     defaultServer will be prepopulated
 
-    ![](media/image7.png){width="4.43371719160105in"
+    ![](./media/image7.png){width="4.43371719160105in"
     height="2.819911417322835in"}
 
 c.  Enter in ‘labServer’ to the Liberty Server: box then click
     **Finish** and then **Finish** again.
 
-> ![](media/image8.png){width="4.441064085739282in"
+> ![](./media/image8.png){width="4.441064085739282in"
 > height="3.3265102799650044in"}
 
 a.  The new server will appear in the Servers view. You can expand the
@@ -248,7 +248,7 @@ a.  The new server will appear in the Servers view. You can expand the
     server configuration editor by double-clicking on **Server
     Configuration:**
 
-    ![](media/image9.png){width="4.684101049868766in"
+    ![](./media/image9.png){width="4.684101049868766in"
     height="1.1861351706036745in"}
 
 Labs Accessing IBM Cloud: Create a IBM Cloud User ID
@@ -266,14 +266,14 @@ Labs Accessing IBM Cloud: Create a IBM Cloud User ID
     though you will need to know your login and password for later
     steps.
 
-> ![](media/image10.png){width="6.174166666666666in"
+> ![](./media/image10.png){width="6.174166666666666in"
 > height="2.0243996062992125in"}
 
 1.  On the sign-up page, enter your email address and the other required
     information. Your IBM ID and IBM Cloud information should be sent to
     your email account shortly.
 
-> ![](media/image11.png){width="5.726194225721785in"
+> ![](./media/image11.png){width="5.726194225721785in"
 > height="2.404682852143482in"}
 
 1.  Once you receive the email message in your account, follow the steps
@@ -303,12 +303,12 @@ compromised without interfering with other API keys or even the user.
 
     a.  Click **Manage &gt; Security &gt; Platform API Keys**
 
-        ![](media/image12.png){width="4.114315398075241in"
+        ![](./media/image12.png){width="4.114315398075241in"
         height="1.79626968503937in"}
 
     b.  Click **Create**
 
-        ![](media/image13.png){width="5.337501093613298in"
+        ![](./media/image13.png){width="5.337501093613298in"
         height="1.206593394575678in"}
 
     c.  Enter the Name and a description; then click **Create **
@@ -317,12 +317,12 @@ compromised without interfering with other API keys or even the user.
 
         ii. Description: **This API Key for use with Liberty POTs**
 
-            ![](media/image14.png){width="2.771884295713036in"
+            ![](./media/image14.png){width="2.771884295713036in"
             height="2.483031496062992in"}
 
     d.  Click **Download**
 
-        ![](media/image15.png){width="4.443758748906387in"
+        ![](./media/image15.png){width="4.443758748906387in"
         height="2.7191076115485564in"}
 
     e.  Find the downloaded file named **apiKey.json**. (This should be
@@ -532,7 +532,7 @@ license therefrom.
 Linear Tape-Open, LTO, the LTO Logo, Ultrium, and the Ultrium logo are
 trademarks of HP, IBM Corp. and Quantum in the U.S. and other countries.
 
-![IBM-600dpi-1](media/image16.png){width="1.1131944444444444in"
+![IBM-600dpi-1](./media/image16.png){width="1.1131944444444444in"
 height="0.4152777777777778in"}
 
 © Copyright IBM Corporation 2018.
@@ -560,5 +560,5 @@ product and service names might be trademarks of IBM or other companies.
 A current list of IBM trademarks is available on the Web at “Copyright
 and trademark information” at www.ibm.com/legal/copytrade.shtml.
 
-![Please Recycle](media/image17.png){width="1.1131944444444444in"
+![Please Recycle](./media/image17.png){width="1.1131944444444444in"
 height="0.2833333333333333in"}
