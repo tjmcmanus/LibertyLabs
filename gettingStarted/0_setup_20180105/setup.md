@@ -202,17 +202,17 @@ As a IBM Cloud user, you might want to use an API key when you enable a program 
         your “password” that maps to the “user” or “email address” of
         **apikey**
 
-` > {
+     > {
 
-> "name": "Liberty-APIKey",
+     > "name": "Liberty-APIKey",
 
-> "description": "",
+     > "description": "",
 
-> "createdAt": "2017-06-26T16:16+0000",
+     > "createdAt": "2017-06-26T16:16+0000",
 
-> "apiKey": "**gI2-RsH8DHWGhCwWA-K61PSdWbLawRlgpAiGixmq7ZmD**"
+     > "apiKey": "**gI2-RsH8DHWGhCwWA-K61PSdWbLawRlgpAiGixmq7ZmD**"
 
-> }`
+      > }
 
 ## Labs Accessing IBM Cloud: Install the Command Line Interface (CLI) tools
 
