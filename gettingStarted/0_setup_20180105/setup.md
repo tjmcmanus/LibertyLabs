@@ -1,149 +1,112 @@
 
 
-#Setup Liberty
-#=============
-
-In this lab we will perform the initial set up required for all the labs
-and explore Liberty. The instructions assume a Windows environment, but
-Linux and Mac differences are presented. Where applicable, substitute
-with Linux or Mac equivalent, such as path names.
-
-Please refer to the following table for file and resource location
-references on different operating systems.
+# Setup Liberty
 
 
-  Location Ref. |   OS    |     Absolute Path
+In this lab we will perform the initial set up required for all the labs and explore Liberty. The instructions assume a Windows environment, but Linux and Mac differences are presented. Where applicable, substitute with Linux or Mac equivalent, such as path names.
+
+Please refer to the following table for file and resource location references on different operating systems.
+
+
+ Location Ref. |   OS    |     Absolute Path
   --------------| ------- | --------------------------
   *{LAB_HOME}*  | Windows |  `C:\\WLP_<VERSION>` or your choice
   *{LAB_HOME}*  | Linux   |  `~/WLP_<VERSION>` or your choice
   *{LAB_HOME}*  | Mac OSX |  `~/WLP_<VERSION>` or your choice                  
   
 
-##Unzip the Contents to your computer
------------------------------------
+## Unzip the Contents to your computer 
 
-Unzip the .zip file appropriate from your platform from USB drive to
-your computer.
 
-For Windows, unzip LibertyPoT_`<`VERSION`>`_WIN.zip to c: drive. The
-final directory is C:\\WLP_`<`VERSION`>`
+Unzip the .zip file appropriate from your platform from USB drive to your computer.
 
-For Linux unzip LibertyPoT_`<`VERSION`>`_LINUX.zip to a directory of
-{LAB_HOME}, e.g, your home directory. The final directory is
-{LAB_HOME}/WLP_`<`VERSION`>`
+For Windows, unzip LibertyPoT_`<`VERSION`>`_WIN.zip to c: drive. The final directory is C:\\WLP_`<`VERSION`>`
 
-For Mac, unzip LibertyPoT_`<`VERSION`>`_MAC.zip to a directory of
-{LAB_HOME}, e.g., your home directory. The final directory is
-{LAB_HOME}/WLP_`<`VERSION`>`.
+For Linux unzip LibertyPoT_`<`VERSION`>`_LINUX.zip to a directory of {LAB_HOME}, e.g, your home directory. The final directory is {LAB_HOME}/WLP_`<`VERSION`>`
 
-[[[[[]{#_Toc141180388 .anchor}]{#_Toc136943190 .anchor}]{#_Toc136939320
-.anchor}]{#_Toc421108583 .anchor}]{#_Ref420351701 .anchor}
+For Mac, unzip LibertyPoT_`<`VERSION`>`_MAC.zip to a directory of {LAB_HOME}, e.g., your home directory. The final directory is {LAB_HOME}/WLP_`<`VERSION`>`.
 
 ## Install Mac prerequisites
-
 
 1.  Mac: Download and install the JRE from Oracle's website:
     <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>
 
 ## Install Linux prerequisites
-----------------------------
 
-*You may be missing prerequisite packages required to run the supplied
-Java SDK and Eclipse. If you are running on 64-bit Linux, you need to
-install 32-bit packages as the supplied Java SDK and Eclipse are both 32
-bits. For Ubuntu or Debian variants of Linux, use the following commands
-to install the missing packages. For other Linux variants, search online
-for equivalent packages.*
+You may be missing prerequisite packages required to run the supplied Java SDK and Eclipse. If you are running on 64-bit Linux, you need to install 32-bit packages as the supplied Java SDK and Eclipse are both 32 bits. For Ubuntu or Debian variants of Linux, use the following commands to install the missing packages. For other Linux variants, search online for equivalent packages.
 
-***To run the supplied Java SDK, use these commands to install the
-prerequisite packages:***
+***To run the supplied Java SDK, use these commands to install the prerequisite packages:***
 
 1.  *sudo apt-get install build-essential*
-
 2.  *sudo apt-get install g++-4.8-multilib*
 
-***To run the supplied Eclipse with WDT, use these commands to install
-the prerequisite packages:***
+***To run the supplied Eclipse with WDT, use these commands to install the prerequisite packages:***
 
 1.  *sudo apt-get install libswt-gtk-3-java*
-
 2.  *sudo apt-get install libgtk2.0-0:i386*
-
 3.  *sudo apt-get install libgtk-3-0:i386*
-
 4.  *sudo apt-get install libxtst6:i386*
-
 5.  *sudo apt-get install gtk2-engines-murrine:i386*
-
 6.  *sudo apt-get install unity-gtk2-module:i386*
-
 7.  *sudo apt-get install libcanberra-gtk-module:i386*
-
 8.  *sudo apt-get install gtk3-engines-unico:i386*
-
 9.  *sudo apt-get install overlay-scrollbar-gtk2:i386 (Note: this
     package may not install successfully on latest versions of Ubuntu,
     but WDT can function without it.)*
 
-Installing Liberty and the Java Runtime
----------------------------------------
+## Installing Liberty and the Java Runtime
 
 1.  To install for windows or linux,
+    a.  Liberty is already installed for you `{LAB_HOME}/wlp`
+    b.  The IBM JRE is already installed for you `{LAB_HOME}/wlp/java`
+    c.  The IBM JRE is preset in the `{LAB_HOME}/wlp/etc/server.env`
 
-    a.  Liberty is already installed for you {LAB_HOME}/wlp
+If you want to override this for a specific server create a **server.env**  file in the `usr/servers/<server name>` directory.
 
-    b.  The IBM JRE is already installed for you {LAB_HOME}/wlp/java
-
-    c.  The IBM\_JRE is preset in the {LAB_HOME}/wlp/etc/server.env
-
-If you want to override this for a specific server create a server.env
-file in the usr/servers/&lt;server name&gt; directory.
-
-\*Note: If JAVA\_HOME is already set in your shell, then you will need
-to clear the JAVA\_HOME variable.
+**Note:** *If JAVA_HOME is already set in your shell, then you will need
+to clear the JAVA_HOME variable.*
 
 To check:
 
-**Linux**: execute “env| grep –i java\_home”. If it returns with a
-value, then execute “unset JAVA\_HOME”\
-**Windows:** execute “set JAVA\_HOME”. If it returns with a value, then
-execute “set JAVA\_HOME=”
+**Linux**: execute `“env| grep –i java\_home”`. If it returns with a
+value, then execute `“unset JAVA\_HOME”`
+**Windows:** execute `“set JAVA\_HOME”`. If it returns with a value, then
+execute `“set JAVA\_HOME=”`
 
-Create test server
-------------------
+## Create test server
 
-1.  From the {LAB_HOME}/wlp/bin directory in your Liberty runtime
+
+1.  From the `{LAB_HOME}/wlp/bin directory` in your Liberty runtime
     installation, run the following command to create a new server. For
-    Linux and Mac, use ./server to pick up the local “server”
+    Linux and Mac, use `./server` to pick up the local “server”
 
-    server create myServer.
+    `server create myServer`
 
-2.  The new server is created in {LAB_HOME}/wlp/usr/servers/myServer.
+2.  The new server is created in `{LAB_HOME}/wlp/usr/servers/myServer`.
     The server.xml file is the complete server configuration. Open up an
-    editor to view {LAB_HOME}/wlp/usr/servers/myServer/server.xml.
+    editor to view `{LAB_HOME}/wlp/usr/servers/myServer/server.xml`.
 
 3.  Start the server instance with this command:
 
-    server start myServer
+    `server start myServer`
 
     This runs the server in the background and the output is written to
-    files in the {LAB_HOME}/wlp/usr/servers/myServer/logs directory.
+    files in the `{LAB_HOME}/wlp/usr/servers/myServer/logs` directory.
     Alternatively, to start the server in the foreground (so the console
     messages are seen in the command window) you can use the command
     “server run myServer”.
 
 4.  Stop the server with the command:
 
-     server stop myServer
+     `server stop myServer`
 
 5.  Having verified the install, clean up. Delete the server by deleting
-    the {LAB_HOME}/wlp/usr/servers/myServer directory.
+    the `{LAB_HOME}/wlp/usr/servers/myServer` directory.
 
 You now have a Liberty runtime environment that is ready to be
 configured to run applications.
 
-Test the WebSphere Developer Tools (WDT)
-----------------------------------------
+## Test the WebSphere Developer Tools (WDT)
 
 You can manage Liberty from the command line, and edit the server
 configuration files in any editor, but the WebSphere Developer Tools
@@ -153,56 +116,41 @@ will use WDT in many more labs.
 
 Normally you would first download and install Eclipse, followed by the
 installation of WDT. For this lab, we have bundled everything into a
-single zip file. The directory {LAB_HOME}/wdt contains a prebuilt and
+single zip file. The directory `{LAB_HOME}/wdt` contains a prebuilt and
 expanded WDT. Note: Upon first startup, it may take Eclipse up to a
 minute to start as it initializes.
 
 1.  Start WDT by executing the following executable
-
-    a.  For Windows, **{LAB_HOME}\\wdt\\eclipse\\eclipse.exe**
-
-    b.  For Linux, {**LAB_HOME}/wdt/eclipse/eclipse**
-
-    c.  For Mac,
-        **{LAB_HOME}/wdt/eclipse/Eclipse.app/Contents/MacOs/eclipse\ **
+    a.  For Windows, `{LAB_HOME}\\wdt\\eclipse\\eclipse.exe`
+    b.  For Linux, `{LAB_HOME}/wdt/eclipse/eclipse`
+    c.  For Mac, `{LAB_HOME}/wdt/eclipse/Eclipse.app/Contents/MacOs/eclipse`
 
 2.  When the Eclipse launcher prompts you to Select a workspace:
-
-    a.  Enter **{LAB_HOME}\\workspace**
-
-    b.  Click **OK**, substituting {LAB_HOME} with the correct value
+    a.  Enter `{LAB_HOME}\workspace`
+    b.  Click **OK**, substituting *{LAB_HOME}* with the correct value
         for your platform. This should create workspace directory for
         you.
-
-        **Note: Accepting the default workspace location, may cause
+        **Note:** Accepting the default workspace location, may cause
         problems with a preexisting workspace. Please use a clean
-        workspace location.**
-
-> ![](./media/image2.png){width="4.976760717410324in"
-> height="2.0610826771653543in"}
+        workspace location.
+        
+        > ![](./media/image2.png)
 
 1.  Remove the welcome page by clicking on the ‘X’ icon
 
-> ![](./media/image3.gif){width="6.476194225721785in"
-> height="2.962176290463692in"}
+  > ![](./media/image3.gif)
 
-Create Liberty Server in WDT
-----------------------------
+#Create Liberty Server in WDT
 
 a.  At the bottom of the workbench, open the Servers view by clicking
     the Servers tab. Right-click within the windows of the Servers view
-    and select New &gt; Server
+    and select New > Server
 
-> ![](./media/image4.png){width="3.7843175853018374in"
-> height="1.3501170166229222in"}
+> ![](./media/image4.png)
 
-a.  Under the server type list, expand IBM and select the **Liberty
-    Server** server type. Use the default eclipse server name as
-    supplied (localhost). Click **Next**. This creates the liberty
-    server object in eclipse.
+a.  Under the server type list, expand IBM and select the **Liberty Server** server type. Use the default eclipse server name as supplied (localhost). Click **Next**. This creates the liberty server object in eclipse.
 
-> ![](./media/image5.png){width="4.3421992563429574in"
-> height="4.150875984251969in"}
+> ![](./media/image5.png)
 
 a.  Now eclipse needs to associate the ‘localhost’ server with a server
     configuration in a Liberty runtime (the runtime that you installed
@@ -211,15 +159,14 @@ a.  Now eclipse needs to associate the ‘localhost’ server with a server
 
     I.  In the **Path** field under the **Installation folder** section,
         type or browse for the directory where you installed the Liberty
-        runtime environment (The value of {LAB_HOME}/wlp)
+        runtime environment (The value of `{LAB_HOME}/wlp`)
 
     II. You may also select which JRE to use if you have multiple JRE in
         your environment.
 
     III. Click **Next.**
 
-        ![](./media/image6.png){width="4.305405730533684in"
-        height="4.671964129483815in"}
+       > ![](./media/image6.png)
 
 b.  To create the server configuration in the runtime, either use the
     current populated server ‘myServer’ or click the **New** button.
@@ -227,47 +174,36 @@ b.  To create the server configuration in the runtime, either use the
     screen print will differ and there will be no new button and
     defaultServer will be prepopulated
 
-    ![](./media/image7.png){width="4.43371719160105in"
-    height="2.819911417322835in"}
+    ![](./media/image7.png)
 
-c.  Enter in ‘labServer’ to the Liberty Server: box then click
-    **Finish** and then **Finish** again.
+c.  Enter in **labServer** to the Liberty Server box then click **Finish** and then **Finish** again.
 
-> ![](./media/image8.png){width="4.441064085739282in"
-> height="3.3265102799650044in"}
+> ![](./media/image8.png)
 
 a.  The new server will appear in the Servers view. You can expand the
     server to show a quick view of the configuration. You can open the
     server configuration editor by double-clicking on **Server
     Configuration:**
 
-    ![](./media/image9.png){width="4.684101049868766in"
-    height="1.1861351706036745in"}
+> ![](./media/image9.png)
 
-Labs Accessing IBM Cloud: Create a IBM Cloud User ID
-----------------------------------------------------
+## Labs Accessing IBM Cloud: Create a IBM Cloud User ID
 
-> For the cloud labs, IBM Cloud is used for the hosting environment. If
-> you already have an IBM Cloud account, you may skip this part. Your
-> 30-day Cloud trial is free, with no credit card required. You get
-> access to 2 GB of runtime and container memory to run apps, unlimited
-> IBM services and APIs.
+For the cloud labs, IBM Cloud is used for the hosting environment. If you already have an IBM Cloud account, you may skip this part. Your  30-day Cloud trial is free, with no credit card required. You get  access to 2 GB of runtime and container memory to run apps, unlimited IBM services and APIs.
 
 1.  To begin, visit https://bluemix.net/ (redirects to
     console.bluemix.net) and select the **Create a free account** link.
     If you don't see a sign-up link, you should already be logged in,
     though you will need to know your login and password for later
     steps.
-
-> ![](./media/image10.png){width="6.174166666666666in"
-> height="2.0243996062992125in"}
+    
+    > ![](./media/image10.png)
 
 1.  On the sign-up page, enter your email address and the other required
     information. Your IBM ID and IBM Cloud information should be sent to
     your email account shortly.
-
-> ![](./media/image11.png){width="5.726194225721785in"
-> height="2.404682852143482in"}
+    
+    > ![](./media/image11.png)
 
 1.  Once you receive the email message in your account, follow the steps
     to verify your address. Once verified, you will be able to log in
@@ -282,41 +218,28 @@ Labs Accessing IBM Cloud: Create a IBM Cloud User ID
     to do so by the IBM Cloud console (otherwise, proceed to the next
     part).
 
-Labs Accessing IBM Cloud: Create a IBM Cloud API Key to use for authentication
-------------------------------------------------------------------------------
+## Labs Accessing IBM Cloud: Create a IBM Cloud API Key to use for authentication
 
-As a IBM Cloud user, you might want to use an API key when you enable a
-program or script without distributing your password to the script or
-worry about dealing with password management. A benefit of using an API
-key can be that a user or organization can create several API Keys for
-different programs and the API keys can be deleted independently if
-compromised without interfering with other API keys or even the user.
+As a IBM Cloud user, you might want to use an API key when you enable a program or script without distributing your password to the script or worry about dealing with password management. A benefit of using an API key can be that a user or organization can create several API Keys for different programs and the API keys can be deleted independently if compromised without interfering with other API keys or even the user.
 
 1.  Create a Platform API Key to use to authenticate with IBM Cloud.
-
-    a.  Click **Manage &gt; Security &gt; Platform API Keys**
-
-        ![](./media/image12.png){width="4.114315398075241in"
-        height="1.79626968503937in"}
+    a.  Click **Manage > Security > Platform API Keys**
+    
+    ![](./media/image12.png)
 
     b.  Click **Create**
 
-        ![](./media/image13.png){width="5.337501093613298in"
-        height="1.206593394575678in"}
+       ![](./media/image13.png)
 
     c.  Enter the Name and a description; then click **Create **
-
-        i.  Name: **Liberty-APIKey**
-
+      i.  Name: **Liberty-APIKey**
         ii. Description: **This API Key for use with Liberty POTs**
 
-            ![](./media/image14.png){width="2.771884295713036in"
-            height="2.483031496062992in"}
+           ![](./media/image14.png)
 
     d.  Click **Download**
 
-        ![](./media/image15.png){width="4.443758748906387in"
-        height="2.7191076115485564in"}
+       ![](./media/image15.png)
 
     e.  Find the downloaded file named **apiKey.json**. (This should be
         in your browsers Download folder) Now rename the file to
@@ -331,17 +254,12 @@ compromised without interfering with other API keys or even the user.
         your “password” that maps to the “user” or “email address” of
         **apikey**
 
-> {
->
-> "name": "Liberty-APIKey",
->
-> "description": "",
->
-> "createdAt": "2017-06-26T16:16+0000",
->
-> "apiKey": "**gI2-RsH8DHWGhCwWA-K61PSdWbLawRlgpAiGixmq7ZmD**"
->
-> }
+` {
+"name": "Liberty-APIKey",
+"description": "",
+"createdAt": "2017-06-26T16:16+0000",
+"apiKey": "**gI2-RsH8DHWGhCwWA-K61PSdWbLawRlgpAiGixmq7ZmD**"
+ }`
 
 Labs Accessing IBM Cloud: Install the Command Line Interface (CLI) tools
 ------------------------------------------------------------------------
