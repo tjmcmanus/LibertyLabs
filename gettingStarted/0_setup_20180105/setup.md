@@ -58,11 +58,8 @@ You may be missing prerequisite packages required to run the supplied Java SDK a
     1.  Liberty is already installed for you `{LAB_HOME}/wlp`
     1.  The IBM JRE is already installed for you `{LAB_HOME}/wlp/java`
     1.  The IBM JRE is preset in the `{LAB_HOME}/wlp/etc/server.env`
-
 * *If you want to override this for a specific server create a **server.env**  file in the `usr/servers/<server name>` directory.*
-
-     **Note:** *If JAVA_HOME is already set in your shell, then you will need to clear the JAVA_HOME variable.*
-
+     > **Note:** *If JAVA_HOME is already set in your shell, then you will need to clear the JAVA_HOME variable.*
      To check:
      * **Linux**: execute `“env| grep –i java\_home”`. If it returns with a value, then execute `“unset JAVA\_HOME”`
      * **Windows:** execute `“set JAVA\_HOME”`. If it returns with a value, then execute `“set JAVA\_HOME=”`
@@ -123,18 +120,18 @@ minute to start as it initializes.
         problems with a preexisting workspace. Please use a clean
         workspace location.
         
-         ![](./media/image2.png)   
+         > ![](./media/image2.png)   
          
 1.  Remove the welcome page by clicking on the ‘X’ icon
-   ![](./media/image3.gif)
+   > ![](./media/image3.gif)
 
 # Create Liberty Server in WDT
 
 1.  At the bottom of the workbench, open the Servers view by clicking the Servers tab. Right-click within the windows of the Servers view and select **New > Server**
-   ![](./media/image4.png)
+   > ![](./media/image4.png)
    
 1.  Under the server type list, expand IBM and select the **Liberty Server** server type. Use the default eclipse server name as supplied (localhost). Click **Next**. This creates the liberty server object in eclipse.
-  ![](./media/image5.png)
+  > ![](./media/image5.png)
   
 1.  Now eclipse needs to associate the ‘localhost’ server with a server
     configuration in a Liberty runtime (the runtime that you installed
@@ -146,17 +143,16 @@ minute to start as it initializes.
     1. You may also select which JRE to use if you have multiple JRE in
         your environment.
     1. Click **Next.**
-    
-        ![](./media/image6.png)
+        > ![](./media/image6.png)
         
 1.  To create the server configuration in the runtime, either use the current populated server ‘myServer’ or click the **New** button.  **Note:** If directions were followed and myServer was deleted, your screen print will differ and there will be no new button and defaultServer will be prepopulated
-   ![](./media/image7.png)
+   > ![](./media/image7.png)
     
 1.  Enter in **labServer** to the Liberty Server box then click **Finish** and then **Finish** again.
-   ![](./media/image8.png)
+   > ![](./media/image8.png)
    
 1.  The new server will appear in the Servers view. You can expand the server to show a quick view of the configuration. You can open the  server configuration editor by double-clicking on **Server Configuration:**
-    ![](./media/image9.png)
+    > ![](./media/image9.png)
     
 
 ## Labs Accessing IBM Cloud: Create a IBM Cloud User ID
@@ -192,18 +188,18 @@ As a IBM Cloud user, you might want to use an API key when you enable a program 
 
 1.  Create a Platform API Key to use to authenticate with IBM Cloud.
     1.  Click **Manage > Security > Platform API Keys**
-    ![](./media/image12.png)
+    > ![](./media/image12.png)
 
     1.  Click **Create**
-       ![](./media/image13.png)
+       > ![](./media/image13.png)
 
     1.  Enter the Name and a description; then click **Create **
         1.  Name: **Liberty-APIKey**
         1. Description: **This API Key for use with Liberty POTs**
-          ![](./media/image14.png)
+         > ![](./media/image14.png)
 
     1.  Click **Download**
-       ![](./media/image15.png)
+      > ![](./media/image15.png)
        
     1.  Find the downloaded file named **apiKey.json**. (This should be
         in your browsers Download folder) Now rename the file to
@@ -216,12 +212,12 @@ As a IBM Cloud user, you might want to use an API key when you enable a program 
         your “password” that maps to the “user” or “email address” of
         **apikey**
 
-` {
-"name": "Liberty-APIKey",
-"description": "",
-"createdAt": "2017-06-26T16:16+0000",
-"apiKey": "**gI2-RsH8DHWGhCwWA-K61PSdWbLawRlgpAiGixmq7ZmD**"
- }`
+` > {
+> "name": "Liberty-APIKey",
+> "description": "",
+> "createdAt": "2017-06-26T16:16+0000",
+> "apiKey": "**gI2-RsH8DHWGhCwWA-K61PSdWbLawRlgpAiGixmq7ZmD**"
+> }`
 
 ## Labs Accessing IBM Cloud: Install the Command Line Interface (CLI) tools
 
@@ -236,7 +232,7 @@ https://console.bluemix.net/docs/cli/reference/bluemix\_cli/get\_started.html\#g
 
 Once installed, executing **bx** should result in:
 
-`> \$ bx
+` > $ bx
 >
 > NAME:
 >
