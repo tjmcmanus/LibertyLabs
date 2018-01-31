@@ -5,24 +5,18 @@ Discover Liberty
 
 In this lab we will perform the initial set up required for all the labs
 and explore Liberty. The instructions assume a Windows environment, but
-Linux and Mac differences are presented. Where applicable, substitute
+Linux and Mac differences are presented. Where applicable, substitute 
 with Linux or Mac equivalent, such as path names.
 
 Please refer to the following table for file and resource location
 references on different operating systems.
 
   ----------------------------------------------------
-  Location Ref.   OS        Absolute Path
-  --------------- --------- --------------------------
-  *{LAB\_HOME}*   Windows   C:\\WLP\_&lt;version&gt;
-
-                  Linux     \~/WLP\_&lt;version&gt;
-                            
-                            Or your choice
-
-                  Mac OSX   \~/WLP\_&lt;version&gt;
-                            
-                            Or your choice
+  Location Ref. |   OS    |     Absolute Path
+  --------------| ------- | --------------------------
+  *{LAB_HOME}*  | Windows |  `C:\\WLP_<VERSION>`
+  *{LAB_HOME}*  | Linux   |  `~/WLP_<VERSION>` or your choice
+  *{LAB_HOME}*  | Mac OSX |  `~/WLP_<VERSION> ` or your choice                  
   ----------------------------------------------------
 
 [[[[[]{#_Toc141180388 .anchor}]{#_Toc136943190 .anchor}]{#_Toc136939320
