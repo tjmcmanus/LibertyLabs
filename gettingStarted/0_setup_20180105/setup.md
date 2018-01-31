@@ -11,18 +11,12 @@ with Linux or Mac equivalent, such as path names.
 Please refer to the following table for file and resource location
 references on different operating systems.
 
-  ----------------------------------------------------
-  Location Ref.   OS        Absolute Path
-  --------------- --------- --------------------------
-  {LAB_HOME}       Windows   `C:\\WLP_<version>`
-
-                   Linux     ~/WLP_`<`version`>`
-
-                            Or your choice
-
-                   Mac OSX   ~/WLP_`<`version`>`
-
-                            Or your choice
+----------------------------------------------------
+  Location Ref. |   OS    |     Absolute Path
+  --------------| ------- | --------------------------
+  *{LAB_HOME}*  | Windows |  `C:\\WLP_<VERSION>` or your choice
+  *{LAB_HOME}*  | Linux   |  `~/WLP_<VERSION>` or your choice
+  *{LAB_HOME}*  | Mac OSX |  `~/WLP_<VERSION>` or your choice                  
   ----------------------------------------------------
 
 ##Unzip the Contents to your computer
