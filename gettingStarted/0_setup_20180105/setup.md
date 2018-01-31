@@ -20,11 +20,9 @@ Please refer to the following table for file and resource location references on
 
 Unzip the .zip file appropriate from your platform from USB drive to your computer.
 
-For Windows, unzip LibertyPoT_`<`VERSION`>`_WIN.zip to c: drive. The final directory is C:\\WLP_`<`VERSION`>`
-
-For Linux unzip LibertyPoT_`<`VERSION`>`_LINUX.zip to a directory of {LAB_HOME}, e.g, your home directory. The final directory is {LAB_HOME}/WLP_`<`VERSION`>`
-
-For Mac, unzip LibertyPoT_`<`VERSION`>`_MAC.zip to a directory of {LAB_HOME}, e.g., your home directory. The final directory is {LAB_HOME}/WLP_`<`VERSION`>`.
+* For Windows, unzip LibertyPoT_`<`VERSION`>`_WIN.zip to c: drive. The final directory is C:\\WLP_`<`VERSION`>`
+* For Linux unzip LibertyPoT_`<`VERSION`>`_LINUX.zip to a directory of {LAB_HOME}, e.g, your home directory. The final directory is {LAB_HOME}/WLP_`<`VERSION`>`
+* For Mac, unzip LibertyPoT_`<`VERSION`>`_MAC.zip to a directory of {LAB_HOME}, e.g., your home directory. The final directory is {LAB_HOME}/WLP_`<`VERSION`>`.
 
 ## Install Mac prerequisites
 
@@ -57,21 +55,19 @@ You may be missing prerequisite packages required to run the supplied Java SDK a
 ## Installing Liberty and the Java Runtime
 
 1.  To install for windows or linux,
-    a.  Liberty is already installed for you `{LAB_HOME}/wlp`
-    b.  The IBM JRE is already installed for you `{LAB_HOME}/wlp/java`
-    c.  The IBM JRE is preset in the `{LAB_HOME}/wlp/etc/server.env`
+    1.  Liberty is already installed for you `{LAB_HOME}/wlp`
+    1.  The IBM JRE is already installed for you `{LAB_HOME}/wlp/java`
+    1.  The IBM JRE is preset in the `{LAB_HOME}/wlp/etc/server.env`
 
-If you want to override this for a specific server create a **server.env**  file in the `usr/servers/<server name>` directory.
+* *If you want to override this for a specific server create a **server.env**  file in the `usr/servers/<server name>` directory.*
 
-**Note:** *If JAVA_HOME is already set in your shell, then you will need
-to clear the JAVA_HOME variable.*
+     **Note:** *If JAVA_HOME is already set in your shell, then you will need to clear the JAVA_HOME variable.*
 
-To check:
+     To check:
+     * **Linux**: execute `“env| grep –i java\_home”`. If it returns with a value, then execute `“unset JAVA\_HOME”`
+     * **Windows:** execute `“set JAVA\_HOME”`. If it returns with a value, then execute `“set JAVA\_HOME=”`
+     * **MAC:** The Java cannot be overriden.
 
-**Linux**: execute `“env| grep –i java\_home”`. If it returns with a
-value, then execute `“unset JAVA\_HOME”`
-**Windows:** execute `“set JAVA\_HOME”`. If it returns with a value, then
-execute `“set JAVA\_HOME=”`
 
 ## Create test server
 
@@ -79,32 +75,25 @@ execute `“set JAVA\_HOME=”`
 1.  From the `{LAB_HOME}/wlp/bin directory` in your Liberty runtime
     installation, run the following command to create a new server. For
     Linux and Mac, use `./server` to pick up the local “server”
-
+    
     `server create myServer`
-
-2.  The new server is created in `{LAB_HOME}/wlp/usr/servers/myServer`.
+    
+1.  The new server is created in `{LAB_HOME}/wlp/usr/servers/myServer`.
     The server.xml file is the complete server configuration. Open up an
     editor to view `{LAB_HOME}/wlp/usr/servers/myServer/server.xml`.
-
-3.  Start the server instance with this command:
+1.  Start the server instance with this command:
 
     `server start myServer`
-
-    This runs the server in the background and the output is written to
-    files in the `{LAB_HOME}/wlp/usr/servers/myServer/logs` directory.
-    Alternatively, to start the server in the foreground (so the console
-    messages are seen in the command window) you can use the command
-    “server run myServer”.
-
-4.  Stop the server with the command:
+    
+    This runs the server in the background and the output is written to files in the `{LAB_HOME}/wlp/usr/servers/myServer/logs` directory.  Alternatively, to start the server in the foreground (so the console  messages are seen in the command window) you can use the command:  “server run myServer”.
+    
+1.  Stop the server with the command:
 
      `server stop myServer`
+     
+1.  Having verified the install, clean up. Delete the server by deleting the `{LAB_HOME}/wlp/usr/servers/myServer` directory.
 
-5.  Having verified the install, clean up. Delete the server by deleting
-    the `{LAB_HOME}/wlp/usr/servers/myServer` directory.
-
-You now have a Liberty runtime environment that is ready to be
-configured to run applications.
+You now have a Liberty runtime environment that is ready to be  configured to run applications.
 
 ## Test the WebSphere Developer Tools (WDT)
 
@@ -121,71 +110,54 @@ expanded WDT. Note: Upon first startup, it may take Eclipse up to a
 minute to start as it initializes.
 
 1.  Start WDT by executing the following executable
-    a.  For Windows, `{LAB_HOME}\\wdt\\eclipse\\eclipse.exe`
-    b.  For Linux, `{LAB_HOME}/wdt/eclipse/eclipse`
-    c.  For Mac, `{LAB_HOME}/wdt/eclipse/Eclipse.app/Contents/MacOs/eclipse`
-
-2.  When the Eclipse launcher prompts you to Select a workspace:
-    a.  Enter `{LAB_HOME}\workspace`
-    b.  Click **OK**, substituting *{LAB_HOME}* with the correct value
+    1.  For Windows, `{LAB_HOME}\\wdt\\eclipse\\eclipse.exe`
+    1.  For Linux, `{LAB_HOME}/wdt/eclipse/eclipse`
+    1.  For Mac, `{LAB_HOME}/wdt/eclipse/Eclipse.app/Contents/MacOs/eclipse`
+1.  When the Eclipse launcher prompts you to Select a workspace:
+    1.  Enter `{LAB_HOME}\workspace`
+    1.  Click **OK**, substituting *{LAB_HOME}* with the correct value
         for your platform. This should create workspace directory for
         you.
+        
         **Note:** Accepting the default workspace location, may cause
         problems with a preexisting workspace. Please use a clean
         workspace location.
         
-        > ![](./media/image2.png)
-
+         ![](./media/image2.png)   
+         
 1.  Remove the welcome page by clicking on the ‘X’ icon
+   ![](./media/image3.gif)
 
-  > ![](./media/image3.gif)
+# Create Liberty Server in WDT
 
-#Create Liberty Server in WDT
-
-a.  At the bottom of the workbench, open the Servers view by clicking
-    the Servers tab. Right-click within the windows of the Servers view
-    and select New > Server
-
-> ![](./media/image4.png)
-
-a.  Under the server type list, expand IBM and select the **Liberty Server** server type. Use the default eclipse server name as supplied (localhost). Click **Next**. This creates the liberty server object in eclipse.
-
-> ![](./media/image5.png)
-
-a.  Now eclipse needs to associate the ‘localhost’ server with a server
+1.  At the bottom of the workbench, open the Servers view by clicking the Servers tab. Right-click within the windows of the Servers view and select **New > Server**
+   ![](./media/image4.png)
+   
+1.  Under the server type list, expand IBM and select the **Liberty Server** server type. Use the default eclipse server name as supplied (localhost). Click **Next**. This creates the liberty server object in eclipse.
+  ![](./media/image5.png)
+  
+1.  Now eclipse needs to associate the ‘localhost’ server with a server
     configuration in a Liberty runtime (the runtime that you installed
     in section 3 above). The Liberty Runtime Environment page is
     displayed.
-
-    I.  In the **Path** field under the **Installation folder** section,
+    1.  In the **Path** field under the **Installation folder** section,
         type or browse for the directory where you installed the Liberty
         runtime environment (The value of `{LAB_HOME}/wlp`)
-
-    II. You may also select which JRE to use if you have multiple JRE in
+    1. You may also select which JRE to use if you have multiple JRE in
         your environment.
-
-    III. Click **Next.**
-
-       > ![](./media/image6.png)
-
-b.  To create the server configuration in the runtime, either use the
-    current populated server ‘myServer’ or click the **New** button.
-    Note: if directions were followed and myServer was deleted, your
-    screen print will differ and there will be no new button and
-    defaultServer will be prepopulated
-
-    ![](./media/image7.png)
-
-c.  Enter in **labServer** to the Liberty Server box then click **Finish** and then **Finish** again.
-
-> ![](./media/image8.png)
-
-a.  The new server will appear in the Servers view. You can expand the
-    server to show a quick view of the configuration. You can open the
-    server configuration editor by double-clicking on **Server
-    Configuration:**
-
-> ![](./media/image9.png)
+    1. Click **Next.**
+    
+        ![](./media/image6.png)
+        
+1.  To create the server configuration in the runtime, either use the current populated server ‘myServer’ or click the **New** button.  **Note:** If directions were followed and myServer was deleted, your screen print will differ and there will be no new button and defaultServer will be prepopulated
+   ![](./media/image7.png)
+    
+1.  Enter in **labServer** to the Liberty Server box then click **Finish** and then **Finish** again.
+   ![](./media/image8.png)
+   
+1.  The new server will appear in the Servers view. You can expand the server to show a quick view of the configuration. You can open the  server configuration editor by double-clicking on **Server Configuration:**
+    ![](./media/image9.png)
+    
 
 ## Labs Accessing IBM Cloud: Create a IBM Cloud User ID
 
@@ -196,24 +168,20 @@ For the cloud labs, IBM Cloud is used for the hosting environment. If you alread
     If you don't see a sign-up link, you should already be logged in,
     though you will need to know your login and password for later
     steps.
-    
     > ![](./media/image10.png)
 
 1.  On the sign-up page, enter your email address and the other required
     information. Your IBM ID and IBM Cloud information should be sent to
     your email account shortly.
-    
     > ![](./media/image11.png)
 
 1.  Once you receive the email message in your account, follow the steps
     to verify your address. Once verified, you will be able to log in
     the IBM Cloud with the password you specified in the previous steps.
-
-2.  Once created, open your account in the IBM Cloud console. Visit
+1.  Once created, open your account in the IBM Cloud console. Visit
     <https://console.ng.bluemix.net> and click **LOG IN**. Enter your
     email id and then your password as requested.
-
-3.  Once logged in, you may need to create a new space and organization.
+1.  Once logged in, you may need to create a new space and organization.
     If you are required to create these, you will be immediately asked
     to do so by the IBM Cloud console (otherwise, proceed to the next
     part).
@@ -223,34 +191,28 @@ For the cloud labs, IBM Cloud is used for the hosting environment. If you alread
 As a IBM Cloud user, you might want to use an API key when you enable a program or script without distributing your password to the script or worry about dealing with password management. A benefit of using an API key can be that a user or organization can create several API Keys for different programs and the API keys can be deleted independently if compromised without interfering with other API keys or even the user.
 
 1.  Create a Platform API Key to use to authenticate with IBM Cloud.
-    a.  Click **Manage > Security > Platform API Keys**
-    
+    1.  Click **Manage > Security > Platform API Keys**
     ![](./media/image12.png)
 
-    b.  Click **Create**
-
+    1.  Click **Create**
        ![](./media/image13.png)
 
-    c.  Enter the Name and a description; then click **Create **
-      i.  Name: **Liberty-APIKey**
-        ii. Description: **This API Key for use with Liberty POTs**
+    1.  Enter the Name and a description; then click **Create **
+        1.  Name: **Liberty-APIKey**
+        1. Description: **This API Key for use with Liberty POTs**
+          ![](./media/image14.png)
 
-           ![](./media/image14.png)
-
-    d.  Click **Download**
-
+    1.  Click **Download**
        ![](./media/image15.png)
-
-    e.  Find the downloaded file named **apiKey.json**. (This should be
+       
+    1.  Find the downloaded file named **apiKey.json**. (This should be
         in your browsers Download folder) Now rename the file to
         **Liberty-APIKey.json.** There is a string in the file that will
         be used in lieu of a username/password.
-
-    f.  Copy the **Liberty-APIKey.json** to {LAB_HOME} just so it is
+    1.  Copy the **Liberty-APIKey.json** to {LAB_HOME} just so it is
         not lost. Unfortunately, this key is only downloadable in a file
         once. If lost, another key will need to be generated.
-
-    g.  The file contents will look accordingly. The string in bold is
+    1.  The file contents will look accordingly. The string in bold is
         your “password” that maps to the “user” or “email address” of
         **apikey**
 
@@ -261,11 +223,10 @@ As a IBM Cloud user, you might want to use an API key when you enable a program 
 "apiKey": "**gI2-RsH8DHWGhCwWA-K61PSdWbLawRlgpAiGixmq7ZmD**"
  }`
 
-Labs Accessing IBM Cloud: Install the Command Line Interface (CLI) tools
-------------------------------------------------------------------------
+## Labs Accessing IBM Cloud: Install the Command Line Interface (CLI) tools
 
-You can use the command line interface to deploy and modify applications
-and service instances.
+
+You can use the command line interface to deploy and modify applications and service instances.
 
 https://console.bluemix.net/docs/cli/index.html\#cli
 
@@ -273,11 +234,9 @@ For these labs, Download the IBM Cloud CLI interface (bx.
 
 https://console.bluemix.net/docs/cli/reference/bluemix\_cli/get\_started.html\#getting-started
 
-Once installed, executing
+Once installed, executing **bx** should result in:
 
-**bx** should result in:
-
-> \$ bx
+`> \$ bx
 >
 > NAME:
 >
@@ -290,12 +249,12 @@ Once installed, executing
 >
 > VERSION:
 >
-> …
+> …  `
 
 This completes the lab exercise.
 
-Notices {#notices .HeadingAppendix}
-=======
+# Notices 
+
 
 This information was developed for products and services offered in the
 U.S.A.
@@ -315,19 +274,18 @@ matter described in this document. The furnishing of this document does
 not grant you any license to these patents. You can send license
 inquiries, in writing, to:
 
-IBM Director of Licensing\
-IBM Corporation\
-North Castle Drive\
-Armonk, NY 10504-1785\
+IBM Director of Licensing
+IBM Corporation
+North Castle Drive
+Armonk, NY 10504-1785
 U.S.A.
 
 For license inquiries regarding double-byte (DBCS) information, contact
 the IBM Intellectual Property Department in your country or send
 inquiries, in writing, to:
 
-IBM World Trade Asia Corporation\
-Licensing\
-2-31 Roppongi 3-chome, Minato-ku\
+IBM World Trade Asia Corporation Licensing
+2-31 Roppongi 3-chome, Minato-ku
 Tokyo 106-0032, Japan
 
 **The following paragraph does not apply to the United Kingdom or any
@@ -443,8 +401,7 @@ license therefrom.
 Linear Tape-Open, LTO, the LTO Logo, Ultrium, and the Ultrium logo are
 trademarks of HP, IBM Corp. and Quantum in the U.S. and other countries.
 
-![IBM-600dpi-1](./media/image16.png){width="1.1131944444444444in"
-height="0.4152777777777778in"}
+![IBM-600dpi-1](./media/image16.png)
 
 © Copyright IBM Corporation 2018.
 
@@ -471,5 +428,4 @@ product and service names might be trademarks of IBM or other companies.
 A current list of IBM trademarks is available on the Web at “Copyright
 and trademark information” at www.ibm.com/legal/copytrade.shtml.
 
-![Please Recycle](./media/image17.png){width="1.1131944444444444in"
-height="0.2833333333333333in"}
+![Please Recycle](./media/image17.png)
