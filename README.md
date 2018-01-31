@@ -1,8 +1,10 @@
 # Welcome to The home page of the IBM WebSphere Liberty Quarterly update labs
 
+##  Accessing the labs
+./gettingStarted
+
 ## Getting the binaries for the labs
 
-##  Accessing the labs
 
 ## Accessing past presentations
 
