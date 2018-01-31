@@ -1,4 +1,11 @@
-## Welcome to GitHub Pages
+# Welcome to The home page of the IBM WebSphere Liberty Quarterly update labs
+
+## Getting the binaries for the labs
+
+##  Accessing the labs
+
+## Accessing past presentations
+
 
 You can use the [editor on GitHub](https://github.com/tjmcmanus/LibertyLabs/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
