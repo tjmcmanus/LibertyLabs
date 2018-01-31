@@ -94,17 +94,9 @@ You now have a Liberty runtime environment that is ready to be  configured to ru
 
 ## Test the WebSphere Developer Tools (WDT)
 
-You can manage Liberty from the command line, and edit the server
-configuration files in any editor, but the WebSphere Developer Tools
-(WDT) provide a great configuration editor, server controls and
-application publishing, as well as many other time-saving utilities. We
-will use WDT in many more labs.
+You can manage Liberty from the command line, and edit the server configuration files in any editor, but the WebSphere Developer Tools (WDT) provide a great configuration editor, server controls and application publishing, as well as many other time-saving utilities. We will use WDT in many more labs.
 
-Normally you would first download and install Eclipse, followed by the
-installation of WDT. For this lab, we have bundled everything into a
-single zip file. The directory `{LAB_HOME}/wdt` contains a prebuilt and
-expanded WDT. Note: Upon first startup, it may take Eclipse up to a
-minute to start as it initializes.
+Normally you would first download and install Eclipse, followed by the installation of WDT. For this lab, we have bundled everything into a single zip file. The directory `{LAB_HOME}/wdt` contains a prebuilt and expanded WDT. Note: Upon first startup, it may take Eclipse up to a minute to start as it initializes.
 
 1.  Start WDT by executing the following executable
     1.  For Windows, `{LAB_HOME}\wdt\eclipse\eclipse.exe`
@@ -116,7 +108,7 @@ minute to start as it initializes.
         for your platform. This should create workspace directory for
         you.
         
-        **Note:** Accepting the default workspace location, may cause
+        > **Note:** Accepting the default workspace location, may cause
         problems with a preexisting workspace. Please use a clean
         workspace location.
         
@@ -125,34 +117,28 @@ minute to start as it initializes.
 1.  Remove the welcome page by clicking on the ‘X’ icon
    > ![](./media/image3.gif)
 
-# Create Liberty Server in WDT
+## Create Liberty Server in WDT
 
-1.  At the bottom of the workbench, open the Servers view by clicking the Servers tab. Right-click within the windows of the Servers view and select **New > Server**
-   > ![](./media/image4.png)
-   
-1.  Under the server type list, expand IBM and select the **Liberty Server** server type. Use the default eclipse server name as supplied (localhost). Click **Next**. This creates the liberty server object in eclipse.
-  > ![](./media/image5.png)
-  
-1.  Now eclipse needs to associate the ‘localhost’ server with a server
-    configuration in a Liberty runtime (the runtime that you installed
-    in section 3 above). The Liberty Runtime Environment page is
-    displayed.
-    1.  In the **Path** field under the **Installation folder** section,
-        type or browse for the directory where you installed the Liberty
-        runtime environment (The value of `{LAB_HOME}/wlp`)
-    1. You may also select which JRE to use if you have multiple JRE in
-        your environment.
+1.  At the bottom of the workbench, open the Servers view by clicking the Servers tab. Right-click within the windows of the Servers view and select **New > Server**  
+> ![](./media/image4.png)
+
+1.  Under the server type list, expand IBM and select the **Liberty Server** server type. Use the default eclipse server name as supplied (localhost). Click **Next**. This creates the liberty server object in eclipse. 
+> ![](./media/image5.png)
+
+1.  Now eclipse needs to associate the ‘localhost’ server with a server configuration in a Liberty runtime (the runtime that you installed in section 3 above). The Liberty Runtime Environment page is displayed.
+    1.  In the **Path** field under the **Installation folder** section, type or browse for the directory where you installed the Liberty runtime environment (The value of `{LAB_HOME}/wlp`)
+    1. You may also select which JRE to use if you have multiple JRE in your environment.
     1. Click **Next.**
-        > ![](./media/image6.png)
-        
-1.  To create the server configuration in the runtime, either use the current populated server ‘myServer’ or click the **New** button.  **Note:** If directions were followed and myServer was deleted, your screen print will differ and there will be no new button and defaultServer will be prepopulated
-   > ![](./media/image7.png)
+    > ![](./media/image6.png)
     
+1.  To create the server configuration in the runtime, either use the current populated server ‘myServer’ or click the **New** button.  > **Note:** If directions were followed and myServer was deleted, your screen print will differ and there will be no new button and defaultServer will be prepopulated
+> ![](./media/image7.png)
+
 1.  Enter in **labServer** to the Liberty Server box then click **Finish** and then **Finish** again.
-   > ![](./media/image8.png)
-   
+> ![](./media/image8.png)
+
 1.  The new server will appear in the Servers view. You can expand the server to show a quick view of the configuration. You can open the  server configuration editor by double-clicking on **Server Configuration:**
-    > ![](./media/image9.png)
+> ![](./media/image9.png)
     
 
 ## Labs Accessing IBM Cloud: Create a IBM Cloud User ID
