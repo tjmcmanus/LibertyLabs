@@ -31,14 +31,14 @@ references on different operating systems.
 Unzip the .zip file appropriate from your platform from USB drive to
 your computer.
 
-For Windows, unzip LibertyPoT_<VERSION>\_WIN.zip to c: drive. The
+For Windows, unzip LibertyPoT_<VERSION>_WIN.zip to c: drive. The
 final directory is C:\\WLP_<VERSION>;
 
-For Linux unzip LibertyPoT_<VERSION>\_LINUX.zip to a directory of
+For Linux unzip LibertyPoT_<VERSION>_LINUX.zip to a directory of
 {LAB_HOME}, e.g, your home directory. The final directory is
 {LAB_HOME}/WLP_<VERSION>
 
-For Mac, unzip LibertyPoT_<VERSION\_MAC.zip to a directory of
+For Mac, unzip LibertyPoT_<VERSION>_MAC.zip to a directory of
 {LAB_HOME}, e.g., your home directory. The final directory is
 {LAB_HOME}/WLP_<VERSIOn>.
 
