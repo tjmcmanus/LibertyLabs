@@ -1,7 +1,7 @@
-**Setup Liberty **
 
-Setup Liberty
-=============
+
+#Setup Liberty
+#=============
 
 In this lab we will perform the initial set up required for all the labs
 and explore Liberty. The instructions assume a Windows environment, but
@@ -14,44 +14,44 @@ references on different operating systems.
   ----------------------------------------------------
   Location Ref.   OS        Absolute Path
   --------------- --------- --------------------------
-  *{LAB\_HOME}*   Windows   C:\\WLP\_&lt;version&gt;
+  {LAB_HOME}       Windows   C:\\WLP_<version>
 
-                  Linux     \~/WLP\_&lt;version&gt;
-                            
+                   Linux     ~/WLP_<version>
+
                             Or your choice
 
-                  Mac OSX   \~/WLP\_&lt;version&gt;
-                            
+                   Mac OSX   ~/WLP_<version>
+
                             Or your choice
   ----------------------------------------------------
 
-Unzip the Contents to your computer
+##Unzip the Contents to your computer
 -----------------------------------
 
 Unzip the .zip file appropriate from your platform from USB drive to
 your computer.
 
-For Windows, unzip LibertyPoT\_&lt;VERSION&gt;\_WIN.zip to c: drive. The
-final directory is C:\\WLP\_&lt;VERSION&gt;
+For Windows, unzip LibertyPoT_<VERSION>\_WIN.zip to c: drive. The
+final directory is C:\\WLP_<VERSION>;
 
-For Linux unzip LibertyPoT\_&lt;VERSION&gt;\_LINUX.zip to a directory of
-{LAB\_HOME}, e.g, your home directory. The final directory is
-{LAB\_HOME}/WLP\_&lt;VERSION&gt;
+For Linux unzip LibertyPoT_<VERSION>\_LINUX.zip to a directory of
+{LAB_HOME}, e.g, your home directory. The final directory is
+{LAB_HOME}/WLP_<VERSION>
 
-For Mac, unzip LibertyPoT\_&lt;VERSION&gt;\_MAC.zip to a directory of
-{LAB\_HOME}, e.g., your home directory. The final directory is
-{LAB\_HOME}/WLP\_&lt;VERSION&gt;.
+For Mac, unzip LibertyPoT_<VERSION\_MAC.zip to a directory of
+{LAB_HOME}, e.g., your home directory. The final directory is
+{LAB_HOME}/WLP_<VERSIOn>.
 
 [[[[[]{#_Toc141180388 .anchor}]{#_Toc136943190 .anchor}]{#_Toc136939320
 .anchor}]{#_Toc421108583 .anchor}]{#_Ref420351701 .anchor}
 
-Install Mac prerequisites
--------------------------
+## Install Mac prerequisites
+
 
 1.  Mac: Download and install the JRE from Oracle's website:
     <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>
 
-Install Linux prerequisites 
+## Install Linux prerequisites
 ----------------------------
 
 *You may be missing prerequisite packages required to run the supplied
@@ -96,11 +96,11 @@ Installing Liberty and the Java Runtime
 
 1.  To install for windows or linux,
 
-    a.  Liberty is already installed for you {LAB\_HOME}/wlp
+    a.  Liberty is already installed for you {LAB_HOME}/wlp
 
-    b.  The IBM JRE is already installed for you {LAB\_HOME}/wlp/java
+    b.  The IBM JRE is already installed for you {LAB_HOME}/wlp/java
 
-    c.  The IBM\_JRE is preset in the {LAB\_HOME}/wlp/etc/server.env
+    c.  The IBM\_JRE is preset in the {LAB_HOME}/wlp/etc/server.env
 
 If you want to override this for a specific server create a server.env
 file in the usr/servers/&lt;server name&gt; directory.
@@ -118,32 +118,32 @@ execute “set JAVA\_HOME=”
 Create test server
 ------------------
 
-1.  From the {LAB\_HOME}/wlp/bin directory in your Liberty runtime
+1.  From the {LAB_HOME}/wlp/bin directory in your Liberty runtime
     installation, run the following command to create a new server. For
     Linux and Mac, use ./server to pick up the local “server”
 
-    **server create myServer. **
+    server create myServer.
 
-2.  The new server is created in {LAB\_HOME}/wlp/usr/servers/myServer.
+2.  The new server is created in {LAB_HOME}/wlp/usr/servers/myServer.
     The server.xml file is the complete server configuration. Open up an
-    editor to view {LAB\_HOME}/wlp/usr/servers/myServer/server.xml.
+    editor to view {LAB_HOME}/wlp/usr/servers/myServer/server.xml.
 
 3.  Start the server instance with this command:
 
-    **server start myServer. **
+    server start myServer
 
     This runs the server in the background and the output is written to
-    files in the {LAB\_HOME}/wlp/usr/servers/myServer/logs directory.
+    files in the {LAB_HOME}/wlp/usr/servers/myServer/logs directory.
     Alternatively, to start the server in the foreground (so the console
     messages are seen in the command window) you can use the command
     “server run myServer”.
 
 4.  Stop the server with the command:
 
-    **server stop myServer**
+     server stop myServer
 
 5.  Having verified the install, clean up. Delete the server by deleting
-    the {LAB\_HOME}/wlp/usr/servers/myServer directory.
+    the {LAB_HOME}/wlp/usr/servers/myServer directory.
 
 You now have a Liberty runtime environment that is ready to be
 configured to run applications.
@@ -159,25 +159,24 @@ will use WDT in many more labs.
 
 Normally you would first download and install Eclipse, followed by the
 installation of WDT. For this lab, we have bundled everything into a
-single zip file. The directory {LAB\_HOME}/wdt contains a prebuilt and
+single zip file. The directory {LAB_HOME}/wdt contains a prebuilt and
 expanded WDT. Note: Upon first startup, it may take Eclipse up to a
 minute to start as it initializes.
 
 1.  Start WDT by executing the following executable
 
-    a.  For Windows, **{LAB\_HOME}\\wdt\\eclipse\\eclipse.exe**
+    a.  For Windows, **{LAB_HOME}\\wdt\\eclipse\\eclipse.exe**
 
-    b.  For Linux, {**LAB\_HOME}/wdt/eclipse/eclipse**
+    b.  For Linux, {**LAB_HOME}/wdt/eclipse/eclipse**
 
     c.  For Mac,
-        **{LAB\_HOME}/wdt/eclipse/Eclipse.app/Contents/MacOs/eclipse\
-        **
+        **{LAB_HOME}/wdt/eclipse/Eclipse.app/Contents/MacOs/eclipse\ **
 
 2.  When the Eclipse launcher prompts you to Select a workspace:
 
-    a.  Enter **{LAB\_HOME}\\workspace**
+    a.  Enter **{LAB_HOME}\\workspace**
 
-    b.  Click **OK**, substituting {LAB\_HOME} with the correct value
+    b.  Click **OK**, substituting {LAB_HOME} with the correct value
         for your platform. This should create workspace directory for
         you.
 
@@ -218,7 +217,7 @@ a.  Now eclipse needs to associate the ‘localhost’ server with a server
 
     I.  In the **Path** field under the **Installation folder** section,
         type or browse for the directory where you installed the Liberty
-        runtime environment (The value of {LAB\_HOME}/wlp)
+        runtime environment (The value of {LAB_HOME}/wlp)
 
     II. You may also select which JRE to use if you have multiple JRE in
         your environment.
@@ -330,7 +329,7 @@ compromised without interfering with other API keys or even the user.
         **Liberty-APIKey.json.** There is a string in the file that will
         be used in lieu of a username/password.
 
-    f.  Copy the **Liberty-APIKey.json** to {LAB\_HOME} just so it is
+    f.  Copy the **Liberty-APIKey.json** to {LAB_HOME} just so it is
         not lost. Unfortunately, this key is only downloadable in a file
         once. If lost, another key will need to be generated.
 
