@@ -61,8 +61,8 @@ You may be missing prerequisite packages required to run the supplied Java SDK a
 * *If you want to override this for a specific server create a **server.env**  file in the `usr/servers/<server name>` directory.*
      > **Note:** *If JAVA_HOME is already set in your shell, then you will need to clear the JAVA_HOME variable.*
      To check:
-     * **Linux**: execute `“env| grep –i java\_home”`. If it returns with a value, then execute `“unset JAVA\_HOME”`
-     * **Windows:** execute `“set JAVA\_HOME”`. If it returns with a value, then execute `“set JAVA\_HOME=”`
+     * **Linux**: execute `“env| grep –i java_home”`. If it returns with a value, then execute `“unset JAVA_HOME”`
+     * **Windows:** execute `“set JAVA_HOME”`. If it returns with a value, then execute `“set JAVA_HOME=”`
      * **MAC:** The Java cannot be overriden.
 
 
@@ -107,7 +107,7 @@ expanded WDT. Note: Upon first startup, it may take Eclipse up to a
 minute to start as it initializes.
 
 1.  Start WDT by executing the following executable
-    1.  For Windows, `{LAB_HOME}\\wdt\\eclipse\\eclipse.exe`
+    1.  For Windows, `{LAB_HOME}\wdt\eclipse\eclipse.exe`
     1.  For Linux, `{LAB_HOME}/wdt/eclipse/eclipse`
     1.  For Mac, `{LAB_HOME}/wdt/eclipse/Eclipse.app/Contents/MacOs/eclipse`
 1.  When the Eclipse launcher prompts you to Select a workspace:
@@ -213,10 +213,15 @@ As a IBM Cloud user, you might want to use an API key when you enable a program 
         **apikey**
 
 ` > {
+
 > "name": "Liberty-APIKey",
+
 > "description": "",
+
 > "createdAt": "2017-06-26T16:16+0000",
+
 > "apiKey": "**gI2-RsH8DHWGhCwWA-K61PSdWbLawRlgpAiGixmq7ZmD**"
+
 > }`
 
 ## Labs Accessing IBM Cloud: Install the Command Line Interface (CLI) tools
@@ -224,15 +229,15 @@ As a IBM Cloud user, you might want to use an API key when you enable a program 
 
 You can use the command line interface to deploy and modify applications and service instances.
 
-https://console.bluemix.net/docs/cli/index.html\#cli
+https://console.bluemix.net/docs/cli/index.html#cli
 
 For these labs, Download the IBM Cloud CLI interface (bx.
 
-https://console.bluemix.net/docs/cli/reference/bluemix\_cli/get\_started.html\#getting-started
+https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started
 
 Once installed, executing **bx** should result in:
-
-` > $ bx
+`
+> $ bx
 >
 > NAME:
 >
@@ -245,7 +250,7 @@ Once installed, executing **bx** should result in:
 >
 > VERSION:
 >
-> …  `
+> … `
 
 This completes the lab exercise.
 
