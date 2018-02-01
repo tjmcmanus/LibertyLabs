@@ -1,21 +1,5 @@
-**Liberty JSP and application security**
 
-Contents
-
-[Lab 0 Liberty JSP and application security 3](#liberty-jsp-and-application-security)
-
-[0.1 Prerequisites 3](#prerequisites)
-
-[0.2 Create a Web Project 3](#create-a-web-project)
-
-[0.3 Clean up after lab 42](#clean-up-after-lab)
-
-[Appendix A. Notices 43](#notices)
-
-[Appendix B. Trademarks and copyrights 45](#trademarks-and-copyrights)
-
-
-## Liberty JSP and application security
+# Liberty JSP and application security
 
 This lab will show you how to create a simple and secure application to run on the Liberty profile. You will use a simple user registry to test secure access.
 
@@ -27,19 +11,22 @@ Location Ref. |   OS    |     Absolute Path
  *{LAB_HOME}*  | Linux   |  `~/WLP_<VERSION>` or your choice
  *{LAB_HOME}*  | Mac OSX |  `~/WLP_<VERSION>` or your choice  
 
-# Prerequisites
+## Prerequisites
 
 The following preparation must be completed prior to beginning this lab:
 
 Complete the Getting Started lab to set up the lab environment, including JRE, and Liberty runtime, and eclipse with WDT. You should have already created a default Liberty server (i.e. labServer) as part of the Getting Started lab.
 
-Create a Web Project
---------------------
+##Create a Web Project
 
 1.  Start Eclipse:
-*For Windows run `{LAB_HOME}\wdt\eclipse\eclipse.exe` and select the workspace at `{LAB_HOME}\workspace`*
-*For Linux: run `{LAB_HOME}/wdt/eclipse/eclipse` and select the workspace at `{LAB_HOME}/workspace`*
-*For Mac: run `{LAB_HOME}/wdt/Eclipse.app/Contents/MacOS/eclipse` and select the workspace at `{LAB_HOME}/workspace`*
+
+*For Windows run `{LAB_HOME}\wdt\eclipse\eclipse.exe` and select the workspace at `{LAB_HOME}\workspace`
+
+*For Linux: run `{LAB_HOME}/wdt/eclipse/eclipse` and select the workspace at `{LAB_HOME}/workspace`
+
+*For Mac: run `{LAB_HOME}/wdt/Eclipse.app/Contents/MacOS/eclipse` and select the workspace at `{LAB_HOME}/workspace`
+
     ![](./media/image2.png)
 
 1.  Create a Web Project called LabWeb.
@@ -61,9 +48,9 @@ Create a Web Project
 
         ![](./media/image6.png)
 
-4.  Writing the “Who Am I” JSP.
+1.  Writing the “Who Am I” JSP.
 
-    a.  Replace the text:
+    1.  Replace the text:
 
         <title>Insert title here</title>
 
@@ -71,15 +58,15 @@ Create a Web Project
 
         <title>Who Am I?</title>
 
-    b.  Enter the following code into the <body> section:
+    1.  Enter the following code into the <body> section:
 
         You are <%=request.getUserPrincipal().getName() %>
 
-    c.  Save the file.
+    1.  Save the file.
 
         ![](./media/image7.png)
 
-        If something is wrong, you can import the index.jsp file for this lab found in the `{LAB_HOME}\labs\development\0_SimpleDevelopment` directory.
+       If something is wrong, you can import the index.jsp file for this lab found in the `{LAB_HOME}\labs\development\0_SimpleDevelopment` directory.
 
 1.  Configure the security roles for the application.
 
@@ -173,7 +160,7 @@ Create a Web Project
 
         ![](./media/image16.png)
 
-    1.  Select **appSecurity-2.0** from the list in the Add Feature window and click OK. Note that that no users can access the application until authorization bindings have been configured.
+    1.  Select **appSecurity-2.0** from the list in the Add Feature window and click **OK**. Note that that no users can access the application until authorization bindings have been configured.
 
         ![](./media/image17.png)
 
@@ -247,7 +234,7 @@ Create a Web Project
 
         ![](./media/image33.png)
 
-    1.  With **User** selected in the Configuration Structure view, enter userX for **User name** in the User view. Then click the Set button after the **Password** field in the User view.
+    1.  With **User** selected in the Configuration Structure view, enter userX for **User name** in the User view. Then click the **Set** button after the **Password** field in the User view.
 
         ![](./media/image34.png)
 
@@ -256,20 +243,20 @@ Create a Web Project
         ![](./media/image35.png)
 
     1.  Save your changes
+    
+    ## Running the application
 
-##Running the application
-
-    1.  If the server status shows Republish, right click and select **Publish**.
-
+    1. If the server status shows Republish, right click and select **Publish**.
+    
         ![](./media/image36.png)
 
     1.  If the server is stopped, start the server by right clicking the **WebSphere Application Server Liberty Profile** in the Server view and select **Start**.
 
         ![](./media/image37.png)
 
-    1.  Go to the Console view and click the web application hyperlink <http://localhost:9080/LabWeb>.
+    1.  Go to the Console view and click the web application hyperlink http://localhost:9080/LabWeb
 
- >**Note: "The server might run on port 9580 instead of 9080."**
+ >**Note: The server might run on port 9580 instead of 9080.**
 
        ![](./media/image38.png)
 
@@ -283,7 +270,8 @@ Create a Web Project
 
       ![](./media/image40.png)
 
-<!-- -->
+     `<!-- -->`
+
 
 1.  What if you want to restrict access not to all authenticated users, but to just a few users? You can do this by declaring security roles in web.xml, and defining role to user or group mappings in server.xml. First, let’s configure web.xml:
 
@@ -356,11 +344,11 @@ Create a Web Project
 
     1.  Save your changes
 
-1.  Retest the application ***\*Note: "The server might run on port 9580 instead of 9080."***
+1.  Retest the application **Note: "The server might run on port 9580 instead of 9080."**
 
     1.  Start a new browser outside of eclipse
 
-    1.  Point your browser to: `<http://localhost:9080/LabWeb/>``
+    1.  Point your browser to: `<http://localhost:9080/LabWeb/>`
 
     1.  Accept the certificate
 
@@ -368,14 +356,14 @@ Create a Web Project
 
     1.  Login with user **userX** and password **passwordX**. It should succeed.
 
-1.  Optional: Define variables for host name and ports. Using variables makes the server definition more portable.
+# Optional: Define variables for host name and ports. Using variables makes the server definition more portable.
 
     1.  Select **HTTP Endpoint: defaultHttpEndpoint** in the Configuration Structure view and change the values for the following fields as show below:
 
         `Host = \${MY.HOST}
-
+        
         Port = \${MY.HTTP.PORT}
-
+        
         Secure port = \${MY.HTTPS.PORT}`
 
         ![](./media/image57.png)
@@ -387,9 +375,9 @@ Create a Web Project
     1.  Enter the variables and values in the bootstrap.properties file as shown below. If the file is not automatically opened, you can find it in **WebSphere Application Server Liberty Profile > servers > labServer** folder in the Enterprise Explorer view.
 
         `MY.HOST=localhost
-
+        
         MY.HTTP.PORT=9080
-
+        
         MY.HTTPS.PORT=9443`
 
         ![](./media/image59.png)
