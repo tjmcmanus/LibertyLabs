@@ -1,0 +1,19 @@
+<admin-metadata>
+    
+    <server owner="AdminCenter Lab Attendee">
+        <tag>snoop</tag>
+        <tag>0_AdminCenter</tag>
+        <contact>Admin Center Lab Attendee</contact>
+        <contact>Lab Instructor</contact>
+        <note>Admin Center lab</note>
+    </server>
+	
+    <cluster name="snoopCluster" owner="Admin Center Lab Attendee">
+        <tag>snoop</tag>
+        <tag>0_AdminCenter</tag>
+        <contact>Admin Center Lab Attendee</contact>
+        <contact>Lab Instructor</contact>
+        <note>Admin Center lab</note>
+    </cluster>
+	
+</admin-metadata>

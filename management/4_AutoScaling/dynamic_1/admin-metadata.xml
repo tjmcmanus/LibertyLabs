@@ -1,0 +1,19 @@
+<admin-metadata>
+    
+    <server owner="Auto Scaling Lab Attendee">
+        <tag>dynamic</tag>
+        <tag>4_AutoScaling</tag>
+        <contact>Auto Scaling Lab Attendee</contact>
+        <contact>Lab Instructor</contact>
+        <note>Auto Scaling lab</note>
+    </server>
+	
+    <cluster name="dynamicCluster" owner="Auto Scaling Lab Attendee">
+        <tag>dynamic</tag>
+        <tag>4_AutoScaling</tag>
+        <contact>Auto Scaling Lab Attendee</contact>
+        <contact>Lab Instructor</contact>
+        <note>Auto Scaling lab</note>
+    </cluster>
+	
+</admin-metadata>

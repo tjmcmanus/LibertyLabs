@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<server description="This file is used to enable directories for reading and writing">
+  <remoteFileAccess>
+
+        <writeDir>${server.config.dir}/packageRepo</writeDir>
+        <writeDir>${server.config.dir}</writeDir>
+        <writeDir>${server.output.dir}</writeDir>
+        <writeDir>${wlp.user.dir}</writeDir>
+
+        <readDir>${wlp.install.dir}</readDir>
+        <readDir>${wlp.user.dir}</readDir>
+        <readDir>${server.output.dir}</readDir>
+        <readDir>${server.config.dir}</readDir>
+
+   </remoteFileAccess>
+
+ </server>

@@ -1,0 +1,44 @@
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jsp-2.2</feature>
+        <feature>collectiveMember-1.0</feature>
+        <feature>clusterMember-1.0</feature>
+        <feature>scalingMember-1.0</feature>
+        <feature>localConnector-1.0</feature>
+        <feature>restConnector-1.0</feature>
+    </featureManager>
+
+    <!-- defaultHttpEndpoint is used for REST connector only -->
+    <httpEndpoint id="defaultHttpEndpoint"
+        host="${env.COMPUTERNAME}"
+        httpPort="${httpAdminPort}"
+        httpsPort="${httpsAdminPort}" />
+
+    <!-- use ApplicationHttpEndpoint for application serving -->
+    <httpEndpoint id="ApplicationHttpEndpoint"
+        host="${env.COMPUTERNAME}"
+        httpPort="${httpPort}"
+        httpsPort="${httpsPort}" />
+
+    <!-- Use virtual host default_host for defaultHttpEndpoint -->
+    <virtualHost id="default_host" allowFromEndpointRef="defaultHttpEndpoint" />
+
+    <!-- use virtual host application_host for applications -->
+    <virtualHost id="application_host" allowFromEndpointRef="ApplicationHttpEndpoint" >
+        <hostAlias>${env.COMPUTERNAME}:${httpPort}</hostAlias>
+        <hostAlias>${env.COMPUTERNAME}:${httpsPort}</hostAlias>
+        <hostAlias>${webServerHost}:${webServerPort}</hostAlias>
+    </virtualHost>
+
+   <webApplication id="dynamic" location="dynamic.war"  />
+
+   <clusterMember name="dynamicCluster" />
+
+   <hostSingleton name="ScalingMemberSingletonService" port="${singletonServicePort}" />
+
+
+   <logging traceSpecification="*=info:Scaling=all:com.ibm.ws.imf.*=all:com.ibm.ws.collective.singleton.*=all" />
+
+</server>

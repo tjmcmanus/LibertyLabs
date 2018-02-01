@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<server description="this file contains all of the defined scaling policies">
+
+<scalingDefinitions> 
+  <defaultScalingPolicy min="1" max="4" enabled="true" > 
+     <metric name="cpu" min="30" max="80"/> 
+     <metric name="heap" min="30" max="80" /> 
+     <metric name="memory" min="30" max="80" /> 
+     <in units="instance" amount="1" minInterval="30s"/> 
+     <out amount="1" units="instance" minInterval="30s" /> 
+  </defaultScalingPolicy> 
+</scalingDefinitions>
+
+</server>
+

@@ -1,0 +1,11 @@
+<server description="shared cluster configuration">
+
+    <featureManager>
+    	<feature>clusterMember-1.0</feature>
+    </featureManager>
+
+    <clusterMember name="colorApp"/>
+        
+    <pluginConfiguration pluginInstallRoot="{LAB_HOME}/IHS/plugin" webserverPort="9180"/>
+    
+ </server>

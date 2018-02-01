@@ -1,0 +1,24 @@
+<server description="API Discovery lab configuration">
+
+	<!-- Enable features -->
+	<featureManager>
+		<feature>apiDiscovery-1.0</feature>
+		<feature>jaxrs-2.0</feature>
+	</featureManager>
+
+    <!-- SSL configuration -->
+	<keyStore id="defaultKeyStore" password="Liberty" />
+
+    <!-- Security configuration -->
+	<administrator-role>
+		<user>admin</user>
+	</administrator-role>
+
+	<basicRegistry id="basic" realm="ibm/api">
+		<user name="admin" password="admin" />
+	</basicRegistry>
+
+	<webApplication id="airlines" name="airlines" location="airlines.war" />
+
+	<applicationManager autoExpand="true"></applicationManager>
+</server>

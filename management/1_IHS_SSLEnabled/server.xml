@@ -1,0 +1,31 @@
+
+<server description="new server">
+
+<!-- Enable features -->
+<featureManager>
+   <feature>jsp-2.2</feature>
+   <feature>ssl-1.0</feature>
+</featureManager>
+
+<!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+<httpEndpoint id="defaultHttpEndpoint" httpPort="9080" httpsPort="9443">
+<tcpOptions soReuseAddr="true"/>
+</httpEndpoint>
+
+<!-- Automatically expand WAR files and EAR files -->
+<applicationManager autoExpand="true"/>
+
+<keyStore password="{xor}Mz49Dz4sLCgwLTs="/>
+
+<!-- Use virtual host default_host for defaultHttpEndpoint -->
+<virtualHost id="default_host" allowFromEndpointRef="defaultHttpEndpoint">
+    <hostAlias>*:9080</hostAlias>
+    <hostAlias>*:9443</hostAlias>
+    <hostAlias>*:80</hostAlias>
+    <hostAlias>*:443</hostAlias>
+</virtualHost>
+<pluginConfiguration pluginInstallRoot="${LAB_HOME}/IHS/plugin" logDirLocation="" logFileName="${LAB_HOME}/IHS/plugin/logs/webserver1/http_plugin.log" sslCertlabel="LibertyCert"/>
+
+<variable name="LAB_HOME" value="/home/liberty/wlp_pot"/>
+
+</server> 

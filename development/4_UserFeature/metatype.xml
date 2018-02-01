@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0"> 
+
+    <OCD name="LabBundleConfig" description="lab bundle config" id="lbc-ocd"> 
+        <AD name="usersFile" description="User file location" id="usersFile" type="String" default="" />
+        <AD name="groupsFile" description="Group file location" id="groupsFile" type="String" default="" />
+    </OCD>
+    <Designate pid="customUserRegistry"> 
+        <Object ocdref="lbc-ocd" /> 
+    </Designate>
+</metatype:MetaData>
