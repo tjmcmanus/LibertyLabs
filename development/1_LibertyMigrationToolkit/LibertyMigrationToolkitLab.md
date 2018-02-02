@@ -27,17 +27,17 @@ In this lab exercise, you will learn:
 
 As prerequisites, you should:
 
-1.  Complete the Setup and discover lab to set up the lab environment, including JRE, and eclipse with WDT
+Complete the Setup and discover lab to set up the lab environment, including JRE, and eclipse with WDT
 
     To run this lab, your workstation must meet the following requirements:
 
-       *Approximately 8GB of storage available*
+       -Approximately 8GB of storage available
 
-       *Approximately 3 GB of memory free to run the developer workbench and the server*
+       -Approximately 3 GB of memory free to run the developer workbench and the server
 
-       *Connectivity to the internet is NOT required*
+       -Connectivity to the internet is NOT required
 
-       *Please refer to the following table for file and resource location references on different operating systems.*
+    Please refer to the following table for file and resource location references on different operating systems.
 
   Location Ref. |   OS    |     Absolute Path
    --------------| ------- | --------------------------
