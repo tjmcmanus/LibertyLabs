@@ -10,10 +10,10 @@ The Discovery Archive contains a set of presentations to help you understand and
 
 The Discovery Archive contains a set of labs to help you get started to discover, develop, manage and expand to the cloud. For the cloud labs you may need to login into Bluemix.net. This would require a Bluemix account.
 
-1. Start with the setup and discover lab under the [labs/gettingStarted ](./labs/gettingStarted   "labs/gettingStarted ") directory.
-1. Work on any of the development labs under the [labs/development ](./labs/development   "labs/development ") directory.
-1. Work on cloud related labs under the [labs/cloud ](./labs/cloud   "labs/cloud ")  directory.
-1. Work on administration related labs under the [labs/management ](./labs/management   "labs/management ") directory.
+   1. Start with the setup and discover lab under the [labs/gettingStarted ](./labs/gettingStarted   "labs/gettingStarted ") directory.
+   1. Work on any of the development labs under the [labs/development ](./labs/development   "labs/development ") directory.
+   1. Work on cloud related labs under the [labs/cloud ](./labs/cloud   "labs/cloud ")  directory.
+   1. Work on administration related labs under the [labs/management ](./labs/management   "labs/management ") directory.
 
 In additions, there is a [video ](./LibertyIntro.mp4   "lvideo") and a set of redbooks in the redbooks directory.
 
