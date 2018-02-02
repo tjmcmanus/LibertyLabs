@@ -27,18 +27,18 @@ In this lab exercise, you will learn:
 
 As prerequisites, you should:
 
-Complete the Setup and discover lab to set up the lab environment, including JRE, and eclipse with WDT
+1. Complete the Setup and discover lab to set up the lab environment, including JRE, and eclipse with WDT.
 
     To run this lab, your workstation must meet the following requirements:
+        
+     - Approximately 8GB of storage available
 
-       -Approximately 8GB of storage available
+     - Approximately 3 GB of memory free to run the developer workbench and the server
 
-       -Approximately 3 GB of memory free to run the developer workbench and the server
+     - Connectivity to the internet is NOT required
 
-       -Connectivity to the internet is NOT required
-
-    Please refer to the following table for file and resource location references on different operating systems.
-
+ 1. Please refer to the following table for file and resource location references on different operating systems.
+    
   Location Ref. |   OS    |     Absolute Path
    --------------| ------- | --------------------------
    *{LAB_HOME}*  | Windows |  `C:\\WLP_<VERSION>` or your choice
@@ -46,7 +46,7 @@ Complete the Setup and discover lab to set up the lab environment, including JRE
    *{LAB_HOME}*  | Mac OSX |  `~/WLP_<VERSION>` or your choice
 
 
-#Import the Sample Day Trader Application
+## Import the Sample Day Trader Application
 
 To analyze an application for migration suitability, the application must be imported into your Eclipse-based IDE. If the application is not already in Eclipse, an easy way to import the application and organize it in projects that reflect their structure as EAR, WAR, and EJB files is by using the Eclipse import function as illustrated in the steps below.
 
@@ -62,7 +62,7 @@ To analyze an application for migration suitability, the application must be imp
 
     ![](./media/image4.png)
 
-1.  Navigate to **{LAB\_HOME}\labs\development\1\_LibertyMigrationToolkit** and select **daytrader20-ee5-src.ear**. Click **Open**
+1.  Navigate to **{LAB_HOME}\labs\development\1\_LibertyMigrationToolkit** and select **daytrader20-ee5-src.ear**. Click **Open**
 
     ![](./media/image5.png)
 
@@ -142,7 +142,7 @@ To analyze an application for migration suitability, the application must be imp
     The result will appear in a different pane
     ![](./media/image24.png)
 
-# Create Additional Scan Reports
+## Create Additional Scan Reports
 
 1.  Right click on any **DayTrader** project and navigate to **Software Analyzer Software Analyzer Configurations…**
 
@@ -155,8 +155,6 @@ To analyze an application for migration suitability, the application must be imp
 1.  Name the new configuration **Day Trader Liberty**, and select the same Day Trader related projects as before.
 
     ![](./media/image27.png)
-
-
 
 1.  Click **Rules** and select **WebSphere Application Server Version Migration** rule set. Click **Set**
 
@@ -173,7 +171,7 @@ To analyze an application for migration suitability, the application must be imp
 
     ![](./media/image31.png)
 
-# Migration Toolkit for Application Binaries
+## Migration Toolkit for Application Binaries
 
 
 1.  Install the migration toolkit for application binaries.
@@ -197,33 +195,28 @@ To analyze an application for migration suitability, the application must be imp
 
         `java -jar {LAB_HOME}/MigrationToolkit/binaryAppScannerInstaller.jar {LAB\_HOME} –acceptLicense`
 
-You should see output similar to the following:
+    You should see output similar to the following:
+~~~~
+    Before you can use, extract, or install IBM WebSphere Application 
+    Server Migration Toolkit for Application Binaries, you must accept the 
+    terms of International License Agreement for Non-Warranted Programs and 
+    additional license information. Please read the following license 
+    agreements carefully.
+  
+     The --acceptLicense argument was found. This indicates that 
+     you have accepted the terms of the license agreement.
 
-  `Before you can use, extract, or install IBM WebSphere Application
+     Extracting files to c:\\WLP\_17.0.0.4\\wamt
 
-   Server Migration Toolkit for Application Binaries, you must accept the
-
-   terms of International License Agreement for Non-Warranted Programs and
-
-   additional license information. Please read the following license
-
-   agreements carefully.
-
-   The --acceptLicense argument was found. This indicates that you have
-
-   accepted the terms of the license agreement.
-
-   Extracting files to c:\\WLP\_17.0.0.4\\wamt
-
-   Successfully extracted all product files.`
-
- This will create a directory under {LAB\_HOME}/wamt. Examine the contents of the newly created directory.
+     Successfully extracted all product files.
+~~~~
+   This will create a directory under {LAB_HOME}/wamt. Examine the contents of the newly created directory.
 
 1.  To see a summary of the available command line options, run the binary scanner with the **--help** option.
 
     `java -jar {LAB_HOME}/wamt/binaryAppScanner.jar --help`
-
-`+-----------------------------------------------------------------------+
+~~~~
++-----------------------------------------------------------------------+
 | **Notice**                                                            |
 |                                                                       |
 | -   It is a best practice to identify your custom application class   |
@@ -242,7 +235,8 @@ You should see output similar to the following:
 |     results that could and should be ignored. The inclusion of those  |
 |     results led to much confusion and inaccurate assessments of the   |
 |     migration effort.                                                 |
-+-----------------------------------------------------------------------+``
++-----------------------------------------------------------------------+
+~~~~
 
 1.  Run the command
 
@@ -261,17 +255,15 @@ You should see output similar to the following:
 
 5.  Review the output.
 
-# Summary
--------
+## Summary
 
 In this lab you have learned:
 
-  *How to install and use Liberty Migration Toolkit on Eclipse*
+  - How to install and use Liberty Migration Toolkit on Eclipse
 
-  *How to install and use Migration Toolkit for Application Binaries*
+  - How to install and use Migration Toolkit for Application Binaries
 
 # Notices
-
 
 This information was developed for products and services offered in the U.S.A.
 
@@ -312,8 +304,7 @@ COPYRIGHT LICENSE:
 
 This information contains sample application programs in source language, which illustrate programming techniques on various operating platforms. You may copy, modify, and distribute these sample programs in any form without payment to IBM, for the purposes of developing, using, marketing or distributing application programs conforming to the application programming interface for the operating platform for which the sample programs are written. These examples have not been thoroughly tested under all conditions. IBM, therefore, cannot guarantee or imply reliability, serviceability, or function of these programs.
 
-Trademarks and copyrights {#trademarks-and-copyrights .HeadingAppendix}
-=========================
+##Trademarks and copyrights 
 
 The following terms are trademarks of International Business Machines Corporation in the United States, other countries, or both:
 
