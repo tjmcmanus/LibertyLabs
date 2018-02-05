@@ -122,42 +122,37 @@ The following preparation must be completed prior to beginning this lab:
 
     1.  Note the additional imports that were added:
 ~~~~
-        **import** java.rmi.RemoteException;
-
-        **import** java.util.Properties;
-
-        **import** com.ibm.websphere.security.CustomRegistryException;
-
-        **import** com.ibm.websphere.security.UserRegistry;
+        import java.rmi.RemoteException;
+        import java.util.Properties;
+        import com.ibm.websphere.security.CustomRegistryException;
+        import com.ibm.websphere.security.UserRegistry;
 ~~~~
     1.  Note that the Activator class now extends FileRegistrySample, so the framework can instantiate the registry as part of bundle initialization. It looks like the line below.
 
-        **public class** Activator **extends** FileRegistrySample **implements** BundleActivator
+        `public class** Activator **extends** FileRegistrySample implements BundleActivator`
 
     1.  We have added three more class variables. The variable userFiles keeps track of the users for the custom user registry. The variable groupsFile keeps track of the groups for the custom user registry. These locations are currently hard coded, but will be enhanced later in this lab.
 
-      **Be sure to replace the *{LAB_HOME}* and *<timestamp>* with the correct values**. On Mac and Linux, replace the \\\\ file separator characters with / characters. The variable curRef keeps track of the registration of this custom user registry as an OSGi service.
+      **Be sure to replace the *{LAB_HOME}* with the correct values**. On Mac and Linux, replace the \ file separator characters with / characters. The variable curRef keeps track of the registration of this custom user registry as an OSGi service.
 ~~~~
         private String usersFile = "{LAB_HOME}\labs\development\4_UserFeature\users.props";
-
-        private String groupsFile = "{LAB_HOME}\labs\development\4_UserFeature\groups.props";
-
+        private String groupsFile = "{LAB_HOME}\labs\development\4_UserFeature\groups.props"
         private ServiceRegistration<UserRegistry> curRef = null;
 ~~~~
     1.  A new default constructor was added by WDT:
 ~~~~
         public Activator() **throws** RemoteException {
+           super();
 
-        super();
-
-        // **TODO** Auto-generated constructor stub
+           // **TODO** Auto-generated constructor stub
 
         }
-        ~~~~
+ ~~~~
 
     1.  Review the start method. It initializes the locations of usersFile and groupsFile in the parent class, and registers the custom user registry as an OSGi service.
 
     1.  Review the stop method where the service is deregistered.
+
 
 ## Package the custom user registry sample as a feature
 
@@ -291,22 +286,16 @@ Test the feature with a secure application.
     1.  Add the appSecurity-2.0 feature to the server.
 ~~~~
         <featureManager>
-
         <feature>jsp-2.3</feature>
-
         <feature>ejbLite-3.2</feature>
-
         <feature>usr:LabFeature</feature>
-
         <feature>localConnector-1.0</feature>
-
         <feature>appSecurity-2.0</feature>
-
         </featureManager>
 ~~~~
     Now that application security is being applied by the server, note that users cannot access the app until auth bindings have been configured.
 
-    1.  To configure the auth bindings for the application, replace the <enterpriseApplication> element values with the contents below in the server.xml.
+    1.  To configure the auth bindings for the application, replace the `<enterpriseApplication>` element values with the contents below in the server.xml.
 ~~~~
     <enterpriseApplication id="SecureEJBSample"
        location="SecureEJBSample.ear" name="SecureEJBSample">
@@ -381,7 +370,7 @@ Test the feature with a secure application.
 
 2.  Enhance Activator.java to accept the locations of users.props and groups.props from server.xml.
 
-    1.  Open LabBundle project’s Activator.java in Eclipse. Copy and paste the contents of `{LAB_HOME}labs\development\4_UserFeature\\Activator1.java into Activator.java`.
+    1.  Open LabBundle project’s Activator.java in Eclipse. Copy and paste the contents of `{LAB_HOME}\labs\development\4_UserFeature\\Activator1.java into Activator.java`.
 
     **Note:** Just copy and replace the contents. Do not create a new file. Let’s review the changes.
 
@@ -493,7 +482,6 @@ We will change the sample to allow you to change a password in the sample file r
 
 ~~~~
             registryProperties.put("osgi.jndi.service.name", "myRegistry");
-
             curRefMyRegistry = context.registerService( MyRegistry.class, registry,registryProperties);
 ~~~~
         1. In the stop method, the service curRefMyRegistry is unregistered.
