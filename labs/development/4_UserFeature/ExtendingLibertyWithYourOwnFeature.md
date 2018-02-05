@@ -121,25 +121,28 @@ The following preparation must be completed prior to beginning this lab:
     1.  Open the Activator.java file in the editor. To save time, paste the contents of Activator.java included with the lab into the Activator.java pane in Eclipse. We’ll review the code from here on.
 
     1.  Note the additional imports that were added:
-~~~~
+     ~~~~
         import java.rmi.RemoteException;
         import java.util.Properties;
         import com.ibm.websphere.security.CustomRegistryException;
         import com.ibm.websphere.security.UserRegistry;
-~~~~
+     ~~~~
     1.  Note that the Activator class now extends FileRegistrySample, so the framework can instantiate the registry as part of bundle initialization. It looks like the line below.
 
         `public class** Activator **extends** FileRegistrySample implements BundleActivator`
 
     1.  We have added three more class variables. The variable userFiles keeps track of the users for the custom user registry. The variable groupsFile keeps track of the groups for the custom user registry. These locations are currently hard coded, but will be enhanced later in this lab.
 
-      **Be sure to replace the *{LAB_HOME}* with the correct values**. On Mac and Linux, replace the \ file separator characters with / characters. The variable curRef keeps track of the registration of this custom user registry as an OSGi service.
-~~~~
+      **Be sure to replace the *{LAB_HOME}* with the correct values**. On Mac and Linux, replace the '\' file separator characters with '/' characters. The variable curRef keeps track of the registration of this custom user registry as an OSGi service.
+      
+     ~~~~
         private String usersFile = "{LAB_HOME}\labs\development\4_UserFeature\users.props";
         private String groupsFile = "{LAB_HOME}\labs\development\4_UserFeature\groups.props"
         private ServiceRegistration<UserRegistry> curRef = null;
-~~~~
-    1.  A new default constructor was added by WDT:
+    ~~~~
+   
+   1.  A new default constructor was added by WDT:
+   
 ~~~~
         public Activator() **throws** RemoteException {
            super();
@@ -370,20 +373,18 @@ Test the feature with a secure application.
 
 2.  Enhance Activator.java to accept the locations of users.props and groups.props from server.xml.
 
-    1.  Open LabBundle project’s Activator.java in Eclipse. Copy and paste the contents of `{LAB_HOME}\labs\development\4_UserFeature\\Activator1.java into Activator.java`.
+    1.  Open LabBundle project’s Activator.java in Eclipse. Copy and paste the contents of `{LAB_HOME}\labs\development\4_UserFeature\\Activator1.java` into `Activator.java`.
 
     **Note:** Just copy and replace the contents. Do not create a new file. Let’s review the changes.
 
     1.  The class definition has changed to also implement ManagedService as shown below.
-~~~~
-        public class Activator extends FileRegistrySample implements BundleActivator, ManagedService** {
-~~~~
+
+       ` public class Activator extends FileRegistrySample implements BundleActivator, ManagedService** {`
+
     1.  The class variables usersFile and groupsFile are no longer hardcoded with the locations of users.props and groups.props.
 ~~~~
         usersFile = (String) properties.get(usersFileAttr);
-
         …
-
         groupsFile = (String) properties.get(groupsFileAttr);
 ~~~~
     1.  The new variable CFG_PID holds the service *Persistent Identifier (PID)* used to register this feature as a *MangedService*.
@@ -409,12 +410,10 @@ Test the feature with a secure application.
     ![](./media/image47.png)
 
 1. Expand **LabBundleServer** in the Server view and double click **Server Configuration** to open the Server Configuration editor, then add the customUserRegistry configuration properties as show below to server.xml in the Source view.
-~~~~
-    <customUserRegistry usersFile="${server.config.dir}/users.props"
 
-    groupsFile="${server.config.dir}/groups.props" />
-~~~~
-    Note that this configuration element causes a validation error in the Server Configuration editor because the new element is not recognized. We will fix that in the next part of the lab but it can be safely ignored.
+    `<customUserRegistry usersFile="${server.config.dir}/users.props"  groupsFile="${server.config.dir}/groups.props" />`
+    
+    **Note** that this configuration element causes a validation error in the Server Configuration editor because the new element is not recognized. We will fix that in the next part of the lab but it can be safely ignored.
 
 1.  Test the new security feature
 
