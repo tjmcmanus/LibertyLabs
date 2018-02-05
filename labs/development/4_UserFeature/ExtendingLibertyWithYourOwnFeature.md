@@ -287,6 +287,7 @@ Test the feature with a secure application.
     1.  Open the server.xml configuration file by expanding the **LabBundleServer** in the Server view and double click **Server Configuration**. We will be modifying the configuration in Source view.
 
     1.  Add the appSecurity-2.0 feature to the server.
+    
 ~~~~
         <featureManager>
         <feature>jsp-2.3</feature>
@@ -296,9 +297,11 @@ Test the feature with a secure application.
         <feature>appSecurity-2.0</feature>
         </featureManager>
 ~~~~
-    Now that application security is being applied by the server, note that users cannot access the app until auth bindings have been configured.
+
+   Now that application security is being applied by the server, note that users cannot access the app until auth bindings have been configured.
 
     1.  To configure the auth bindings for the application, replace the `<enterpriseApplication>` element values with the contents below in the server.xml.
+    
 ~~~~
     <enterpriseApplication id="SecureEJBSample"
        location="SecureEJBSample.ear" name="SecureEJBSample">
@@ -318,11 +321,9 @@ Test the feature with a secure application.
     </enterpriseApplication>
 ~~~~
 
-  **NOTE:** that for the above mapping, all authenticated user may access the servlet, while only *user1* is able to access the EJB.
+  **NOTE:** that for the above mapping, all authenticated user may access the servlet, while only *user1* is able to access the EJB.  If something goes wrong with the cut and paste, you can either cut and paste from the `{LAB_HOME}/labs/development/44_UserFeature/server.xml` file or replace the LabBundleServer’s `server.xml` with the one in the lab directory.
 
-  **NOTE:** If something goes wrong with the cut and paste, you can either cut and paste from the `{LAB_HOME}/labs/development/44_UserFeature/server.xml` file or replace the LabBundleServer’s `server.xml` with the one in the lab directory.
-
-   4.  Save the changes. WDT will republish the changes automatically.
+   1.  Save the changes. WDT will republish the changes automatically.
 
 1.  Test the new security configuration
 
@@ -479,10 +480,11 @@ We will change the sample to allow you to change a password in the sample file r
 
         1.  In the start method, we are adding another service registration for the MyRegistry interface. The osgi.jndi.service.name property will tell the runtime to bind the registry to the global JNDI name myRegistry.
 
-~~~~
+        ~~~~
             registryProperties.put("osgi.jndi.service.name", "myRegistry");
             curRefMyRegistry = context.registerService( MyRegistry.class, registry,registryProperties);
-~~~~
+         ~~~~
+
         1. In the stop method, the service curRefMyRegistry is unregistered.
 
     1.  Save the file.
