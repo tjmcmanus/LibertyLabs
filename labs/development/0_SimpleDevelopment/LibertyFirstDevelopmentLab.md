@@ -52,15 +52,15 @@ Complete the Getting Started lab to set up the lab environment, including JRE, a
 
     1.  Replace the text:
 
-        <title>Insert title here</title>
+        `<title>Insert title here</title>`
 
         with:
 
-        <title>Who Am I?</title>
+        `<title>Who Am I?</title>`
 
     1.  Enter the following code into the <body> section:
 
-        You are <%=request.getUserPrincipal().getName() %>
+        `You are <%=request.getUserPrincipal().getName() %>`
 
     1.  Save the file.
 
@@ -98,53 +98,55 @@ Complete the Getting Started lab to set up the lab environment, including JRE, a
 
     1.  Review the changes in the Source tab, and the web.xml should look like:
 
- `<?xml version="1.0" encoding="UTF-8"?>
- 
+~~~~
+ <?xml version="1.0" encoding="UTF-8"?>
+
  <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
- 
+
     <display-name>LabWeb</display-name>
- 
+
     <welcome-file-list>
- 
+
        <welcome-file>index.html</welcome-file>
- 
+
        <welcome-file>index.htm</welcome-file>
- 
+
        <welcome-file>index.jsp</welcome-file>
- 
+
        <welcome-file>default.html</welcome-file>
- 
+
        <welcome-file>default.htm</welcome-file>
- 
+
        <welcome-file>default.jsp</welcome-file>
- 
+
     </welcome-file-list>
-    
+
     <security-constraint>
-    
+
        <web-resource-collection>
-       
+
           <web-resource-name>index.jsp</web-resource-name>
-          
+
           <url-pattern>/*</url-pattern>
-          
+
        </web-resource-collection>
-       
+
        <auth-constraint>
-       
+
           <role-name>**</role-name>
-          
+
        </auth-constraint>
-       
+
        <user-data-constraint>
-       
+
           <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-          
+
        </user-data-constraint>
-       
+
     </security-constraint>
-    
- </web-app>`
+
+ </web-app>
+ ~~~~
 
 1.  Enable security on the server
 
@@ -243,11 +245,11 @@ Complete the Getting Started lab to set up the lab environment, including JRE, a
         ![](./media/image35.png)
 
     1.  Save your changes
-    
+
     ## Running the application
 
     1. If the server status shows Republish, right click and select **Publish**.
-    
+
         ![](./media/image36.png)
 
     1.  If the server is stopped, start the server by right clicking the **WebSphere Application Server Liberty Profile** in the Server view and select **Start**.
@@ -361,9 +363,9 @@ Complete the Getting Started lab to set up the lab environment, including JRE, a
     1.  Select **HTTP Endpoint: defaultHttpEndpoint** in the Configuration Structure view and change the values for the following fields as show below:
 
         `Host = \${MY.HOST}
-        
+
         Port = \${MY.HTTP.PORT}
-        
+
         Secure port = \${MY.HTTPS.PORT}`
 
         ![](./media/image57.png)
@@ -375,9 +377,9 @@ Complete the Getting Started lab to set up the lab environment, including JRE, a
     1.  Enter the variables and values in the bootstrap.properties file as shown below. If the file is not automatically opened, you can find it in **WebSphere Application Server Liberty Profile > servers > labServer** folder in the Enterprise Explorer view.
 
         `MY.HOST=localhost
-        
+
         MY.HTTP.PORT=9080
-        
+
         MY.HTTPS.PORT=9443`
 
         ![](./media/image59.png)

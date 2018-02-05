@@ -1,16 +1,39 @@
-# JDBC Lab on Liberty
+# JMS and MDB Sample Lab
 
-Deploying a data access application includes more than installing your web application archive (WAR) or enterprise archive (EAR) file onto a Liberty. Deployment can include tasks for configuring the data access resources of the server and overall runtime environment.
+
+Liberty profile supports asynchronous messaging as a method of communication that is based on the Java™ Message Service (JMS) programming interface. The JMS interface provides a common way for Java programs (clients and Java EE applications) to create, send, receive, and read asynchronous requests as JMS messages. With the Liberty profile, you can configure multiple JMS messaging providers, which can be used by the JMS applications.
+
+The following JMS messaging providers are supported in the Liberty profile:
+
+1.  Liberty embedded messaging engine, as the JMS messaging provider
+
+1.  Service integration bus, which is the default messaging provider of WebSphere® Application Server
+
+1.  WebSphere MQ messaging provider, which uses the WebSphere MQ system as the provider
+
+Your applications can use messaging resources from any of the three JMS providers. The choice of the provider is made based either on your messaging requirements or for integration with an existing messaging system. For example, you might want your applications to connect locally to the Liberty messaging provider without the need to configure any external messaging provider, in which case you would use the Liberty embedded messaging engine. Alternatively, you might want to integrate with your existing messaging infrastructure, such as WebSphere MQ. In such cases, you can either connect directly by using the WebSphere MQ messaging provider or configure a service integration bus with links to the WebSphere MQ network and then access the bus through the default messaging provider.
+
+The scope of this lab is limited to **Liberty messaging**, an embedded messaging feature in the Liberty profile. It is a composable, flexible, and dynamic JMS messaging engine that runs within the Liberty profile. Liberty messaging is JMS 1.1 compliant and supports both the point-to-point and publish/subscribe messaging models.
 
 In this lab exercise, you will learn:
 
-1.  Configure Derby Database on Liberty
+1.  Enabling JMS messaging for the Liberty Profile
 
-1.  Create a sample JDBC servlet
+1.  Create a sample JMS P2P servlet
 
-1.  Run the sample JDBC Servlet
+1.  Create a sample JMS PubSub servlet
 
-To run this lab, your workstation must meet the following requirements:
+1.  Create a sample JMS MDB
+
+1.  Run all the sample JMS applications created
+
+As prerequisites, you should:
+
+1.  Complete Setup lab to set up the lab environment, and learn how to create a server using WebSphere Developer Tools.
+
+1.  **Optional:** Complete the Simple Development Lab if you need a refresher on how to use eclipse with WebSphere Developer Tools (WDT)
+
+    To run this lab, your workstation must meet the following requirements:
 
 -   Approximately 3 GB of memory free to run the developer workbench and the server
 
@@ -24,173 +47,227 @@ Location Ref. |   OS    |     Absolute Path
  *{LAB_HOME}*  | Linux   |  `~/WLP_<VERSION>` or your choice
  *{LAB_HOME}*  | Mac OSX |  `~/WLP_<VERSION>` or your choice
 
-As prerequisites, you should:
+## Create and Configure Liberty Server for JMS
 
-1.  Complete Setup lab to set up the lab environment, and learn how to create a server using WebSphere Developer Tools.
+1.  Start **Eclipse** (eclipse.exe) from **{LAB\_HOME}/eclipse** directory
 
-1.  Install Derby Database
-
-    1.  **For Windows**:  Extract **{LAB_HOME}\derby\db-derby-10.14.1.0-lib.zip** to **{LAB_HOME}\db-derby-10.14.1.0-lib** directory.
-
-    1. **For Linux or Mac** :  Extract **{LAB_HOME}/derby/db-derby-10.14.1.0-lib.tar.gz** to **{LAB_HOME}/db-derby-10.14.1.0-lib** directory
-
-## Create and Configure Liberty Server for JDBC
-
-
-1.  Start **Eclipse** from `{LAB_HOME}/wdt/eclipse` directory
     **Note:** On MAC, start eclipse from `{LAB_HOME}/wdt/eclipse/Eclipse.app/Contents/MacOS/eclipse`
 
-1.  Create a new Liberty application server called **JDBCServer.**
+
+1.  Create a new Liberty Server called **JMSServer.**
 
     1.  Right Click on the **Servers** tab and Select **New Server**
 
         ![](./media/image2.png)
 
-    1.  c.  Select **Liberty Server**. Click **Next**
+    1.  Select **Liberty Runtime** and Click **Next**
 
         ![](./media/image3.png)
 
-    1.  Click **New** in the New Server window to create a new Liberty Server
+    1.  Click **New** and enter the server name as **JMSServer,** click **Finish** then **Finish** again.
 
         ![](./media/image4.png)
 
-    1.  Enter the server name as **JDBCServer** and Click **Finish**
+1.  Expand the definition of the newly created **Liberty Server.** Open (double-click) the **server.xml** of the configuration and click on the **Source** tab.
 
-        ![](./media/image5.png)
+    ![](./media/image5.png)
 
-    1.  Click **Finish** in the New Server window after the new Liberty Server has been created, making sure **JDBCServer** shows in the combo box
+1.  Replace the contents of **server.xml** with the lab content at **{LAB_HOME}/labs/development/3_JMS/server.xml**
 
-        ![](./media/image6.png)
+1.  This **server.xml** contains the **JMS resource definitions** that you will need to run the sample application.
 
-1.  Double click Server Configuration for the **JDBCServer** to bring up **server.xml**
+1.  Review the changes in the **server.xml** that includes :
 
-    ![](./media/image7.png)
+    1.  The features required for JMS, MDB, and built-in message engine
 
-1.  Click on the **Source** tab.
+    1.  Queue and topic configuration for the built-in message engine
 
-    ![](./media/image8.png)
+    1.  Activation Specification configuration for MDBs
 
-1.  Remove the **jsp-2.3** feature from **server.xml**, and add the following features:
-~~~~
-    <feature>jdbc-4.0</feature>
-    <feature>servlet-3.1</feature>
-~~~~
-1. Paste the following **DataSource** definition into **server.xml**. If you are using Linux or Mac you need to update directory location for the **fileset** tag to the following value:
+    1.  Configurations for queue and topic connection factories
 
- `{LAB_HOME}/db-derby-10.14.1.0-lib/lib`
-
-~~~~
-    <library id="JDBCSampleDerbyLibs">
-        <fileset dir="{LAB_HOME}\db-derby-10.14.1.0-lib\lib" includes="derby.jar"/>
-    </library>
-
-    <jdbcDriver id="DerbyEmbedded" libraryRef="JDBCSampleDerbyLibs"/>
-
-    <dataSource id="ds1" jdbcDriverRef="DerbyEmbedded" jndiName="jdbc/exampleDS">
-        <properties.derby.embedded createDatabase="create" databaseName**="${server.config.dir}/data/exampleDB**"/>
-    </dataSource>
-
-    ~~~~
-
-1.  Note that we had used **${server.config.dir}\data\exampleDB** as the location of the database. Once the **server.xml** has been updated you should see it as shown below.
-
-    ![](./media/image9.png)
-
-1.  **Save** the configuration
-
-
+    1.  Association of JMS queues and topics with built-in message engine queues and topics.
 
 ## Create New Web Project
 
+In this section we will create a new web project called **JMSSample** to deploy and run the JMS P2P and JMSPubSub servlets.
 
-In this section we will create a new web project called **JDBC Sample** to deploy and run the JDBC servlet.
-
-1.  Create a **Web Project** called **“JDBCSample”**
+1.  Create a **Web Project** called **“JMSSample”**
 
     1.  Select **File New Web Project**
 
-    1.  Enter **JDBCSample** as the name
+    1.  Enter **JMSSample** as the name
 
-        ![](./media/image10.png)
+        ![](./media/image6.png)
 
     1.  Click **Next**
 
-    1.  Under **Target Runtime** select **Liberty Runtime **
+    1.  Under **Target Runtime** select **Liberty Server**
 
     1.  Deselect **Add project to EAR**
 
-        ![](./media/image11.png)
-
     1.  Click **Finish**
 
-    1.  Click **Open** if prompted to switch to **Web perspective**
+        ![](./media/image7.png)
 
-### Create JDBC Servlet  
-------------------------
+**Create JMSSampleP2P Servlet**
+--------------------------------
 
-1.  From the **Enterprise Explorer**, Right click **“JDBCSample”** project, and select **New Servlet**
+1.  From the **Enterprise Explorer**, Right click **“JMSSample”** project, and select **New Servlet**
 
-    ![](./media/image12.png)
+1.  Use **wasdev.sample.jms.web** as the package, and **JMSSampleP2P** as the class
 
-1.  Use **wasdev.sample.jdbc** as the package, and **JdbcServlet** as the class
-
-    ![](./media/image13.png)
+    ![](./media/image8.png)
 
 1.  Click **Finish**
 
-1.  Replace the contents of **JdbcServlet.java** with `{LAB_HOME}/labs/development/2_JDBC/JdbcServlet.java`
+1.  Replace the contents of **JMSSampleP2P.java** with `{LAB_HOME}/labs/development/3_JMS/JMSSampleP2P.java`
 
-1.  Review the servlet source code to learn how it is calling JDBC.
+1.  Review the servlet source code.
+
+1.  Skip this step if you don’t see compiler errors. If you see compiler errors, you need to configure the build path.
+
+    1.  Right click on the **JMSSample** project then choose
+
+        **Build Path Configure Build Path**
+
+        ![](./media/image9.png)
+
+    1.  Select **Libraries** tab then click **Add External JARs**
+
+        ![](./media/image10.png)
+
+    1.  Navigate to **{LAB_HOME}\wlp\dev\api\spec** and select **com.ibm.ws.javaee.jms.2.0_1.0.19.jar**
+
+    1.  Click **Open**
+
+    1.  Verify the jar has been imported, then click **Apply and Close**
+
+        ![](./media/image11.png)
 
 
 
-### Running the Sample JDBC Servlet
+1.  The servlet accepts a request on
+
+    `http://<host>:<port>/JMSSample/JMSSampleP2P?action=<action>`
+
+    where the action is one of the following :
+
+    1.  **sendAndReceive**: Sends a message defined by the queue **jndi_INPUT_Q**, then receives a message from it.
+
+    1.  **sendMessage**: Sends a message to the queue **jndi_INPUT_Q**
+
+    1.  **receiveAllMessageSelectors**: Sends a message to the queue **jndi_INPUT_Q**, then receives all messages on the queue.
+
+    1.  **mdbRequestResponse**: Sends a message to the **MDBQ**, which will be received by the Sample MDB. The MDB sends a reply on **MDBREPLYQ**, which is then received by this method.
+
+## Create JMSSamplePubSub Servlet
+
+1.  From the **Enterprise Explorer**, Right click **“JMSSample”** project, and select **New Servlet**
+
+1.  Use **wasdev.sample.jms.web** as the package, and **JMSSamplePubSub** as the class
+
+1.  Replace the contents of **JMSSamplePubSub.java** with the contents of `{LAB_HOME}/labs/development/3_JMS/JMSSamplePubSub.java`
+
+1.  This servlet accepts a request on
+
+    `http://<host>:<port>/JMSSample/JMSSamplePubSub?action=<action>`
+
+    where the action is one of the following:
+
+    1.  **nonDurableSubscriber**: Creates a non-durable subscriber for topic **jmsTopic**, sends a message, then receives message.
+
+    1.  **durableSubscriber**: Creates a durable subscriber for topic **jmsTopic**, sends then receives message.
+
+    1.  **publishMessages**: Publishes 5 messages to topic **jmsTopic**.
+
+    1.  **unsubscribeDurableSubscriber:** Opens durable subscriber **DURATEST**, receives all messages, then un-unsubscribe.
+
+## Create JMS Sample MDB
 
 
-1.  Right click the “**JDBCSample”** project, and choose **Run As Run on Server**
+1.  From the **Enterprise Explorer**, Right click **“JMSSample”** project, and select **New Other**
+
+    ![](./media/image12.png)
+
+1.  Type ejb to filter, then choose **Message Driven Bean (EJB 3.x)**.
+
+    ![](./media/image13.png)
+
+1.  Click **Next.**
+
+1.  Enter **wasdev.sample.jms.mdb** for package name, and **SampleMDB** for class name.
+
+1.  Click **Finish**.
 
     ![](./media/image14.png)
 
-1.  Choose the **JDBCServer** (if you have multiple servers created), then click **Next.**
+1.  Replace the contents of **SampleMDB.java** with the contents of `{LAB_HOME}/labs/development/3_JMS/SampleMDB.java`
+
+1.  This MDB is to be configured to process messages on **MDBQ**, and send a reply via **MDBREPLYQ.**
+
+## Running the Sample JMS Application
+
+
+1.  Right click the **JMSSample** project, and choose **Run As Run on Server**
 
     ![](./media/image15.png)
 
-1.  If you have multiple projects, just select **JDBCSample** as the project to run, and then click **Finish**
+1.  Choose the **JMSServer** (if you have multiple servers created), then click **Next.**
 
     ![](./media/image16.png)
 
-1.  WDT will run and open a browser to the application automatically as shown below:
+1.  If you have multiple projects, just select **JMSSample** as the project to run, and then click **Finish**
 
     ![](./media/image17.png)
 
-1.  Check that `{LAB_HOME}\wlp\usr\servers\JDBCServer\data\exampleDB` is created.
+1.  Test point to point messaging by pointing your browser to the following URLs:
 
-1.  Check the contents of **server.xml.** WDT adds additional configuration automatically to set up a development environment.
+    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=sendAndReceive`
 
-    ![](./media/image18.png)
+    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=sendMessage`
 
+    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=receiveAllMessages`
 
+    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=receiveAllMessagesSelectors`
+
+    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=mdbRequestResponse`
+
+        ![](./media/image18.png)
+
+1.  Test pub sub by pointing your browser to:
+
+    1.  `http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=nonDurableSubscriber`
+
+    1.  `http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=durableSubscriber`
+
+    1.  `http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=publishMessages`
+
+    1.  `http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=unsubscribeDurableSubscriber`
+
+     ![](./media/image19.png)
 
 ## Clean up
 
-1.  Right click on the **JDBC project** and select **Remove**
 
-    ![](./media/image19.png)
+1.  Right click on the **JMSSample** application (on the server) and select **Remove** to remove the application.
 
-1.  Right click on the **JDBCServer** and select **Stop** to stop the server
-
-    ![](./media/image20.png)
+1.  Right click on the **JMSServer** and select **Stop** to stop the server
 
 ## Summary
 
 
 In this lab you have learned:
 
--   Configuring Derby Database on Liberty
+-   Enabling JMS messaging for the Liberty Profile
 
--   Create a sample JDBC servlet
+-   Create a sample JMS P2P servlet
 
--   Run the sample JDBC Servlet
+-   Create a sample JMS PubSub servlet
+
+-   Create a sample JMS MDB
+
+-   Run all the sample JMS applications created
 
 ## Notices
 
@@ -266,7 +343,7 @@ IT Infrastructure Library is a registered trademark of the Central Computer and 
 
 Other company, product and service names may be trademarks or service marks of others.
 
-![IBM-1](./media/image21.png)
+![IBM-1](./media/image20.png)
 
 © Copyright IBM Corporation 2018.
 
@@ -276,4 +353,4 @@ IBM, the IBM logo and ibm.com are trademarks or registered trademarks of Interna
 
 Other company, product and service names may be trademarks or service marks of others.
 
-![Please Recycle](./media/image22.png)
+![Please Recycle](./media/image21.png)

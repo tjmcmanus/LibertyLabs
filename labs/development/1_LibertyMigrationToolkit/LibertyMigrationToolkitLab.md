@@ -30,7 +30,7 @@ As prerequisites, you should:
 1. Complete the Setup and discover lab to set up the lab environment, including JRE, and eclipse with WDT.
 
     To run this lab, your workstation must meet the following requirements:
-        
+
      - Approximately 8GB of storage available
 
      - Approximately 3 GB of memory free to run the developer workbench and the server
@@ -38,7 +38,7 @@ As prerequisites, you should:
      - Connectivity to the internet is NOT required
 
  1. Please refer to the following table for file and resource location references on different operating systems.
-    
+
   Location Ref. |   OS    |     Absolute Path
    --------------| ------- | --------------------------
    *{LAB_HOME}*  | Windows |  `C:\\WLP_<VERSION>` or your choice
@@ -197,13 +197,13 @@ To analyze an application for migration suitability, the application must be imp
 
     You should see output similar to the following:
 ~~~~
-    Before you can use, extract, or install IBM WebSphere Application 
-    Server Migration Toolkit for Application Binaries, you must accept the 
-    terms of International License Agreement for Non-Warranted Programs and 
-    additional license information. Please read the following license 
+    Before you can use, extract, or install IBM WebSphere Application
+    Server Migration Toolkit for Application Binaries, you must accept the
+    terms of International License Agreement for Non-Warranted Programs and
+    additional license information. Please read the following license
     agreements carefully.
-  
-     The --acceptLicense argument was found. This indicates that 
+
+     The --acceptLicense argument was found. This indicates that
      you have accepted the terms of the license agreement.
 
      Extracting files to c:\\WLP\_17.0.0.4\\wamt
@@ -304,7 +304,7 @@ COPYRIGHT LICENSE:
 
 This information contains sample application programs in source language, which illustrate programming techniques on various operating platforms. You may copy, modify, and distribute these sample programs in any form without payment to IBM, for the purposes of developing, using, marketing or distributing application programs conforming to the application programming interface for the operating platform for which the sample programs are written. These examples have not been thoroughly tested under all conditions. IBM, therefore, cannot guarantee or imply reliability, serviceability, or function of these programs.
 
-##Trademarks and copyrights 
+##Trademarks and copyrights
 
 The following terms are trademarks of International Business Machines Corporation in the United States, other countries, or both:
 

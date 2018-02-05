@@ -13,9 +13,9 @@ Please refer to the following table for file and resource location references on
   *{LAB_HOME}*  | Windows |  `C:\\WLP_<VERSION>` or your choice
   *{LAB_HOME}*  | Linux   |  `~/WLP_<VERSION>` or your choice
   *{LAB_HOME}*  | Mac OSX |  `~/WLP_<VERSION>` or your choice                  
-  
 
-## Unzip the Contents to your computer 
+
+## Unzip the Contents to your computer
 
 
 Unzip the .zip file appropriate from your platform from USB drive to your computer.
@@ -27,7 +27,7 @@ Unzip the .zip file appropriate from your platform from USB drive to your comput
 ## Install Mac prerequisites
 
 1.  Mac: Download and install the JRE from Oracle's website:
-    <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>
+    `http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html`
 
 ## Install Linux prerequisites
 
@@ -72,22 +72,22 @@ You may be missing prerequisite packages required to run the supplied Java SDK a
 1.  From the `{LAB_HOME}/wlp/bin directory` in your Liberty runtime
     installation, run the following command to create a new server. For
     Linux and Mac, use `./server` to pick up the local “server”
-    
+
     `server create myServer`
-    
+
 1.  The new server is created in `{LAB_HOME}/wlp/usr/servers/myServer`.
     The server.xml file is the complete server configuration. Open up an
     editor to view `{LAB_HOME}/wlp/usr/servers/myServer/server.xml`.
 1.  Start the server instance with this command:
 
     `server start myServer`
-    
+
     This runs the server in the background and the output is written to files in the `{LAB_HOME}/wlp/usr/servers/myServer/logs` directory.  Alternatively, to start the server in the foreground (so the console  messages are seen in the command window) you can use the command:  “server run myServer”.
-    
+
 1.  Stop the server with the command:
 
      `server stop myServer`
-     
+
 1.  Having verified the install, clean up. Delete the server by deleting the `{LAB_HOME}/wlp/usr/servers/myServer` directory.
 
 You now have a Liberty runtime environment that is ready to be  configured to run applications.
@@ -107,12 +107,12 @@ Normally you would first download and install Eclipse, followed by the installat
     1.  Click **OK**, substituting *{LAB_HOME}* with the correct value
         for your platform. This should create workspace directory for
         you.
-        
+
         > **Note:** Accepting the default workspace location, may cause
         problems with a preexisting workspace. Please use a clean
         workspace location.
          > ![](./media/image2.png)   
-         
+
 1.  Remove the welcome page by clicking on the ‘X’ icon
    > ![](./media/image3.gif)
 
@@ -121,29 +121,29 @@ In this section you will use the Eclipse Servers view to create a Liberty server
 
 1.  At the bottom of the workbench, open the Servers view by clicking the Servers tab. Right-click within the windows of the Servers view and select **New > Server**  
   > ![](./media/image4.png)
-  
-2.  Under the server type list, expand IBM and select the **Liberty Server** server type. Use the default eclipse server name as supplied (localhost). Click **Next**. This creates the liberty server object in eclipse. 
+
+2.  Under the server type list, expand IBM and select the **Liberty Server** server type. Use the default eclipse server name as supplied (localhost). Click **Next**. This creates the liberty server object in eclipse.
   > ![](./media/image5.png)
-  
+
 3.  Now eclipse needs to associate the ‘localhost’ server with a server configuration in a Liberty runtime (the runtime that you installed in section 3 above). The Liberty Runtime Environment page is displayed.
 
     i.  In the **Path** field under the **Installation folder** section, type or browse for the directory where you installed the Liberty runtime environment (The value of `{LAB_HOME}/wlp`)
-    
+
     ii. You may also select which JRE to use if you have multiple JRE in your environment.
-    
+
     iii. Click **Next.**
     > ![](./media/image6.png)
-    
+
 4.  To create the server configuration in the runtime, either use the current populated server ‘myServer’ or click the **New** button.  
     > **Note:** If directions were followed and myServer was deleted, your screen print will differ and there will be no new button and defaultServer will be prepopulated
    > ![](./media/image7.png)
-   
+
 5.  Enter in **labServer** to the Liberty Server box then click **Finish** and then **Finish** again.
    > ![](./media/image8.png)
-   
+
 6.  The new server will appear in the Servers view. You can expand the server to show a quick view of the configuration. You can open the  server configuration editor by double-clicking on **Server Configuration:**
    > ![](./media/image9.png)
-    
+
 
 ## Labs Accessing IBM Cloud: Create a IBM Cloud User ID
 
@@ -190,7 +190,7 @@ As a IBM Cloud user, you might want to use an API key when you enable a program 
 
     1.  Click **Download**
       > ![](./media/image15.png)
-       
+
     1.  Find the downloaded file named **apiKey.json**. (This should be
         in your browsers Download folder) Now rename the file to
         **Liberty-APIKey.json.** There is a string in the file that will
@@ -244,7 +244,7 @@ Once installed, executing **bx** should result in:
 
 This completes the lab exercise.
 
-# Notices 
+# Notices
 
 
 This information was developed for products and services offered in the
