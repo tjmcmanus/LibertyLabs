@@ -288,7 +288,7 @@ Test the feature with a secure application.
 
     1.  Add the appSecurity-2.0 feature to the server.
     
-~~~~
+       ~~~~
         <featureManager>
         <feature>jsp-2.3</feature>
         <feature>ejbLite-3.2</feature>
@@ -296,13 +296,13 @@ Test the feature with a secure application.
         <feature>localConnector-1.0</feature>
         <feature>appSecurity-2.0</feature>
         </featureManager>
-~~~~
+       ~~~~
 
-   Now that application security is being applied by the server, note that users cannot access the app until auth bindings have been configured.
+Now that application security is being applied by the server, note that users cannot access the app until auth bindings have been configured.
 
     1.  To configure the auth bindings for the application, replace the `<enterpriseApplication>` element values with the contents below in the server.xml.
     
-~~~~
+    ~~~~
     <enterpriseApplication id="SecureEJBSample"
        location="SecureEJBSample.ear" name="SecureEJBSample">
 
@@ -319,7 +319,7 @@ Test the feature with a secure application.
         </application-bnd>
 
     </enterpriseApplication>
-~~~~
+    ~~~~
 
   **NOTE:** that for the above mapping, all authenticated user may access the servlet, while only *user1* is able to access the EJB.  If something goes wrong with the cut and paste, you can either cut and paste from the `{LAB_HOME}/labs/development/44_UserFeature/server.xml` file or replace the LabBundleServer’s `server.xml` with the one in the lab directory.
 
@@ -383,11 +383,13 @@ Test the feature with a secure application.
        ` public class Activator extends FileRegistrySample implements BundleActivator, ManagedService** {`
 
     1.  The class variables usersFile and groupsFile are no longer hardcoded with the locations of users.props and groups.props.
-~~~~
+    
+        ~~~~
         usersFile = (String) properties.get(usersFileAttr);
         …
         groupsFile = (String) properties.get(groupsFileAttr);
-~~~~
+        ~~~~
+
     1.  The new variable CFG_PID holds the service *Persistent Identifier (PID)* used to register this feature as a *MangedService*.
 
         `private String CFG_PID = "customUserRegistry";`
