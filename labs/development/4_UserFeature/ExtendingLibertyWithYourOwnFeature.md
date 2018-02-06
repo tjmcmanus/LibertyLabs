@@ -288,25 +288,21 @@ Test the feature with a secure application.
 
     1.  Open the server.xml configuration file by expanding the **LabBundleServer** in the Server view and double click **Server Configuration**. We will be modifying the configuration in Source view.
 
-    1.  Add the appSecurity-2.0 feature to the server.
+    1.  Add the **appSecurity-2.0** feature to the server.
 ~~~~
         <featureManager>
-
-        <feature>jsp-2.3</feature>
-
-        <feature>ejbLite-3.2</feature>
-
-        <feature>usr:LabFeature</feature>
-
-        <feature>localConnector-1.0</feature>
-
+           <feature>jsp-2.3</feature>
+           <feature>ejbLite-3.2</feature>
+           <feature>usr:LabFeature</feature>
+           <feature>localConnector-1.0</feature>
         <feature>appSecurity-2.0</feature>
-
         </featureManager>
 ~~~~
+
     Now that application security is being applied by the server, note that users cannot access the app until auth bindings have been configured.
 
-    1.  To configure the auth bindings for the application, replace the <enterpriseApplication> element values with the contents below in the server.xml.
+    1.  To configure the auth bindings for the application, replace the `<enterpriseApplication>` element values with the contents below in the server.xml.
+
 ~~~~
     <enterpriseApplication id="SecureEJBSample"
        location="SecureEJBSample.ear" name="SecureEJBSample">
@@ -381,22 +377,28 @@ Test the feature with a secure application.
 
 2.  Enhance Activator.java to accept the locations of users.props and groups.props from server.xml.
 
-    1.  Open LabBundle project’s Activator.java in Eclipse. Copy and paste the contents of `{LAB_HOME}labs\development\4_UserFeature\\Activator1.java into Activator.java`.
+    1.  Open LabBundle project’s Activator.java in Eclipse. Copy and paste the contents of `{LAB_HOME}labs\development\4_UserFeature\Activator1.java` into `Activator.java`.
 
-    **Note:** Just copy and replace the contents. Do not create a new file. Let’s review the changes.
+       **Note:** Just copy and replace the contents. Do not create a new file. Let’s review the changes.
 
     1.  The class definition has changed to also implement ManagedService as shown below.
-~~~~
-        public class Activator extends FileRegistrySample implements BundleActivator, ManagedService** {
-~~~~
-    1.  The class variables usersFile and groupsFile are no longer hardcoded with the locations of users.props and groups.props.
-~~~~
+
+     ~~~~
+
+     public class Activator extends FileRegistrySample implements BundleActivator, ManagedService** {
+
+     ~~~~
+
+    1. The class variables usersFile and groupsFile are no longer hardcoded with the locations of users.props and groups.props.
+
+        ~~~~
         usersFile = (String) properties.get(usersFileAttr);
 
         …
 
         groupsFile = (String) properties.get(groupsFileAttr);
-~~~~
+        ~~~~
+
     1.  The new variable CFG_PID holds the service *Persistent Identifier (PID)* used to register this feature as a *MangedService*.
 
         `private String CFG_PID = "customUserRegistry";`
@@ -420,12 +422,14 @@ Test the feature with a secure application.
     ![](./media/image47.png)
 
 1. Expand **LabBundleServer** in the Server view and double click **Server Configuration** to open the Server Configuration editor, then add the customUserRegistry configuration properties as show below to server.xml in the Source view.
-~~~~
+
+    ~~~~
     <customUserRegistry usersFile="${server.config.dir}/users.props"
 
     groupsFile="${server.config.dir}/groups.props" />
-~~~~
-    Note that this configuration element causes a validation error in the Server Configuration editor because the new element is not recognized. We will fix that in the next part of the lab but it can be safely ignored.
+    ~~~~
+
+    **Note** This configuration element causes a validation error in the Server Configuration editor because the new element is not recognized. We will fix that in the next part of the lab but it can be safely ignored.
 
 1.  Test the new security feature
 
@@ -475,7 +479,7 @@ We will change the sample to allow you to change a password in the sample file r
 
     1.  Copy the contents of `{LAB_HOME}labs\development\4_UserFeature\FileRegistrySample2.java` into `FileRegistrySample.java` in Eclipse. This changes the FileRegistrySample class to also implement the new MyRegistry interface, and adds the implementation of the changePassword method.
 
-    1.  *Optional:* Review the implementation of changePassword method. Note how it searches for the user from the registry, and updates the new password to the file.
+    1.  ***Optional:*** Review the implementation of changePassword method. Note how it searches for the user from the registry, and updates the new password to the file.
 
     1.  Save the file.
 
@@ -491,11 +495,11 @@ We will change the sample to allow you to change a password in the sample file r
 
         1.  In the start method, we are adding another service registration for the MyRegistry interface. The osgi.jndi.service.name property will tell the runtime to bind the registry to the global JNDI name myRegistry.
 
-~~~~
+            ~~~~
             registryProperties.put("osgi.jndi.service.name", "myRegistry");
 
             curRefMyRegistry = context.registerService( MyRegistry.class, registry,registryProperties);
-~~~~
+           ~~~~
         1. In the stop method, the service curRefMyRegistry is unregistered.
 
     1.  Save the file.
@@ -520,7 +524,7 @@ We will change the sample to allow you to change a password in the sample file r
 
         ![](./media/image57.png)
 
-    1.  Click the Add button in the IBM API Packages view of the Overview tab.
+    1.  Click the **Add** button in the IBM API Packages view of the Overview tab.
 
         ![](./media/image58.png)
 
@@ -604,7 +608,7 @@ We will change the sample to allow you to change a password in the sample file r
 
             And
 
-            `<keyStore password=*"{xor}Mz49Dz4sLCgwLTs="*></keyStore>`
+            `<keyStore password="{xor}Mz49Dz4sLCgwLTs="></keyStore>`
 
             The key store password is the encoded form of **labPassword**.
 
@@ -628,11 +632,11 @@ We will change the sample to allow you to change a password in the sample file r
 
     1.  Test password change.
 
-        1.  Close all browser windows. In a new browser window, point your browser to: <https://localhost:9443/SecureEJBSample/password.jsp>.
+        1.  Close all browser windows. In a new browser window, point your browser to: <https://localhost:9443/SecureEJBSample/password.jsp>
 
         1. Accept security exceptions in the browser
 
-        1. Login with **User Name** user1 and **Password** user1pwd. You should see the password.jsp rendered for user1.
+        1. Login with User Name **user1** and Password **user1pwd**. You should see the password.jsp rendered for user1.
 
             ![](./media/image74.png)
 
@@ -646,7 +650,7 @@ We will change the sample to allow you to change a password in the sample file r
 
         1. Close all browser windows and login again with the new password.
 
-        1. Optional: to avoid forgetting your new password the next time you login, change the password back to user1pwd.
+        1. **Optional:** to avoid forgetting your new password the next time you login, change the password back to **user1pwd**.
 
 
 
@@ -691,19 +695,18 @@ The WDT configuration editor recognizes some extensions to the OSGi metatype spe
 ~~~~
         <metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.1.0" xmlns:ibm="http://www.ibm.com/xmlns/appservers/osgi/metatype/v1.0.0">
 ~~~~
-1.  Add **ibm:type=”location”** to the end of the **<AD>** elements as demonstrated below.
-~~~~
-        <AD name=*"usersFile"* description=*"User file location"* id=*"usersFile"*
+1.  Add **ibm:type=”location”** to the end of the **`<AD>`** elements as demonstrated below.
 
-        type=*"String"* default=*""* **ibm:type=*"location"*** />
+        ~~~~
+        <AD name="usersFile" description="User file location" id="usersFile" type="String" default="" ibm:type="location" />
 
-        <AD name=*"groupsFile"* description=*"Group file location"* id=*"groupsFile"*
+        <AD name="groupsFile" description="Group file location" id="groupsFile" type="String"* default="" ibm:type="location" />
 
-        type=*"String"* default=*""* **ibm:type=*"location"*** />
-~~~~
-1.  These changes will allow users to browse for the user and group files in the Liberty server configuration editor (seen in step 6).
+        ~~~~
 
-        ![](./media/image82.png)
+1.  These changes will allow users to browse for the user and group files in the Liberty server configuration editor *(seen in step 6)*.
+
+      ![](./media/image82.png)
 
 1.  Update the installed feature
 
@@ -715,33 +718,32 @@ The WDT configuration editor recognizes some extensions to the OSGi metatype spe
 
 1. Confirm that **LabBundleConfig** can be edited in the Design view of the server configuration editor.
 
-    1.  Expand **LabBundleServer** in the Server view and double click **Server Configuration** to open server.xml in the server configuration editor. You should already have **LabBundleConfig** configured from previous lab steps. If not, create it as follows:
+    1. Expand **LabBundleServer** in the Server view and double click **Server Configuration** to open `server.xml` in the server configuration editor. You should already have **LabBundleConfig** configured from previous lab steps. If not, create it as follows:
 
-        1.  In the Configuration Structure view, click **Server Configuration**, then click **Add**.
+    1. In the Configuration Structure view, click **Server Configuration**, then click **Add**.
+   ![](./media/image83.png)
 
-            ![](./media/image83.png)
+    1. In the Add Element window search for lab and select **LabBundleConfig** from the list, then click **OK**.
 
-        1. In the Add Element window search for lab and select **LabBundleConfig** from the list, then click **OK**.
+      ![](./media/image84.png)
 
-            ![](./media/image84.png)
+    1. With **LabBundleConfig** selected in the Configuration Structure view of the editor, enter the **${server.config.dir}/users.props** for **usersFile** and **${server.config.dir}/groups.props** for **groupsFile** in the LabBundleConfig view.
 
-        1. With **LabBundleConfig** selected in the Configuration Structure view of the editor, enter the **${server.config.dir}/users.props** for **usersFile** and **${server.config.dir}/groups.props** for **groupsFile** in the LabBundleConfig view.
+      ![](./media/image85.png)
 
-            ![](./media/image85.png)
+    If you had chosen to complete the addition of IBM Extensions in step 4 above, you may also browse for the file location using path variables.
 
-        If you had chosen to complete the addition of IBM Extensions in step 4 above, you may also browse for the file location using path variables.
+        1.  With **LabBundleConfig** selected in the Configuration Structure view of the editor, click the **Browse** button next to the **usersFile** field in the LabBundleConfig view.
 
-            1.  With **LabBundleConfig** selected in the Configuration Structure view of the editor, click the **Browse** button next to the **usersFile** field in the LabBundleConfig view.
+           ![](./media/image86.png)
 
-                ![](./media/image86.png)
+        1.  In the Browse for Location window, select server.config.dir from the path variable list and select users.props from the path navigation view, then click **OK**.
 
-            2.  In the Browse for Location window, select server.config.dir from the path variable list and select users.props from the path navigation view, then click **OK**.
+            ![](./media/image87.png)
 
-                ![](./media/image87.png)
+        1.  Repeat the procedure for the **groupsFile** field and select the groups.props file.
 
-            3.  Repeat the procedure for the **groupsFile** field and select the groups.props file.
-
-                ![](./media/image88.png)
+            ![](./media/image88.png)
 
     1.  Switch to the **Source** tab and review the added XML.
 
@@ -763,11 +765,11 @@ The WDT configuration editor recognizes some extensions to the OSGi metatype spe
 
     1.  You can review the user.props file for other users.
 
-Note that if you need to modify the application and re-test, browser sessions from previous test may still be active or not invalidated. Use another browser not built into Eclipse. Close all browser windows then reopen and copy and paste the URL from the console log in WDT.
+**Note** If you need to modify the application and re-test, browser sessions from previous test may still be active or not invalidated. Use another browser not built into Eclipse. Close all browser windows then reopen and copy and paste the URL from the console log in WDT.
 
-Note that you can update the configuration properties while the server is running. The new values are injected into the feature and the registry is reinitialized with the new values without any need to restart the server.
+**Note** You can update the configuration properties while the server is running. The new values are injected into the feature and the registry is reinitialized with the new values without any need to restart the server.
 
-Note the schemas for feature and configuration descriptions can be generated using commands in `{LAB_HOME}/wlp/bin/tools`. Check the WebSphere Knowledge Center on **ws-schemagen.jar** for details.
+**Note** The schemas for feature and configuration descriptions can be generated using commands in `{LAB_HOME}/wlp/bin/tools`. Check the WebSphere Knowledge Center on **ws-schemagen.jar** for details.
 
 This concludes the Liberty Extension Lab.
 

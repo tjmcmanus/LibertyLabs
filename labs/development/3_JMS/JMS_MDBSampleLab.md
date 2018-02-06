@@ -223,27 +223,27 @@ In this section we will create a new web project called **JMSSample** to deploy 
 
 1.  Test point to point messaging by pointing your browser to the following URLs:
 
-    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=sendAndReceive`
+    1.  <http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=sendAndReceive>
 
-    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=sendMessage`
+    1.  <http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=sendMessage>
 
-    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=receiveAllMessages`
+    1.  <http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=receiveAllMessages>
 
-    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=receiveAllMessagesSelectors`
+    1.  <http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=receiveAllMessagesSelectors>
 
-    1.  `http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=mdbRequestResponse`
+    1.  <http://localhost:9124/JMSSample/JMSSampleP2P?ACTION=mdbRequestResponse>
 
         ![](./media/image18.png)
 
 1.  Test pub sub by pointing your browser to:
 
-    1.  `http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=nonDurableSubscriber`
+    1.  <http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=nonDurableSubscriber>
 
-    1.  `http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=durableSubscriber`
+    1. <http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=durableSubscriber>
 
-    1.  `http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=publishMessages`
+    1. <http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=publishMessages>
 
-    1.  `http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=unsubscribeDurableSubscriber`
+    1.  <http://localhost:9124/JMSSample/JMSSamplePubSub?ACTION=unsubscribeDurableSubscriber>
 
      ![](./media/image19.png)
 

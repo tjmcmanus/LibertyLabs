@@ -27,7 +27,7 @@ Unzip the .zip file appropriate from your platform from USB drive to your comput
 ## Install Mac prerequisites
 
 1.  Mac: Download and install the JRE from Oracle's website:
-    `http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html`
+    <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>
 
 ## Install Linux prerequisites
 
@@ -149,7 +149,7 @@ In this section you will use the Eclipse Servers view to create a Liberty server
 
 For the cloud labs, IBM Cloud is used for the hosting environment. If you already have an IBM Cloud account, you may skip this part. Your  30-day Cloud trial is free, with no credit card required. You get  access to 2 GB of runtime and container memory to run apps, unlimited IBM services and APIs.
 
-1.  To begin, visit https://bluemix.net/ (redirects to
+1.  To begin, visit <https://bluemix.net/> (redirects to
     console.bluemix.net) and select the **Create a free account** link.
     If you don't see a sign-up link, you should already be logged in,
     though you will need to know your login and password for later
@@ -219,11 +219,11 @@ As a IBM Cloud user, you might want to use an API key when you enable a program 
 
 You can use the command line interface to deploy and modify applications and service instances.
 
-https://console.bluemix.net/docs/cli/index.html#cli
+<https://console.bluemix.net/docs/cli/index.html#cli>
 
 For these labs, Download the IBM Cloud CLI interface (bx.
 
-https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started
+<https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started>
 
 Once installed, executing **bx** should result in:
 `

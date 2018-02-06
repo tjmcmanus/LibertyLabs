@@ -256,7 +256,7 @@ Complete the Getting Started lab to set up the lab environment, including JRE, a
 
         ![](./media/image37.png)
 
-    1.  Go to the Console view and click the web application hyperlink http://localhost:9080/LabWeb
+    1.  Go to the Console view and click the web application hyperlink <http://localhost:9080/LabWeb>
 
  >**Note: The server might run on port 9580 instead of 9080.**
 
@@ -350,7 +350,7 @@ Complete the Getting Started lab to set up the lab environment, including JRE, a
 
     1.  Start a new browser outside of eclipse
 
-    1.  Point your browser to: `<http://localhost:9080/LabWeb/>`
+    1.  Point your browser to: <http://localhost:9080/LabWeb/>
 
     1.  Accept the certificate
 
