@@ -455,7 +455,6 @@ For the server side, open `wasdev.sample.jaxws.web.wsfeatures.ImageServiceImpl.j
 1. Open `wasdev.sample.jaxws.web.wsfeatures.MessageInfoHandler.java`, and note that for incoming request, it retrieves all the HTTP headers and places them on the message context.
 
 ## Cleanup
--------
 
 1.  Stop the server **JAXWSServer** from Eclipse.
 
