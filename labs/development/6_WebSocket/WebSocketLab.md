@@ -106,15 +106,15 @@ Double click index.html to bring it up in the editor. Note that it contains link
  <p />
     Links to access different WebSocket sample applications:
  <p />
-    <a href=*"./Annotated.html"*>Annotated defined endpoint</a>
+    <a href="./Annotated.html">Annotated defined endpoint</a>
  <p />
-    <a href=*"./DecodeEncode.html"*>Annotated defined endpoint that also uses an application defined WebSocket Decoder and Encoder</a>
+    <a href="./DecodeEncode.html">Annotated defined endpoint that also uses an application defined WebSocket Decoder and Encoder</a>
  <p />
-    <a href=*"./EndpointExtended.html"*>An endpoint Defined by extending the WebSocket Endpoint class</a>
+    <a href="./EndpointExtended.html">An endpoint Defined by extending the WebSocket Endpoint class</a>
  <p />
-    <a href=*"./Listener.html"*>An endpoint defined by configuring a Servlet listener that demonstrates a WebSocket ping and pong</a>
+    <a href="./Listener.html">An endpoint defined by configuring a Servlet listener that demonstrates a WebSocket ping and pong</a>
  <p />
-    <a href=*"./PathParamEndpoint.html"*>Annotated Defined Endpoints that also use @PathParam annotation support</a>
+    <a href="./PathParamEndpoint.html">Annotated Defined Endpoints that also use @PathParam annotation support</a>
 </body>
 
 </html>
@@ -196,7 +196,7 @@ Note that:
 
     1.  The are several callbacks defined for the WebSocket protocol:
 
-        1.  onError: for displaying any error message.
+        1. onError: for displaying any error message.
 
         1. onOpen: to display a message when the WebSocket is opened. This is done during initialization of the page.
 
@@ -800,7 +800,7 @@ public String echoText(String message,
 
 ![](./media/image16.png)
 
-## Notices
+# Notices
 
 This information was developed for products and services offered in the U.S.A.
 
