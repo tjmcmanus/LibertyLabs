@@ -40,15 +40,15 @@ The following preparation must be completed prior to beginning this lab:
 
     ![](./media/image3.png)
 
-2.  Click **Browse** on the WAR Import view.
+1.  Click **Browse** on the WAR Import view.
 
-   ![](./media/image4.png)
+    ![](./media/image4.png)
 
-3.  Use the Open dialog to locate the `{LAB_HOME}\labs\development\7_JAXWS\ JAXWSWebSample.war` file and click **Open**.
+1.  Use the Open dialog to locate the `{LAB_HOME}\labs\development\7_JAXWS\ JAXWSWebSample.war` file and click **Open**.
 
     ![](./media/image5.png)
 
-4.  Clear the **Add project to an EAR** checkbox, and verify the **Target runtime** is set to **WebSphere Application Server Liberty**, and click **Finish**.
+1.  Clear the **Add project to an EAR** checkbox, and verify the **Target runtime** is set to **WebSphere Application Server Liberty**, and click **Finish**.
 
     ![](./media/image6.png)
 
@@ -62,15 +62,15 @@ The following preparation must be completed prior to beginning this lab:
 
     ![](./media/image8.png)
 
-2.  Expand **JAXWSServer** in the Server view and double click **Server Configuration**. Inspect server.xml and ensure the `jaxws-2.2` feature has been added automatically by WDT.
+1.  Expand **JAXWSServer** in the Server view and double click **Server Configuration**. Inspect server.xml and ensure the `jaxws-2.2` feature has been added automatically by WDT.
 
     ![](./media/image9.png)
 
-3.  After the server starts running, Eclipse may automatically bring up a browser for you to interact with the application. You may also start your browser and go to the URL location.
+1.  After the server starts running, Eclipse may automatically bring up a browser for you to interact with the application. You may also start your browser and go to the URL location.
 
  <http://localhost:9080/JAXWSWebSample/>.
 
-4.  Interact with each of the seven scenarios per instructions provided on the web page.
+1.  Interact with each of the seven scenarios per instructions provided on the web page.
 
     ![](./media/image10.png)
 
