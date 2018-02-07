@@ -1,4 +1,4 @@
-#JAXWS Web Service
+# JAXWS Web Service
 
 In this lab we will learn how to use JAXWS web service via a sample application demonstrating seven different patterns:
 
