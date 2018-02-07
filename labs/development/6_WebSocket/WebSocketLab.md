@@ -94,15 +94,10 @@ Double click index.html to bring it up in the editor. Note that it contains link
 <!DOCTYPE html>
 
 <html>
-
 <head>
-
    <title>WebSocket Samples</title>
-
 </head>
-
 <body>
-
  <p />
     Links to access different WebSocket sample applications:
  <p />
@@ -206,88 +201,87 @@ Note that:
 
 ### AnnotatedEndpoint.java
 
-In the Enterprise Explorer view, navigate to **WebsocketApp > Java Resrouces > src> wasdev.sample.websocket.annotated > AnnotatedEndpoint.java**
+1. In the Enterprise Explorer view, navigate to **WebsocketApp > Java Resrouces > src> wasdev.sample.websocket.annotated > AnnotatedEndpoint.java**
 
-![](./media/image13.png)
+  ![](./media/image13.png)
 
-Double click AnnotatedEndpoint.java to bring it up in the editor.
-~~~~
-package wasdev.sample.websocket.annotated;
-import java.io.IOException;
-import javax.websocket.CloseReason;
-import javax.websocket.EndpointConfig;
-import javax.websocket.OnClose;
-import javax.websocket.OnError;
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
-import javax.websocket.server.ServerEndpoint;
+1. Double click AnnotatedEndpoint.java to bring it up in the editor.
+   ~~~~
+   package wasdev.sample.websocket.annotated;
+   import java.io.IOException;
+   import javax.websocket.CloseReason;
+   import javax.websocket.EndpointConfig;
+   import javax.websocket.OnClose;
+   import javax.websocket.OnError;
+   import javax.websocket.OnMessage;
+   import javax.websocket.OnOpen;
+   import javax.websocket.Session;
+   import javax.websocket.server.ServerEndpoint;
 
-/* The ServerEndpoint annotation value is the name of the WebSocket Endpoint for this application/endpoint. JavaScript to access from a WebSocket capable browser would be: ws://<Host Name>:<port>/<Context-Root>/SimpleAnnotated */
+   /* The ServerEndpoint annotation value is the name of the WebSocket Endpoint for this application/endpoint. JavaScript to access from a WebSocket capable browser would be: ws://<Host Name>:<port>/<Context-Root>/SimpleAnnotated */
 
-@ServerEndpoint(value = "/SimpleAnnotated")
+   @ServerEndpoint(value = "/SimpleAnnotated")
 
-public class AnnotatedEndpoint {
+   public class AnnotatedEndpoint {
 
-   Session currentSession = null;
+      Session currentSession = null;
 
-   int count = 0;
+      int count = 0;
 
-    /* OnOpen will get called by WebSockets when the connection has been established successfully using WebSocket handshaking with the HTTP Request - Response processing. */
+       /* OnOpen will get called by WebSockets when the connection has been established successfully using WebSocket handshaking with the HTTP Request - Response processing. */
 
-    @OnOpen
-    public void  onOpen(Session session, EndpointConfig ec) {
+       @OnOpen
+       public void  onOpen(Session session, EndpointConfig ec) {
 
-    // Store the WebSocket session for later use.
+       // Store the WebSocket session for later use.
 
-     currentSession = session;
-   }
+        currentSession = session;
+      }
 
- /* Using the OnMessage annotation for this method will cause this method to get called by WebSockets when this connection has received a WebSocket message from the other side of the connection. The message is derived from the WebSocket frame payloads of one, and only one, WebSocket message. */
+    /* Using the OnMessage annotation for this method will cause this method to get called by WebSockets when this connection has received a WebSocket message from the other side of the connection. The message is derived from the WebSocket frame payloads of one, and only one, WebSocket message. */
 
- @OnMessage
- public void receiveMessage(String message) {
+    @OnMessage
+    public void receiveMessage(String message) {
 
-    try {
-       count++;
-       if (message.toLowerCase().equals("stop")) {
-        // send a WebSocket message back to the other endpoint that says we will stop.
-        currentSession.getBasicRemote().sendText("OK. I will stop.");
-        // Sleep to let the other side get the message before stopping - a bit kludgy, but this is just a sample!
+       try {
+          count++;
+          if (message.toLowerCase().equals("stop")) {
+           // send a WebSocket message back to the other endpoint that says we will stop.
+           currentSession.getBasicRemote().sendText("OK. I will stop.");
+           // Sleep to let the other side get the message before stopping - a bit kludgy, but this is just a sample!
 
-        try {
-           Thread.sleep(1000);
-           } catch (InterruptedException e) {
-            }
-             currentSession.close();
-             } else {
-                /* send the message back to the other side with the iteration count. Notice we can send multiple message without having to receive messages in between.*/
-                currentSession.getBasicRemote().sendText("From: " + this.getClass().getSimpleName() + " Iteration count: " + count);
-                currentSession.getBasicRemote().sendText(message);
+           try {
+              Thread.sleep(1000);
+              } catch (InterruptedException e) {
                }
-            } catch (IOException ex) {
-              // no error processing will be done for this sample
+                currentSession.close();
+                } else {
+                   /* send the message back to the other side with the iteration count. Notice we can send multiple message without having to receive messages in between.*/
+                   currentSession.getBasicRemote().sendText("From: " + this.getClass().getSimpleName() + " Iteration count: " + count);
+                   currentSession.getBasicRemote().sendText(message);
+                  }
+               } catch (IOException ex) {
+                 // no error processing will be done for this sample
+                }
              }
-          }
-   // Using the OnClose annotation will cause this method to be called when the WebSocket Session is being closed.
+      // Using the OnClose annotation will cause this method to be called when the WebSocket Session is being closed.
 
-   @OnClose
-   public void onClose(Session session, CloseReason reason) {
-     // no clean up is needed here for this sample
-   }
+      @OnClose
+      public void onClose(Session session, CloseReason reason) {
+        // no clean up is needed here for this sample
+      }
 
-   /* Using the OnError annotation will cause this method to be called when the WebSocket Session has an error to report. For the Alpha version of the WebSocket implemention on Liberty, this will not be called on error conditions. */
+      /* Using the OnError annotation will cause this method to be called when the WebSocket Session has an error to report. For the Alpha version of the WebSocket implemention on Liberty, this will not be called on error conditions. */
 
-   @OnError
-   public void onError(Throwable t) {
-     // no error processing will be done for this sample
-   }
- }
+      @OnError
+      public void onError(Throwable t) {
+        // no error processing will be done for this sample
+      }
+    }
 
- ~~~~
+    ~~~~
 
 Note that:
-
 1.  The `@ServerEndpoint` annotation defines the URI for this endpoint, which is `ws://<host>:<port>/<context-root>/SimpleAnnotated.`
 
 1.  The onOpen() method is called when a new session is established.
@@ -458,61 +452,59 @@ public class DecoderOne implements Decoder.Text<FormatIn> {
 
 ### EncodeOne.java
 
-Open EncodeOne.java in the editor. Note that it is a very simple encoder that transforms vowels to numbers:
+1. Open EncodeOne.java in the editor. Note that it is a very simple encoder that transforms vowels to numbers:
 
--   A to 4
--   E to 3
--   I to 1
--   O to 0
--   U to 6
-~~~~
+  - A to 4
+  - E to 3
+  - I to 1
+  - O to 0
+  - U to 6
 
-package wasdev.sample.websocket.coders;
+   ~~~~
+   package wasdev.sample.websocket.coders;
 
-import javax.websocket.EncodeException;
-import javax.websocket.Encoder;
-import javax.websocket.EndpointConfig;
+   import javax.websocket.EncodeException;
+   import javax.websocket.Encoder;
+   import javax.websocket.EndpointConfig;
 
-// This is coded to be a Text type encoder, and it will encode outgoing Strings that we sent using the sendObject method.
+   // This is coded to be a Text type encoder, and it will encode outgoing Strings that we sent using the sendObject method.
 
-public class EncoderOne implements Encoder.Text<String> {
+   public class EncoderOne implements Encoder.Text<String> {
 
-  @Override
-  public void destroy() {
-   }
-
-   @Override
-   public void init(EndpointConfig arg0) {
-   }
-
-   @Override
-   public String encode(String s) throws EncodeException {
-     // encoding will be to replace the upper case vowels with numbers.
-     // A = 4, E = 3, I = 1, O = 0, and U = 6.
-     String output = null;
-     if (s == null) {
-       return "";
+     @Override
+     public void destroy() {
       }
 
-      output = s.replace("A", "4");
-      output = output.replace("E", "3");
-      output = output.replace("I", "1");
-      output = output.replace("O", "0");
-      output = output.replace("U", "6");
+      @Override
+      public void init(EndpointConfig arg0) {
+      }
 
-      return output;
-    }
-  }
+      @Override
+      public String encode(String s) throws EncodeException {
+        // encoding will be to replace the upper case vowels with numbers.
+        // A = 4, E = 3, I = 1, O = 0, and U = 6.
+        String output = null;
+        if (s == null) {
+          return "";
+         }
 
-~~~~
+         output = s.replace("A", "4");
+         output = output.replace("E", "3");
+         output = output.replace("I", "1");
+         output = output.replace("O", "0");
+         output = output.replace("U", "6");
 
-Re-run the sample using these variations for input text:
+         return output;
+       }
+     }
 
--   Lower case input should be converted to upper case
+   ~~~~
 
--   The vowels *AEIOU* should be converted to their numeric equivalent.
+1. Re-run the sample using these variations for input text:
+   - Lower case input should be converted to upper case
+   - The vowels *AEIOU* should be converted to their numeric equivalent.
 
-![](./media/image14.png)
+   ![](./media/image14.png)
 
 ### Extended Endpoint Pattern
 
