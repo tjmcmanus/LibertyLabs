@@ -68,7 +68,7 @@ The following preparation must be completed prior to beginning this lab:
 
 1.  After the server starts running, Eclipse may automatically bring up a browser for you to interact with the application. You may also start your browser and go to the URL location.
 
- <http://localhost:9080/JAXWSWebSample/>.
+    <http://localhost:9080/JAXWSWebSample/>
 
 1.  Interact with each of the seven scenarios per instructions provided on the web page.
 
@@ -86,9 +86,9 @@ The index.jsp is the main entry point to the sample application. In the Enterpri
 ### WebService stub client
 
 1. Open `simple_webservice_sample.jsp` and note how it displays the instructions for the demo in the .jsp, and then routes the request to SimpleStubClientServlet:
-~~~~
-<form action="<%=request.getContextPath()%>/SimpleStubClientServlet"> target='_self' method='POST'>
-~~~~
+   ~~~~
+   <form action="<%=request.getContextPath()%>/SimpleStubClientServlet"> target='_self' method='POST'>
+   ~~~~
 
 1. Open `wasdev.sample.jaxws.web.simple.client.SimpleStubClientServlet.java` and examine its contents. Note how it respond to the servlet path /SimpleStubClientServlet, invokes the web service via SimpleEcho stub, and forwards the results back to `simple_websiervice_sample.jsp`.
 
@@ -119,9 +119,9 @@ The index.jsp is the main entry point to the sample application. In the Enterpri
 ### WebService dynamic client
 
 1. Open `simple_webserviceprovider_sample.jsp` and note how it displays the instructions for the demo in the `.jsp`, and then routes the request to SimpleDynamicClientServlet:
-~~~~
-<form action="<%=request.getContextPath()%>/SimpleDynamicClient" target='_self' method='POST'>
-~~~~
+   ~~~~
+   <form action="<%=request.getContextPath()%>/SimpleDynamicClient" target='_self' method='POST'>
+   ~~~~
 1. Open `wasdev.sample.jaxws.web.simple.client.SimpleDynamicClientServlet.java`, and note how it uses a MessageFactory to dynamically create a message, and the Service class to create a web service client reference. No actual Java client interface is required.
 
 3. Examine the file `wasdev.sample.jaxws.web.simple.SimpleEchoProvider.java`, which is the server side implementation of the service. Note how it uses the MessageFactory to retrieve the message and process the message. No actual Java interface is needed.
@@ -129,46 +129,46 @@ The index.jsp is the main entry point to the sample application. In the Enterpri
 ### POJO based endpoint
 
 1. Open `webxml_sample.jsp` and note how it displays the instructions for the demo in the `.jsp`, and then routes the request  to /simpleHelloWorldWebXmLClientServlet:
-~~~~
-<form action="<%=request.getContextPath()%>/SimpleHelloWorldWebXmlClientServlet" target='_self' method='POST'>
-~~~~
+   ~~~~
+   <form action="<%=request.getContextPath()%>/SimpleHelloWorldWebXmlClientServlet" target='_self' method='POST'>
+   ~~~~
 
 1. Open `wasdev.sample.jaxws.web.webxml.client.SimpleHelloWorldWebXmlClientServlet`, and note how it demonstrates using four different ways to get a web service client:
 
-1.  Declaring a variable of the type Service with the `@WebServiceRef` annotation that maps it to the SimpleHelloWorldWebXmlService class.
+1. Declaring a variable of the type Service with the `@WebServiceRef` annotation that maps it to the SimpleHelloWorldWebXmlService class.
     ~~~~
     @WebServiceRef(value = SimpleHelloWorldWebXmlService.class)
 
     private Service service;
     ~~~~
 
-1.  Declaring a variable of the type SimpleHelloWorldWebXmlService with the `@WebServiceRef` annotation.
+1. Declaring a variable of the type SimpleHelloWorldWebXmlService with the `@WebServiceRef` annotation.
     ~~~~
     @WebServiceRef
 
     private SimpleHelloWorldWebXmlService simpleHelloWorldWebXmlService;
     ~~~~
 
-1.  Declaring a variable of the web service interface type SimpleHelloWorldWebXml, with the `@WebServiceRef` annotation that maps it to the SimpleHelloWorldWebXmlService class.
+1. Declaring a variable of the web service interface type SimpleHelloWorldWebXml, with the `@WebServiceRef` annotation that maps it to the SimpleHelloWorldWebXmlService class.
     ~~~~
     @WebServiceRef(value = SimpleHelloWorldWebXmlService.class)
 
     private SimpleHelloWorldWebXml simpleHelloWorldWebXml;
     ~~~~
-1.  Declaring a variable of the type SimpleHelloWorldWebXmlService with the `@Resource` annotation.
+1. Declaring a variable of the type SimpleHelloWorldWebXmlService with the `@Resource` annotation.
     ~~~~
     @Resource
     private SimpleHelloWorldWebXmlService simpleHelloWorldWebXmlService2;
     ~~~~
 
 1. Open `wasdev.sample.jaxws.web.webxml.client.SimpleHelloWorldWebXmlService`, the implementation of the client service. Note the `@WebServiceClient` annotation:
-  ~~~~
-  @WebServiceClient(name = "SimpleHelloWorldWebXmlService", targetNamespace = "http://webxml.web.jaxws.sample.wasdev/",  wsdlLocation = "WEB-INF/wsdl/SimpleHelloWorldWebXmlService.wsdl")
-  ~~~~
+   ~~~~
+   @WebServiceClient(name = "SimpleHelloWorldWebXmlService", targetNamespace = "http://webxml.web.jaxws.sample.wasdev/",  wsdlLocation = "WEB-INF/wsdl/SimpleHelloWorldWebXmlService.wsdl")
+   ~~~~
 **Note** The web service client is connecting to the path /CustomizedHelloworld:
-~~~~
-url = new URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/CustomizedHelloWorld?wsdl");
-~~~~
+   ~~~~
+   url = new URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/CustomizedHelloWorld?wsdl");
+   ~~~~
 1. Open `web.xml` and note that /CustomizedHelloWorld is mapped to a servlet SimpleHelloWorld:
 
   ~~~~
@@ -204,7 +204,7 @@ url = new URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/CustomizedHelloWo
   private RouteTracker routeTracker;
   ~~~~
 1. Open `wasdev.sample.jaxws.web.handler.client.handler-client.xml`, and note that it declares two handlers:
-~~~~
+  ~~~~
   <handler-chain>
      <handler>
      <handler-name>LogicalHandler</handler-name>
@@ -224,15 +224,15 @@ url = new URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/CustomizedHelloWo
    </handler>
 
   </handler-chain>
-~~~~
+  ~~~~
 1. Open `wasdev.sample.jaxws.web.handler.client.TestClientLogicalHandler` and note that it contains a minimal implementation of a LogicalHandler.
 
 1. Open `wasdev.sample.jaxws.web.handler.client.TestClienSOAPHandler` and note that it contains a minimal implementation of a SOAPHandler.
 
 1. Open `wasdev.sample.jaxws.web.handler.client.RouteTrackerService` and note that points to the RouteTrackerService server side implementation:
-~~~~
-url = **new** URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/RouteTrackerService?wsdl");
-~~~~
+   ~~~~
+   url = **new** URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/RouteTrackerService?wsdl");
+   ~~~~
 1. Open `wasdev.sample.jaxws.web.handler.RouteTracker` and note it implements the RouteTracker service, and uses handler chain defined in handler-test.xml:
   ~~~~
   @WebService(name = "RouteTracker", serviceName = "RouteTrackerService", portName = "RouteTrackerPort", targetNamespace = "http://web.jaxws.sample.wasdev/")
@@ -277,9 +277,9 @@ After you submit the query for this scenario in the browser, check the Console v
 ### Web Service message context
 
 1. Open `webservicecontext_sample.jsp` and note how it displays the instructions for the demo in the .jsp, and then routes the request to /WebServiceContextServlet:
-~~~~
-<form action="<%=request.getContextPath()%>/WebServiceContextServlet"  target='_self' method='POST'>
-~~~~
+   ~~~~
+   <form action="<%=request.getContextPath()%>/WebServiceContextServlet"  target='_self' method='POST'>
+   ~~~~
 1. Open `wasdev.sample.jaxws.web.webservicecontext.client.WebServiceContextServlet`, and note that it defines a variable of type WebServiceContextQueryService with the `@WebServiceRef` annotation, and it calls the query method on the web service to get a string:
   ~~~~
   @WebServiceRef(value = WebServiceContextQueryService.class)
@@ -300,9 +300,9 @@ After you submit the query for this scenario in the browser, check the Console v
   }
   ~~~~
 1. Open `wasdev.sample.jaxws.web.webservicecontext.client.WebServiceContextQueryService`, and note that it connects to a URL path at /WebserviceContextQueryService:
-~~~~
-url = **new** URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/WebServiceContextQueryService?wsdl");
-~~~~
+   ~~~~
+   url = **new** URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/WebServiceContextQueryService?wsdl");
+   ~~~~
 1. Open `wasdev.sample.jaxws.web.webservicecontext.client.WebServiceContextQuery.java`, the service interface, and note that it is defined as a web service with one method query.
 
 1. Open `wasdev.sample.jaxws.web.webservicecontext.WebServiceContextQuery.java`, and note that it simply returns all the properties in the MessageContext as a string.
@@ -310,9 +310,9 @@ url = **new** URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/WebServiceCon
 ### Catalog
 
 1. Open `catalog_sample.jsp` and note how it displays the instructions for the demo in the `.jsp`, and then routes the request to /CatalogclientServlet:
-~~~~
-<form action="<%=request.getContextPath()%>/CatalogClientServlet" target='_self' method='POST'>
-~~~~
+   ~~~~
+   <form action="<%=request.getContextPath()%>/CatalogClientServlet" target='_self' method='POST'>
+   ~~~~
 1. Open `wasdev.sample.jaxws.web.catalog.client.CatalogServlet.java`, and note that it defines a variable calculatorPortTypes with the `@WebServiceRef` annotation mapping to the service endpoint interface Calculator:
   ~~~~
   @WebServiceRef(value = Calculator.**class**)
@@ -417,20 +417,20 @@ Double check that `WEB-INF/wsdl/calculator.wsdl` exists.
   ~~~~
 
 1. Open `wsfeatures_sample.jsp` and note how it displays the instructions for the demo in the `.jsp`, and then routes the request to /ImageClientServlet:
-~~~~
-<form action="<%=request.getContextPath()%>/ImageClientServlet"target='_self' method='POST'>
-~~~~
-Open `wasdev.sample.jaxws.web.wsfeatures.client.ImageClientServlet.java`, and note that it defines a variable called ***MOCK_IMAGE_BYTES*** that contains the bytes to be transmitted. It also defines two `@WebServiceRef`, where mtomEnabledImageService transmits the image with MTOM enabled via `@MTOM` annotation, while mtomDisabledImageService transmits the image with MTOM disabled:
-~~~~
-private static final byte[] MOCK_IMAGE_BYTES = { 0, 1, 2, 3 };
+   ~~~~
+   <form action="<%=request.getContextPath()%>/ImageClientServlet"target='_self' method='POST'>
+   ~~~~
+1. Open `wasdev.sample.jaxws.web.wsfeatures.client.ImageClientServlet.java`, and note that it defines a variable called ***MOCK_IMAGE_BYTES*** that contains the bytes to be transmitted. It also defines two `@WebServiceRef`, where mtomEnabledImageService transmits the image with MTOM enabled via `@MTOM` annotation, while mtomDisabledImageService transmits the image with MTOM disabled:
+   ~~~~
+   private static final byte[] MOCK_IMAGE_BYTES = { 0, 1, 2, 3 };
 
-@MTOM
-@WebServiceRef(value = ImageServiceImplService.class)
-   private ImageServiceImpl mtomEnabledImageService;
+   @MTOM
+   @WebServiceRef(value = ImageServiceImplService.class)
+      private ImageServiceImpl mtomEnabledImageService;
 
-@WebServiceRef(value = ImageServiceImplService.class)
-  private ImageServiceImpl mtomDisabledImageService;
-~~~~
+   @WebServiceRef(value = ImageServiceImplService.class)
+     private ImageServiceImpl mtomDisabledImageService;
+   ~~~~
 1. Open `wasdev.sample.jaxws.web.wsfeatures.client.ImageServiceImplService.java`, and note that it defines a web service client, with URL to access the server.
 
 1. Open `wasdev.sample.jaxws.web.wsfeatures.client.ImageServiceImpl.java`, and note that it defines a web service endpoint with a single method to upload an array of bytes, and to receive an array of bytes in return:
