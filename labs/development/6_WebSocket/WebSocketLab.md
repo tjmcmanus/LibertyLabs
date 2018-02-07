@@ -396,12 +396,11 @@ public class  DecodeEncode {
 Note that:
 
 1.  The @ServerEndpoint annotation defines the URl that ends in /Decodeencode, and also the decoder and encoder classes.
-
    ~~~~
    @ServerEndpoint(value = "/DecodeEncode",
       decoders = { wasdev.sample.websocket.coders.DecoderOne.class },
      encoders = { wasdev.sample.websocket.coders.EncoderOne.class })
-    ~~~~
+   ~~~~
 
 1.  The `@OnMessage` annotation is applied to the `decodeTextSendBackEncodedText()` method to process the message from the client. The input parameter decodeObject is of type FormatIn, which is the type of the decoded message after the decoder DecoderOne decodes the input message.
 
