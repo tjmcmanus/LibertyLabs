@@ -141,24 +141,24 @@ Open the file Annotated.html in the editor. Review the source code:
     <br />Type 'stop' to tell the server application to close down the session.
   <p />
   <div>
-     <input id=*"inputmessage"* type=*"text"* />
+     <input id="inputmessage" type="text" />
   </div>
   <div>
-     <input type=*"submit"* value=*"Send Message"* onclick="send()" />
+     <input type="submit" value="Send Message"* onclick="send()" />
   </div>
-  <div id=*"messages"*></div>
-      <script language=*"javascript"* type=*"text/javascript"*>
-      **var** webSocket = new WebSocket('ws://' + window.document.location.host + '/WebsocketApp/SimpleAnnotated');
+  <div id="messages"></div>
+      <script language="javascript" type="text/javascript">
+      var webSocket = new WebSocket('ws://' + window.document.location.host + '/WebsocketApp/SimpleAnnotated');
 
    webSocket.onerror = function(event) {
       onError(event)
    };
 
-   webSocket.onopen = **function**(event) {
+   webSocket.onopen = function(event) {
       onOpen(event)
    };
 
-   webSocket.onmessage = **function**(event) {
+   webSocket.onmessage = function(event) {
       onMessage(event)
  };
    function onMessage(event) {
@@ -175,9 +175,9 @@ Open the file Annotated.html in the editor. Review the source code:
    }
 
  function  send() {
-       var** txt = document.getElementById('inputmessage').value;
+       var txt = document.getElementById('inputmessage').value;
        webSocket.send(txt);
-       **return false**;
+       return false;
   }
 
     </script>
@@ -227,7 +227,7 @@ import javax.websocket.server.ServerEndpoint;
 
 @ServerEndpoint(value = "/SimpleAnnotated")
 
-public class** AnnotatedEndpoint {
+public class AnnotatedEndpoint {
 
    Session currentSession = null;
 
@@ -272,7 +272,7 @@ public class** AnnotatedEndpoint {
    // Using the OnClose annotation will cause this method to be called when the WebSocket Session is being closed.
 
    @OnClose
-   public void** onClose(Session session, CloseReason reason) {
+   public void onClose(Session session, CloseReason reason) {
      // no clean up is needed here for this sample
    }
 
@@ -351,7 +351,7 @@ public class  DecodeEncode {
   /* Using the OnMessage annotation for this method will cause this method to get called by WebSockets when this connection has received a WebSocket message from the other side of the connection that could be decoded into an application defined FormatIn object.  The message is derived from the WebSocket frame payloads of one, and only one, WebSocket message. */
 
   @OnMessage
-  public void** decodeTextSendBackEncodedText(FormatIn decodedObject) {
+  public void decodeTextSendBackEncodedText(FormatIn decodedObject) {
     count++;
 
     String message = decodedObject.getDecodedString();
@@ -365,7 +365,7 @@ public class  DecodeEncode {
         Sleep to let the other side get the message before stopping - a bit kludgy, but this is just a sample!  */
 
     try{
-      Thread.*sleep*(1000);
+      Thread.sleep(1000);
       } catch (InterruptedException e) {
 
       }
@@ -392,7 +392,7 @@ public class  DecodeEncode {
         /* Using the OnError annotation will cause this method to be called when the WebSocket Session has an error to report. For the Alpha version of the WebSocket implentation on Liberty, this will not be called on error conditions. */
 
       @OnError
-      public void** onError(Throwable t) {
+      public void onError(Throwable t) {
         // no error processing will be done for this sample
       }
     }
@@ -403,11 +403,11 @@ Note that:
 
 1.  The @ServerEndpoint annotation defines the URl that ends in /Decodeencode, and also the decoder and encoder classes.
 
-~~~~
+   ~~~~
    @ServerEndpoint(value = "/DecodeEncode",
       decoders = { wasdev.sample.websocket.coders.DecoderOne.class },
      encoders = { wasdev.sample.websocket.coders.EncoderOne.class })
-~~~~
+    ~~~~
 
 1.  The `@OnMessage` annotation is applied to the `decodeTextSendBackEncodedText()` method to process the message from the client. The input parameter decodeObject is of type FormatIn, which is the type of the decoded message after the decoder DecoderOne decodes the input message.
 
@@ -461,16 +461,10 @@ public class DecoderOne implements Decoder.Text<FormatIn> {
 Open EncodeOne.java in the editor. Note that it is a very simple encoder that transforms vowels to numbers:
 
 -   A to 4
-
 -   E to 3
-
 -   I to 1
-
 -   O to 0
-
 -   U to 6
-
-
 ~~~~
 
 package wasdev.sample.websocket.coders;
@@ -543,11 +537,11 @@ import javax.websocket.server.ServerEndpointConfig;
 
  public class  EEServerApplicationConfig  implements  ServerApplicationConfig {
     @Override
-    public** Set<Class<?>> getAnnotatedEndpointClasses(Set<Class<?>> arg0) {
+    public Set<Class<?>> getAnnotatedEndpointClasses(Set<Class<?>> arg0) {
 
       // Accept for usage any endpoint classes that have been found for this application.
 
-      return** arg0;
+      return arg0;
    }
 
     @Override
@@ -555,11 +549,11 @@ import javax.websocket.server.ServerEndpointConfig;
 
       // Intialize and return the endpoint configuration object that will be used for our coded endpoint in this application.
 
-      Set<ServerEndpointConfig> configs = **new** HashSet<ServerEndpointConfig>();
+      Set<ServerEndpointConfig> configs = new HashSet<ServerEndpointConfig>();
 
-      EEServerEndpointConfig config = **new** EEServerEndpointConfig();
+      EEServerEndpointConfig config = new EEServerEndpointConfig();
       configs.add(config);
-      return** configs;
+      return configs;
      }
    }
 ~~~~
@@ -585,7 +579,7 @@ public class EEServerEndpointConfig implements ServerEndpointConfig {
 
    String uriPath = "/ExtendedEndpoint";
 
-   public** EEServerEndpointConfig() {
+   public EEServerEndpointConfig() {
      // no-arg constructor
    }
 
@@ -601,8 +595,8 @@ public class EEServerEndpointConfig implements ServerEndpointConfig {
 
    @Override
    public Configurator getConfigurator() {
-     ServerEndpointConfig.Configurator x = **new** ServerEndpointConfig.Configurator();
-     return** x;
+     ServerEndpointConfig.Configurator x = new ServerEndpointConfig.Configurator();
+     return x;
    }
 
     @Override
@@ -622,7 +616,7 @@ public class EEServerEndpointConfig implements ServerEndpointConfig {
     }
 
     @Override
-    public** List<Class<? **extends** Decoder>> getDecoders() {
+    public List<Class<? extends Decoder>> getDecoders() {
       return null;
     }
 
@@ -655,7 +649,7 @@ public class ExtendedEndpoint extends Endpoint {
   public void onOpen(final Session session, EndpointConfig ec) {
      // Set up the object that will receive messages sent from the other side of this connection.
 
-      MessageHandler.Whole<String> handler = **new** EEMessageHandler(session);
+      MessageHandler.Whole<String> handler = new EEMessageHandler(session);
       session.addMessageHandler(handler);
     }
 
@@ -687,7 +681,7 @@ public class EEMessageHandler implements MessageHandler.Whole<String> {
   int count = 0;
   Session currentSession = null;
 
-  public** EEMessageHandler(Session session) {
+  public EEMessageHandler(Session session) {
      // store the session so our onMessage method can use it later
      currentSession = session;
    }
@@ -708,17 +702,17 @@ public class EEMessageHandler implements MessageHandler.Whole<String> {
         // Sleep to let the other side get the message before stopping - a bit kludgy, but this is just a sample!
 
         try {
-          Thread.*sleep*(1000);
-          } **catch** (InterruptedException e) {
+          Thread.sleep(1000);
+          } catch (InterruptedException e) {
          }
 
           currentSession.close();
           } else {
             /* send the message back to the other side with the iteration count. Notice we can send multiple message without having to receive messages in between.*/
-             currentSession.getBasicRemote().sendText("From: " + **this**.getClass().getSimpleName()
+             currentSession.getBasicRemote().sendText("From: " + this.getClass().getSimpleName()
               + " Iteration count: " + count);
               currentSession.getBasicRemote().sendText(message);
-              } **catch** (IOException ex) {
+              } catch (IOException ex) {
                  // no error processing will be done for this sample
                }
              }
@@ -766,29 +760,29 @@ This HTML sends a WebSocket URL containing path parameters: `ws:<host>:<port>/We
 ### PathParamEndpoint.java
 
 Note the annotation that defines the path parameters:
-~~~~
-@ServerEndpoint(value = "/SimplePathParam/rentals/{name}/{building}/{home-number}/{no-of-rooms}/{property-val}/{pets-allowed}/{maintenance-fee}")
-~~~~
+   ~~~~
+   @ServerEndpoint(value = "/SimplePathParam/rentals/{name}/{building}/{home-number}/{no-of-rooms}/{property-val}/{pets-allowed}/{maintenance-fee}")
+   ~~~~
 Also note how the parameters appear in the method that processes the message:
 
-~~~~
+   ~~~~
 
-@OnMessage
+   @OnMessage
 
-public String echoText(String message,
-   @PathParam("pets-allowed") Boolean isPetsAllowed,
-   @PathParam("property-val") Double propertyValue,
-   @PathParam("name") String name,
-   @PathParam("building") char building,
-   @PathParam("home-number") Integer homeNumber,
-   @PathParam("no-of-rooms") short noOfRooms,
-   @PathParam("maintenance-fee") float maintFee) {
+   public String echoText(String message,
+      @PathParam("pets-allowed") Boolean isPetsAllowed,
+      @PathParam("property-val") Double propertyValue,
+      @PathParam("name") String name,
+      @PathParam("building") char building,
+      @PathParam("home-number") Integer homeNumber,
+      @PathParam("no-of-rooms") short noOfRooms,
+      @PathParam("maintenance-fee") float maintFee) {
 
-      . . .
+         . . .
 
-}
+   }
 
-~~~~
+   ~~~~
 
 ## Clean up after Lab
 
