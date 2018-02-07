@@ -75,7 +75,7 @@ We haven’t configured the server to run this application yet, so first let’s
 
     ![](./media/image8.png)
 
-21.  You should see an error reported in the Console tab.
+1.  You should see an error reported in the Console tab.
 
     ![](./media/image9.png)
 
@@ -137,7 +137,7 @@ We haven’t configured the server to run this application yet, so first let’s
 
     1  click the **Browse** button for **Includes pattern**.
 
-        ![](./media/image24.png)
+       ![](./media/image24.png)
 
 1. Select derby.jar from the include file list, then click **OK**.
 
@@ -244,7 +244,6 @@ The cache monitor application is a sample application that is essential for unde
 
      ~~~
     <feature>webCache-1.0</feature>
-
     <feature>webCacheMonitor-1.0</feature>
     ~~~
 
@@ -282,7 +281,7 @@ The cache monitor application is a sample application that is essential for unde
 
 1.  1lick on the Cache ID to see what is in the cache for that ID. Notice the fragment from `showentry.jsp` is part of the cache, while the fragment from `history.jsp` is not in the cache.
 
-    ![](./media/image37.png){width="5.71in" height="4.92in"}
+    ![](./media/image37.png)
 
 1.  Go back to the Dictionary servlet window and look up WWW. If WWW is not already defined, define it. The go back to the cache monitor window, and click on **Cache Contents** again. This should show two entries in the cache, with the new one for WWW.
 
@@ -319,13 +318,12 @@ The cache monitor application is a sample application that is essential for unde
 1. Experiment with different combinations of lookup and define and verify via cache monitor that the cache is updated as expected.
 
 ## Clean up after lab
-------------------
 
 1.  Remove **Dictionary** application from the server by expanding the **DictionaryServer** in the Server view and right clicking **Dictionary** then click **Remove**.
 
 1.  Stop the **DictionaryServer** by right clicking the **DictionaryServer** in the Server view then click **Stop**.
 
-# Notices {#notices .HeadingAppendix}
+# Notices 
 
 This information was developed for products and services offered in the U.S.A.
 
