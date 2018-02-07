@@ -96,7 +96,7 @@ The index.jsp is the main entry point to the sample application. In the Enterpri
 
 1. Examine the file `wasdev.sample.jaxws.web.simple.client.SimpleEcho.java`.
 
- **Note** It defines the client web service interface, with the echo method. This is used by the SimpleStubClientServlet to make a web service call.
+   **Note** It defines the client web service interface, with the echo method. This is used by the SimpleStubClientServlet to make a web service call.
 
 1. Examine the file `wasdev.sample.jaxws.web.simple.SimpleEcho.java` and note the web service implementation that merely echoes its input.
 
@@ -165,7 +165,7 @@ The index.jsp is the main entry point to the sample application. In the Enterpri
    ~~~~
    @WebServiceClient(name = "SimpleHelloWorldWebXmlService", targetNamespace = "http://webxml.web.jaxws.sample.wasdev/",  wsdlLocation = "WEB-INF/wsdl/SimpleHelloWorldWebXmlService.wsdl")
    ~~~~
-**Note** The web service client is connecting to the path /CustomizedHelloworld:
+  **Note** The web service client is connecting to the path /CustomizedHelloworld:
    ~~~~
    url = new URL(baseUrl, "http://localhost:9080/JaxWsLibertyDemo/CustomizedHelloWorld?wsdl");
    ~~~~
