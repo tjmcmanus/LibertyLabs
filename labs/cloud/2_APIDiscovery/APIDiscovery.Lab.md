@@ -133,7 +133,7 @@ The following preparation must be completed prior to beginning this lab:
 
     The `@SwaggerDefinition` annotation defines the top-level entry in the REST API Explorer.
 
-        ![](./media/image17.png)
+       ![](./media/image17.png)
 
     1.  Open **AvailabilityResource.java**
 
