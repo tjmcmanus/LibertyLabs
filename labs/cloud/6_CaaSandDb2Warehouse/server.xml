@@ -1,0 +1,25 @@
+
+<server description="Sample Server for JDBC">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jdbc-4.0</feature>
+        <feature>localConnector-1.0</feature>
+        <feature>servlet-3.1</feature>
+    </featureManager>
+
+    <httpEndpoint host="*" httpPort="9080" id="defaultHttpEndpoint"/>
+
+    <application id="Employee" location="EmployeeApp.war" name="EmployeeApp" type="war"/>
+    <jdbcDriver id="DB2Driver" libraryRef="DB2JCC4Lib"/>
+        <library filesetRef="DB2Fileset" id="DB2JCC4Lib"/>
+        <fileset dir="${shared.resource.dir}/DB2Libs" id="DB2Fileset" includes="db2jcc4.jar"/>
+
+
+        <dataSource id="empDS" jdbcDriverRef="DB2Driver" jndiName="jdbc/empDS" statementCacheSize="60" transactional="true" isolationLevel="TRANSACTION_READ_COMMITTED">
+                <properties.db2.jcc databaseName="BLUDB" driverType="4" portNumber="50000" serverName="dashdb-entry-yp-dal10-01.services.dal.bluemix.net" user="dash7220" password="cCiKh_3WB_2o"/>
+        </dataSource>
+
+
+    <applicationMonitor updateTrigger="mbean"/>
+</server>

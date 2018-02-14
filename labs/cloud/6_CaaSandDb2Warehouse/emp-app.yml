@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: emp-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: emp-deployment
+      labels:
+        run: emp-deployment
+    spec:
+      containers:
+        - name: emp-deployment
+          image: "registry.ng.bluemix.net/libertypot/emp:latest"
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: emp-service
+  labels:
+    run: emp-deployment
+spec:
+  type: NodePort
+  selector:
+    run: emp-deployment
+  ports:
+   - protocol: TCP
+     port: 9080
+     nodePort: 30191
