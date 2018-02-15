@@ -32,7 +32,7 @@ The lab requires the following software installed:
 
 -   WebSphere Liberty
 
--   kubectl CLI version 1.7.2
+-   kubectl CLI version (latest)
 
 In addition to the above software, the machine also contain the artifacts needed to complete the lab. The following list points out the most important artifacts.
 
