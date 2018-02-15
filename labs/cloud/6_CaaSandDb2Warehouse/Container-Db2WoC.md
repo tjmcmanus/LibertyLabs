@@ -12,7 +12,8 @@ The lab is divided into four main parts:
 
 1.  Containerize the Liberty server along with the application in a Docker container and access the database host on IBM Cloud. The application along with its middleware is containerized in a Docker container for portability.
 
-1.  Next push the Docker container to the secure IBM Bluemix container registry. Once the Docker container is pushed to the IBM secure registry it starts its life cycle as an IBM container. Deploy the container as a Kubernetes deployment resource and expose it as a Kubernetes service. You will access the execute the application by accessing the Kubernetes service. The on-prem application of Part 3 has now been transparently **lifted and shifted** to IBM Bluemix cloud using containers. The application will access the database on the same network as the IBM Container service
+1.  Next push the Docker container to the secure IBM Bluemix container registry. Once the Docker container is pushed to the IBM secure registry it starts its life cycle as an IBM container. Deploy the container as a Kubernetes deployment resource and expose it as a Kubernetes service. You will access the execute the application by accessing the Kubernetes service. The on-prem application of 
+has now been transparently **lifted and shifted** to IBM Bluemix cloud using containers. The application will access the database on the same network as the IBM Container service
 
 1.  Finally, you will scale up and down the container (actually pod) instances using the underlying Kubernetes orchestration engine. Along with scalability, you will also try out the auto recovery features of Kubernetes pods.
 
@@ -78,7 +79,7 @@ You can create a Kubernetes (aka K8s) cluster from IBM Cloud console or from the
 
     ![](./media/image8.png)
 
-1.  For a few seconds, you will encounter a spinning cursor and after that you should see your intended cluster is in the **Deploying** state. The resulting panel provides valuable information about downloading and configuring various Bluemix plug-ins required for command line work. You have set up the IBM Cloud CLI in the `{LAB_HOME}labs/gettingStarted/0_setup` lab. If you have not, follow the instruction on the panel.
+1.  For a few seconds, you will encounter a spinning cursor and after that you should see your intended cluster is in the **Deploying** state. The resulting panel provides valuable information about downloading and configuring various Bluemix plug-ins required for command line work. You have set up the IBM Cloud CLI in the `{LAB_HOME}/labs/gettingStarted/0_setup` lab. If you have not, follow the instruction on the panel.
 
     1.  Download the Kubernette’s client libs https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
@@ -192,17 +193,11 @@ In this section, you’ll create a WebSphere Liberty application server on the l
      ![](./media/image25.png)
      ![](./media/image26.png)
   1.  Delete the added employee by clicking on the **DeleteEmployee** button then the **Delete** button
-
      ![](./media/image27.png)
-
      ![](./media/image28.png)
-
   1.  You can confirm the deletion by trying to access the same employee in the data base. Click the **Get** button
-
      ![](./media/image29.png)
-
      ![](./media/image30.png)
-
      ![](./media/image31.png)
 
 1.  There should not be any unexpected error message in the liberty server’s log file. Take a look at the `{LAB_HOME}/wlp/usr/servers/labServer/logs/console.log` file. All the messages logged there will also appear in the console window where labServer is running.
@@ -281,29 +276,25 @@ In this section, you will mainly use CLIs to interact with IBM Cloud and IBM Clo
     bx api <https://api.eu-de.bluemix.net/>
     bx api <https://api.au-syd.bluemix.net/>
     ~~~~
-1. Logon to your IBM Cloud region (US South in this case) using the ***IBM Cloud (bx) plugin*** -- in a new terminal, use the following command:
+1. Logon to your IBM Cloud region (US South in this case) using the ***IBM Cloud (bx) plugin***  in a new terminal, use the following command:
 
   `bx login –u <Your IBM Cloud username> --apikey @{LAB_HOME}/Liberty-APIKey.json`
-
-  ~~~~
-  API endpoint: https://api.ng.bluemix.net
-  Authenticating...
-  OK
-
-  Targeted account <your account> Account (eeee7d19b6701916e21bf02f116813a9)
-
-  Targeted org <Your org (email if non subscribed account)>
-
-  Targeted space LAB_SPACE
-
-  API endpoint:   https://api.ng.IBM Cloud.net (API version: 2.75.0)   
-  Region:         us-south   
-  User:           <your user email>
-  Account:        <your account> Account (eeee7d19b6701916e21bf02f116813a9)   
-  Org:            <Your org (email if non subscribed account)>
-  Space:          LAB_SPACE   
-  ~~~~ 
-
+  
+   ~~~~
+   API endpoint: https://api.ng.bluemix.net
+   Authenticating...
+   OK
+   Targeted account <your account> Account (eeee7d19b6701916e21bf02f116813a9)
+   Targeted org <Your org (email if non subscribed account)>
+   Targeted space LAB_SPACE
+   API endpoint:   https://api.ng.IBM Cloud.net (API version: 2.75.0)   
+   Region:         us-south   
+   User:           <your user email>
+   Account:        <your account> Account (eeee7d19b6701916e21bf02f116813a9)   
+   Org:            <Your org (email if non subscribed account)>
+   Space:          LAB_SPACE   
+   ~~~~ 
+   
 1.  Just as a pro-active work, try to update all the installed IBM Cloud (bx) CLI plug-ins. If any plug-in has been updated, the new images will be pulled in and the relevant plug-ins will get updated.
 
     `bx plugin update -all -r Bluemix`
@@ -311,6 +302,7 @@ In this section, you will mainly use CLIs to interact with IBM Cloud and IBM Clo
 2.  Initialize the IBM Cloud container service plug-in and logon to the IBM Cloud container registry service. Execute the following commands
 
     `bx cs init`
+    
     ~~~~
     bx cs init
     Using default API endpoint: https://containers.bluemix.net
@@ -418,33 +410,33 @@ Note: If because of networking issues the push fails to complete (in isolated in
 
 1.  After about 3-5 minutes, the IBM Container Service will run a vulnerability scan on the container. Good luck If you see that the image is vulnerable, run the following command to find out what is wrong.
 
-~~~~
-bx cr va registry.ng.bluemix.net/libertypot/emp:latest
-Checking vulnerabilities for 'regis-try.ng.bluemix.net/libertypot/emp:latest'...
+    ~~~~
+    bx cr va registry.ng.bluemix.net/libertypot/emp:latest
+    Checking vulnerabilities for 'regis-try.ng.bluemix.net/libertypot/emp:latest'...
 
-Image 'registry.ng.bluemix.net/libertypot/emp:latest' was last scanned on Tue Feb 13 20:36:01 UTC 2018.
-The scan results show the image should be deployed with CAUTION.
+    Image 'registry.ng.bluemix.net/libertypot/emp:latest' was last scanned on Tue Feb 13 20:36:01 UTC 2018.
+    The scan results show the image should be deployed with CAUTION.
 
-VULNERABLE PACKAGES FOUND
-=========================
+    VULNERABLE PACKAGES FOUND
+    =========================
 
-PACKAGE   VULNERABILITIES   CORRECTIVE ACTION   
-systemd   1                 Upgrade to systemd 229-4ubuntu21.1   
+    PACKAGE   VULNERABILITIES   CORRECTIVE ACTION   
+    systemd   1                 Upgrade to systemd 229-4ubuntu21.1   
 
-To see the details about the fixes for these packages, run the command again with the '--extended' flag.
+    To see the details about the fixes for these packages, run the command again with the '--extended' flag.
 
-CONFIGURATION ISSUES FOUND
-==========================
+    CONFIGURATION ISSUES FOUND
+    ==========================
 
-SECURITY PRACTICE                                                     CORRECTIVE ACTION   
-PASS_MAX_DAYS must be set to 90 days                                  Maximum password age must be set to 90 days.   
-Minimum password length not specified in /etc/pam.d/common-password   Minimum password length must be 8.   
-PASS_MIN_DAYS must be set to 1                                        Minimum days that must elapse between user-initiated pass-word changes should be 1.   
-File /var/log/faillog does not exist                                  Permission check of /var/log/faillog   
-file /var/log/faillog must exist if pam_tally2.so is not being used   faillog file checking   
+    SECURITY PRACTICE                                                     CORRECTIVE ACTION   
+    PASS_MAX_DAYS must be set to 90 days                                  Maximum password age must be set to 90 days.   
+    Minimum password length not specified in /etc/pam.d/common-password   Minimum password length must be 8.   
+    PASS_MIN_DAYS must be set to 1                                        Minimum days that must elapse between user-initiated pass-word changes should be 1.   
+    File /var/log/faillog does not exist                                  Permission check of /var/log/faillog   
+    file /var/log/faillog must exist if pam_tally2.so is not being used   faillog file checking   
 
-OK
-~~~~
+    OK
+    ~~~~
 
 1.  Based on this report, we can work to fix the vulnerabilities, by adding lines to the Dockerfile or we can change the underlying Liberty/OS layer to use the Public version in IBM Cloud Public Registry.
 
