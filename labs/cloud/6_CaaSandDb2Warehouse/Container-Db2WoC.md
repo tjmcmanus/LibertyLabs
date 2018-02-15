@@ -280,20 +280,20 @@ In this section, you will mainly use CLIs to interact with IBM Cloud and IBM Clo
 
   `bx login –u <Your IBM Cloud username> --apikey @{LAB_HOME}/Liberty-APIKey.json`
   
-   ~~~~
-   API endpoint: https://api.ng.bluemix.net
-   Authenticating...
-   OK
-   Targeted account <your account> Account (eeee7d19b6701916e21bf02f116813a9)
-   Targeted org <Your org (email if non subscribed account)>
-   Targeted space LAB_SPACE
-   API endpoint:   https://api.ng.IBM Cloud.net (API version: 2.75.0)   
-   Region:         us-south   
-   User:           <your user email>
-   Account:        <your account> Account (eeee7d19b6701916e21bf02f116813a9)   
-   Org:            <Your org (email if non subscribed account)>
-   Space:          LAB_SPACE   
-   ~~~~ 
+    ~~~~
+    API endpoint: https://api.ng.bluemix.net
+    Authenticating...
+    OK
+    Targeted account <your account> Account (eeee7d19b6701916e21bf02f116813a9)
+    Targeted org <Your org (email if non subscribed account)>
+    Targeted space LAB_SPACE
+    API endpoint:   https://api.ng.IBM Cloud.net (API version: 2.75.0)   
+    Region:         us-south   
+    User:           <your user email>
+    Account:        <your account> Account (eeee7d19b6701916e21bf02f116813a9)   
+    Org:            <Your org (email if non subscribed account)>
+    Space:          LAB_SPACE   
+    ~~~~ 
    
 1.  Just as a pro-active work, try to update all the installed IBM Cloud (bx) CLI plug-ins. If any plug-in has been updated, the new images will be pulled in and the relevant plug-ins will get updated.
 
@@ -303,11 +303,11 @@ In this section, you will mainly use CLIs to interact with IBM Cloud and IBM Clo
 
     `bx cs init`
     
-    ~~~~
-    bx cs init
-    Using default API endpoint: https://containers.bluemix.net
-    OK
-    ~~~~
+     ~~~~
+     bx cs init
+     Using default API endpoint: https://containers.bluemix.net
+     OK
+     ~~~~
 
 1.  If you do not have a namespace in IBM Cloud Container registry, you need to set one by using the following command
 
@@ -317,22 +317,22 @@ In this section, you will mainly use CLIs to interact with IBM Cloud and IBM Clo
 
     We have used **libertypot** as the name space in all the relevant commands for this specific run of the lab.
 
-    ~~~~
-    bx cr namespace-add libertypot
-    Adding namespace 'libertypot'...
+     ~~~~
+     bx cr namespace-add libertypot
+     Adding namespace 'libertypot'...
 
-    Successfully added namespace 'libertypot'
+     Successfully added namespace 'libertypot'
 
-    OK
-    ~~~~
+     OK
+     ~~~~
 
 1.  You have to build and push a Docker image for the application.
 
     1. Change to the build directory
-
       `cd  {LAB_HOME}/labs/cloud/6_CaaSandDb2Warehouse directory`
+      
     1. Build the container
-    `docker build –t emp .`
+      `docker build –t emp .`
 
       ~~~~
       docker build -t emp .
@@ -352,45 +352,43 @@ In this section, you will mainly use CLIs to interact with IBM Cloud and IBM Clo
       Successfully tagged emp:latest
       ~~~~
 
-
 1.  Tag the created image with the namespace and registry information . Registry URL can be found in Step 3
 
     `docker tag emp registry.ng.bluemix.net/<your name space>/emp`
 
     Optionally, you can also check the creation of the tagged image by issuing
-
     `docker images | grep emp` command.
+    
       ~~~~
-    $ docker tag emp regis-try.ng.bluemix.net/libertypot/emp
+      $ docker tag emp regis-try.ng.bluemix.net/libertypot/emp
       $ docker images | grep emp
       emp                                        latest            7278aa886b34    19 hours ago        435MB
       registry.ng.bluemix.net/libertypot/emp     latest            7278aa886b34    19 hours ago        435MB
       ~~~~
 1.  Push the just created and tagged image to your namespace in the Bluemix container registry by issuing the following command.
-
     `docker push registry.eu-de.bluemix.net//<your name space>/emp`
 
-    ~~~~
-    docker push registry.ng.bluemix.net/libertypot/emp
-    The push refers to repository [regis-try.ng.bluemix.net/libertypot/emp]
-    2441614a498a: Pushed
-    ee7ea7cbd58f: Pushed
-    7ed02c9d49c6: Pushed
-    781354fd50a4: Pushed
-    7e1504ddbdfa: Pushed
-    a97f5ee8fd60: Pushing [=================================================> ]  74.79MB/75.09MB
-    a97f5ee8fd60: Pushed
-    66a59718a073: Pushed
-    9879d2f7f51e: Pushed
-    ae273540fc0d: Pushed
-    6e466f97b365: Pushed
-    1850bb064017: Pushed
-    1b83e56c61e4: Pushing [===================>                               ]  72.44MB/185.4MB
-    1b83e56c61e4: Pushing [===========================>                       ]    103MB/185.4MB
-    f17fc24fb8d0: Pushed
-    6458f770d435: Pushed
-    latest: digest: sha256:e9fdd8cc1bf35e1dd1d49fab57be428c99cd867d5163dd6a2b25f1c80c180c9a size: 4289
-    ~~~~
+     ~~~~
+     docker push registry.ng.bluemix.net/libertypot/emp
+     The push refers to repository [regis-try.ng.bluemix.net/libertypot/emp]
+     2441614a498a: Pushed
+     ee7ea7cbd58f: Pushed
+     7ed02c9d49c6: Pushed
+     781354fd50a4: Pushed
+     7e1504ddbdfa: Pushed
+     a97f5ee8fd60: Pushing [=================================================> ]  74.79MB/75.09MB
+     a97f5ee8fd60: Pushed
+     66a59718a073: Pushed
+     9879d2f7f51e: Pushed
+     ae273540fc0d: Pushed
+     6e466f97b365: Pushed
+     1850bb064017: Pushed
+     1b83e56c61e4: Pushing [===================>                               ]  72.44MB/185.4MB
+     1b83e56c61e4: Pushing [===========================>                       ]    103MB/185.4MB
+     f17fc24fb8d0: Pushed
+     6458f770d435: Pushed
+     latest: digest: sha256:e9fdd8cc1bf35e1dd1d49fab57be428c99cd867d5163dd6a2b25f1c80c180c9a size: 4289
+     ~~~~
 
 It may take a few minutes for the push operation to complete. **Make sure** that the image indeed got pushed to IBM Cloud Container Registry. As shown here, at the completion of the push, you should see the ‘digest’ information of the image stored in IBM IBM Cloud Container Registry.
 
@@ -400,43 +398,43 @@ Note: If because of networking issues the push fails to complete (in isolated in
 
     `bx cr images`
 
-    ~~~~
-    bx cr images
-    Listing images...
+     ~~~~
+     bx cr images
+     Listing images...
 
-    REPOSITORY                               NAMESPACE    TAG      DIGEST         CREATED         SIZE     VULNERABILITY STA-TUS   
-    registry.ng.bluemix.net/libertypot/emp   libertypot   lat-est   ccc3d25ba41c   2 minutes ago   279 MB   Pending Scan   
-    ~~~~
+     REPOSITORY                               NAMESPACE    TAG      DIGEST         CREATED         SIZE     VULNERABILITY STA-TUS   
+     registry.ng.bluemix.net/libertypot/emp   libertypot   lat-est   ccc3d25ba41c   2 minutes ago   279 MB   Pending Scan   
+     ~~~~
 
 1.  After about 3-5 minutes, the IBM Container Service will run a vulnerability scan on the container. Good luck If you see that the image is vulnerable, run the following command to find out what is wrong.
 
-    ~~~~
-    bx cr va registry.ng.bluemix.net/libertypot/emp:latest
-    Checking vulnerabilities for 'regis-try.ng.bluemix.net/libertypot/emp:latest'...
+     ~~~~
+     bx cr va registry.ng.bluemix.net/libertypot/emp:latest
+     Checking vulnerabilities for 'regis-try.ng.bluemix.net/libertypot/emp:latest'...
 
-    Image 'registry.ng.bluemix.net/libertypot/emp:latest' was last scanned on Tue Feb 13 20:36:01 UTC 2018.
-    The scan results show the image should be deployed with CAUTION.
+     Image 'registry.ng.bluemix.net/libertypot/emp:latest' was last scanned on Tue Feb 13 20:36:01 UTC 2018.
+     The scan results show the image should be deployed with CAUTION.
 
-    VULNERABLE PACKAGES FOUND
-    =========================
+     VULNERABLE PACKAGES FOUND
+     =========================
 
-    PACKAGE   VULNERABILITIES   CORRECTIVE ACTION   
-    systemd   1                 Upgrade to systemd 229-4ubuntu21.1   
+     PACKAGE   VULNERABILITIES   CORRECTIVE ACTION   
+     systemd   1                 Upgrade to systemd 229-4ubuntu21.1   
 
-    To see the details about the fixes for these packages, run the command again with the '--extended' flag.
+     To see the details about the fixes for these packages, run the command again with the '--extended' flag.
 
-    CONFIGURATION ISSUES FOUND
-    ==========================
+     CONFIGURATION ISSUES FOUND
+     ==========================
 
-    SECURITY PRACTICE                                                     CORRECTIVE ACTION   
-    PASS_MAX_DAYS must be set to 90 days                                  Maximum password age must be set to 90 days.   
-    Minimum password length not specified in /etc/pam.d/common-password   Minimum password length must be 8.   
-    PASS_MIN_DAYS must be set to 1                                        Minimum days that must elapse between user-initiated pass-word changes should be 1.   
-    File /var/log/faillog does not exist                                  Permission check of /var/log/faillog   
-    file /var/log/faillog must exist if pam_tally2.so is not being used   faillog file checking   
+     SECURITY PRACTICE                                                     CORRECTIVE ACTION   
+     PASS_MAX_DAYS must be set to 90 days                                  Maximum password age must be set to 90 days.   
+     Minimum password length not specified in /etc/pam.d/common-password   Minimum password length must be 8.   
+     PASS_MIN_DAYS must be set to 1                                        Minimum days that must elapse between user-initiated pass-word changes should be 1.   
+     File /var/log/faillog does not exist                                  Permission check of /var/log/faillog   
+     file /var/log/faillog must exist if pam_tally2.so is not being used   faillog file checking   
 
-    OK
-    ~~~~
+     OK
+     ~~~~
 
 1.  Based on this report, we can work to fix the vulnerabilities, by adding lines to the Dockerfile or we can change the underlying Liberty/OS layer to use the Public version in IBM Cloud Public Registry.
 
