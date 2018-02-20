@@ -209,9 +209,9 @@ You have successfully deployed, started and explored the EmployeeApp application
 ## Part 2:  Execute the Application Locally in Dockerized Liberty
 
 Now you’ll run your Liberty server as a Docker container packaging it with the WebSphere Liberty image that is available from the online Docker Hub repository of images.
-1.  Move to the `{LAB\_HOME}/labs/cloud/6\_CaaSandDb2Warehouse` folder.
+1.  Move to the `{LAB_HOME}/labs/cloud/6_CaaSandDb2Warehouse` folder.
 
-  `cd {LAB\_HOME}/labs/cloud/6\_CaaSandDb2Warehouse`
+  `cd  {LAB_HOME}/labs/cloud/6_CaaSandDb2Warehouse`
 
 1.  Build a new Docker image containing the EmployeeApp application.
 
