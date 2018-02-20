@@ -54,23 +54,30 @@ The EmployeeApp is a Servlet for performing CRUD operations on a DB2 database. T
 You can create a Kubernetes (aka K8s) cluster from IBM Cloud console or from the command line interface (CLI). In the following we provide the details of creating a cluster from the UI.
 
 1.  Browse to http://www.bluemix.net and click on the **Log in** link.
-![](./media/image2.png)
+  ![](./media/image2.png)
 
 1.  Provide your **userid** and **password** in the login panel to logon to IBM Cloud. After logging in, explore the regions and pick which is best for you. These instructions will stay with US South. As you explore, Tokyo is available for Container Services, but not available yet for Db2 Warehouse. Pardon the guess work, but we are expanding availability zones quickly.
-![](./media/image3.png)
+  ![](./media/image3.png)
 
 1.  Click on the menu icon ( ![](./media/image4.png) ) on the upper left-hand side of the Dashboard page.
+
 1.  Select **Containers.**
-![](./media/image5.png)
+
+  ![](./media/image5.png)
+  
 1.  Pick the region from the drop down box. The instruction will be US South.
-![](./media/image6.png)
+  ![](./media/image6.png)
+  
 1.  Click on **Create Cluster**.
-![](./media/image7.png)
+  ![](./media/image7.png)
+  
 1.  Select the defaults and add the name of the cluster. We will use **EmployeeApp-inst**, choose your cluster name. Suggestion `EmployeeApp-<initials>`. If you have a non-lite account, you can see all the different locations and options you can select. We will stay with the free account for the lab. Click **Create Cluster**.
-![](./media/image8.png)
+  ![](./media/image8.png)
+  
 1.  For a few seconds, you will encounter a spinning cursor and after that you should see your intended cluster is in the **Deploying** state. The resulting panel provides valuable information about downloading and configuring various Bluemix plug-ins required for command line work. You have set up the IBM Cloud CLI in the `{LAB_HOME}/labs/gettingStarted/0_setup` lab. If you have not, follow the instruction on the panel.
     1.  Download the Kubernette’s client libs https://kubernetes.io/docs/tasks/tools/install-kubectl/
     1.  Execute ‘**bx plugin install container-service -r Bluemix**’ to add container commands to the CLI
+
 1.  Alternatively, you can use the `bx cs cluster-create --name <cluster name>` command after logging in to IBM Cloud from the command shell using IBM Cloud (bx) CLI.
 
 It will take some time (approximately 15 to 30 minutes) to get the cluster created. While you complete the other parts of the lab, the cluster will get created by that time and it will be ready for the deployment of your container.
