@@ -6,7 +6,7 @@ Please refer to the following table for file and resource location references on
 
 Location Ref. |   OS    |     Absolute Path
  --------------| ------- | --------------------------
- *{LAB_HOME}*  | Windows |  `C:\\WLP_<VERSION>` or your choice
+ *{LAB_HOME}*  | Windows |  `C:\WLP_<VERSION>` or your choice
  *{LAB_HOME}*  | Linux   |  `~/WLP_<VERSION>` or your choice
  *{LAB_HOME}*  | Mac OSX |  `~/WLP_<VERSION>` or your choice  
 
@@ -251,7 +251,7 @@ Dashboard URLS are:
 
 > In this exercise, you have experience various ways to deploy and run your application to WebSphere Liberty on IBM Cloud. Using the command line interface as well as Eclipse based tooling.
 
-#Notices 
+#Notices
 
 This information was developed for products and services offered in the U.S.A.
 
