@@ -1,4 +1,4 @@
-Liberty Discovery Project
+# Liberty Discovery Project
 
 Congratulations on picking up the Discovery Archive for IBM WebSphere Application Server Liberty and associated developer tools.
 
