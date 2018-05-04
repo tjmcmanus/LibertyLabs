@@ -1,4 +1,4 @@
-Liberty Discovery Project
+# Liberty Discovery Project
 
 Congratulations on picking up the Discovery Archive for IBM WebSphere Application Server Liberty and associated developer tools.
 
@@ -10,12 +10,12 @@ The Discovery Archive contains a set of presentations to help you understand and
 
 The Discovery Archive contains a set of labs to help you get started to discover, develop, manage and expand to the cloud. For the cloud labs you may need to login into Bluemix.net. This would require a Bluemix account.
 
-   1. Start with the setup and discover lab under the [labs/gettingStarted ](./labs/gettingStarted/README.md  "labs/gettingStarted ") directory.
-   1. Work on cloud related labs under the [labs/cloud ](./labs/cloud/README.md   "labs/cloud ")  directory.
-   1. Work on any of the development labs under the [labs/development ](./labs/development/README.md   "labs/development ") directory.
-   1. Work on administration related labs under the [labs/management ](./labs/management/README.md   "labs/management ") directory.
+   1. Start with the setup and discover lab under the [labs/gettingStarted](./labs/gettingStarted/README.md) directory.
+   1. Work on cloud related labs under the [labs/cloud](./labs/cloud/README.md)  directory.
+   1. Work on any of the development labs under the [labs/development](./labs/development/README.md) directory.
+   1. Work on administration related labs under the [labs/management](./labs/management/README.md) directory.
 
-In additions, there is a [video ](./LibertyIntro.mp4   "lvideo") and a set of redbooks in the redbooks directory.
+In additions, there is a [video](./LibertyIntro.mp4) and a set of redbooks in the redbooks directory.
 
 If you like what you see, go to http://www.wasdev.net to download the latest Liberty runtime, developer tools, Beta, and samples. You can raise requests for future enhancements using the Request for Enhancement tool, and participate in our forum.
 
