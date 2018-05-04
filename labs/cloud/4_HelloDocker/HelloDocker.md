@@ -129,7 +129,7 @@ Docker has a set of infrastructure that is used to run and manage the Docker con
             ~~~~
 
         1. `Ctrl + C` to stop stats
-        
+
     1.  Open a browser and access <http://localhost:9080>
       ![](./media/image2.png)
 
@@ -279,85 +279,3 @@ To make the build process repeatable, create a Dockerfile which is the ordering 
     app-instance1
     ~~~~
 3.  Congratulations you have completed running Liberty in Docker!
-
-# Notices
-
-This information was developed for products and services offered in the U.S.A.
-
-IBM may not offer the products, services, or features discussed in this document in other countries. Consult your local IBM representative for information on the products and services currently available in your area. Any reference to an IBM product, program, or service is not intended to state or imply that only that IBM product, program, or service may be used. Any functionally equivalent product, program, or service that does not infringe any IBM intellectual property right may be used instead. However, it is the user's responsibility to evaluate and verify the operation of any non-IBM product, program, or service.
-
-IBM may have patents or pending patent applications covering subject matter described in this document. The furnishing of this document does not grant you any license to these patents. You can send license inquiries, in writing, to:
-
-IBM Director of Licensing\
-IBM Corporation\
-North Castle Drive\
-Armonk, NY 10504-1785\
-U.S.A.
-
-For license inquiries regarding double-byte (DBCS) information, contact the IBM Intellectual Property Department in your country or send inquiries, in writing, to:
-
-IBM World Trade Asia Corporation\
-Licensing\
-2-31 Roppongi 3-chome, Minato-ku\
-Tokyo 106-0032, Japan
-
-**The following paragraph does not apply to the United Kingdom or any other country where such provisions are inconsistent with local law:** INTERNATIONAL BUSINESS MACHINES CORPORATION PROVIDES THIS PUBLICATION "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. Some states do not allow disclaimer of express or implied warranties in certain transactions, therefore, this statement may not apply to you.
-
-This information could include technical inaccuracies or typographical errors. Changes are periodically made to the information herein; these changes will be incorporated in new editions of the publication. IBM may make improvements and/or changes in the product(s) and/or the program(s) described in this publication at any time without notice.
-
-Any references in this information to non-IBM Web sites are provided for convenience only and do not in any manner serve as an endorsement of those Web sites. The materials at those Web sites are not part of the materials for this IBM product and use of those Web sites is at your own risk.
-
-IBM may use or distribute any of the information you supply in any way it believes appropriate without incurring any obligation to you.
-
-Any performance data contained herein was determined in a controlled environment. Therefore, the results obtained in other operating environments may vary significantly. Some measurements may have been made on development-level systems and there is no guarantee that these measurements will be the same on generally available systems. Furthermore, some measurements may have been estimated through extrapolation. Actual results may vary. Users of this document should verify the applicable data for their specific environment.
-
-Information concerning non-IBM products was obtained from the suppliers of those products, their published announcements or other publicly available sources. IBM has not tested those products and cannot confirm the accuracy of performance, compatibility or any other claims related to non-IBM products. Questions on the capabilities of non-IBM products should be addressed to the suppliers of those products.
-
-All statements regarding IBM's future direction and intent are subject to change or withdrawal without notice, and represent goals and objectives only.
-
-This information contains examples of data and reports used in daily business operations. To illustrate them as completely as possible, the examples include the names of individuals, companies, brands, and products. All of these names are fictitious and any similarity to the names and addresses used by an actual business enterprise is entirely coincidental. All references to fictitious companies or individuals are used for illustration purposes only.
-
-COPYRIGHT LICENSE:
-
-This information contains sample application programs in source language, which illustrate programming techniques on various operating platforms. You may copy, modify, and distribute these sample programs in any form without payment to IBM, for the purposes of developing, using, marketing or distributing application programs conforming to the application programming interface for the operating platform for which the sample programs are written. These examples have not been thoroughly tested under all conditions. IBM, therefore, cannot guarantee or imply reliability, serviceability, or function of these programs.
-
-## Trademarks and copyrights
-
-The following terms are trademarks of International Business Machines Corporation in the United States, other countries, or both:
-
-  IBM          AIX        CICS             ClearCase      ClearQuest   Cloudscape   
-  ------------ ---------- ---------------- -------------- ------------ ------------ --
-  Cube Views   DB2        developerWorks   DRDA           IMS          IMS/ESA      
-  Informix     Lotus      Lotus Workflow   MQSeries       OmniFind                  
-  Rational     Redbooks   Red Brick        RequisitePro   System i                  
-  *System z*   *Tivoli*   *WebSphere*      *Workplace*    *System p*                
-
-Adobe, the Adobe logo, PostScript, and the PostScript logo are either registered trademarks or trademarks of Adobe Systems Incorporated in the United States, and/or other countries.
-
-IT Infrastructure Library is a registered trademark of the Central Computer and Telecommunications Agency which is now part of the Office of Government Commerce.
-
-Intel, Intel logo, Intel Inside, Intel Inside logo, Intel Centrino, Intel Centrino logo, Celeron, Intel Xeon, Intel SpeedStep, Itanium, and Pentium are trademarks or registered trademarks of Intel Corporation or its subsidiaries in the United States and other countries.
-
-Linux is a registered trademark of Linus Torvalds in the United States, other countries, or both.
-
-Microsoft, Windows, Windows NT, and the Windows logo are trademarks of Microsoft Corporation in the United States, other countries, or both.
-
-ITIL is a registered trademark, and a registered community trademark of The Minister for the Cabinet Office, and is registered in the U.S. Patent and Trademark Office.
-
-UNIX is a registered trademark of The Open Group in the United States and other countries.
-
-Java and all Java-based trademarks and logos are trademarks or registered trademarks of Oracle and/or its affiliates.
-
-Cell Broadband Engine is a trademark of Sony Computer Entertainment, Inc. in the United States, other countries, or both and is used under license therefrom.
-
-Linear Tape-Open, LTO, the LTO Logo, Ultrium, and the Ultrium logo are trademarks of HP, IBM Corp. and Quantum in the U.S. and other countries.
-
-![IBM-600dpi-1](./media/image5.png)
-
-© Copyright IBM Corporation 2018.
-
-The information contained in these materials is provided for informational purposes only, and is provided AS IS without warranty of any kind, express or implied. IBM shall not be responsible for any damages arising out of the use of, or otherwise related to, these materials. Nothing contained in these materials is intended to, nor shall have the effect of, creating any warranties or representations from IBM or its suppliers or licensors, or altering the terms and conditions of the applicable license agreement governing the use of IBM software. References in these materials to IBM products, programs, or services do not imply that they will be available in all countries in which IBM operates. This information is based on current IBM product plans and strategy, which are subject to change by IBM without notice. Product release dates and/or capabilities referenced in these materials may change at any time at IBM’s sole discretion based on market opportunities or other factors, and are not intended to be a commitment to future product or feature availability in any way.
-
-IBM, the IBM logo and ibm.com are trademarks of International Business Machines Corp., registered in many jurisdictions worldwide. Other product and service names might be trademarks of IBM or other companies. A current list of IBM trademarks is available on the Web at “Copyright and trademark information” at www.ibm.com/legal/copytrade.shtml.
-
-![Please Recycle](./media/image6.png)
