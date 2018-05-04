@@ -57,24 +57,18 @@ You can create a Kubernetes (aka K8s) cluster from IBM Cloud console or from the
   ![](./media/image2.png)
 
 1.  Provide your **userid** and **password** in the login panel to logon to IBM Cloud. After logging in, explore the regions and pick which is best for you. These instructions will stay with US South. As you explore, Tokyo is available for Container Services, but not available yet for Db2 Warehouse. Pardon the guess work, but we are expanding availability zones quickly.
-  ![](./media/image3.png)
-
-1.  Click on the menu icon ( ![](./media/image4.png) ) on the upper left-hand side of the Dashboard page.
-
-1.  Select **Containers.**
-
-  ![](./media/image5.png)
+  >![](./media/image3.png)
+1. Click on the menu icon ( ![](./media/image4.png) ) on the upper left-hand side of the Dashboard page.
+1. Select **Containers.**
+  >![](./media/image5.png)
+1. Pick the region from the drop down box. The instruction will be US South.
+  >![](./media/image6.png) 
+1. Click on **Create Cluster**.
+  >![](./media/image7.png)
+1. Select the defaults and add the name of the cluster. We will use **EmployeeApp-inst**, choose your cluster name. Suggestion `EmployeeApp-<initials>`. If you have a non-lite account, you can see all the different locations and options you can select. We will stay with the free account for the lab. Click **Create Cluster**.
+ >![](./media/image8.png)
   
-1.  Pick the region from the drop down box. The instruction will be US South.
-  ![](./media/image6.png)
-  
-1.  Click on **Create Cluster**.
-  ![](./media/image7.png)
-  
-1.  Select the defaults and add the name of the cluster. We will use **EmployeeApp-inst**, choose your cluster name. Suggestion `EmployeeApp-<initials>`. If you have a non-lite account, you can see all the different locations and options you can select. We will stay with the free account for the lab. Click **Create Cluster**.
-  ![](./media/image8.png)
-  
-1.  For a few seconds, you will encounter a spinning cursor and after that you should see your intended cluster is in the **Deploying** state. The resulting panel provides valuable information about downloading and configuring various Bluemix plug-ins required for command line work. You have set up the IBM Cloud CLI in the `{LAB_HOME}/labs/gettingStarted/0_setup` lab. If you have not, follow the instruction on the panel.
+1. For a few seconds, you will encounter a spinning cursor and after that you should see your intended cluster is in the **Deploying** state. The resulting panel provides valuable information about downloading and configuring various Bluemix plug-ins required for command line work. You have set up the IBM Cloud CLI in the `{LAB_HOME}/labs/gettingStarted/0_setup` lab. If you have not, follow the instruction on the panel.
     1.  Download the Kubernette’s client libs https://kubernetes.io/docs/tasks/tools/install-kubectl/
     1.  Execute ‘**bx plugin install container-service -r Bluemix**’ to add container commands to the CLI
 
@@ -84,19 +78,15 @@ It will take some time (approximately 15 to 30 minutes) to get the cluster creat
 
 ## Creating an instance of Db2 Warehouse on IBM Cloud
 
-1.  Click on the **Catalog** button
-    ![](./media/image9.png)
-
-1.  On the left hand side, Click on **Data & Analytics**
-    ![](./media/image10.png)
-
-1.  In the search bar, enter `db2 wa`
-![](./media/image11.png)
-
+1. Click on the **Catalog** button
+    >![](./media/image9.png)
+1. On the left hand side, Click on **Data & Analytics**
+    >![](./media/image10.png)
+1. In the search bar, enter `db2 wa`
+   >![](./media/image11.png)
 1.  Click on the **Db2 Warehouse** icon. Go ahead and explore the page for the different plans. We will stay with **Entry** and our DB is only 50 rows, so we will be within the 1GB limit. Change the **Service name** if you desire, or leave is as the default unique name. we hanged it to **Db2Warehouse-Empl**. Click **Create**.
-
     ***Note***: The entry version is a fully managed data base which doesn’t have full self-serve DBA function. If you need this, move to a Flex or other plan.
-    ![](./media/image12.png)
+    >![](./media/image12.png)
 
 1.  Once created, there is a list to the left. **Manage, Service credentials** and **Connections**. To the right is an **Open** button which leads to the **Administration** **console**.
     ![](./media/image13.png)
