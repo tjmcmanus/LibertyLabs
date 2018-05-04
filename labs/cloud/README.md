@@ -13,6 +13,7 @@ Here is a list of the current labs around Cloud.
 * [Running Liberty as an Embedded Runtime](./5_EmbeddableRuntime/ExecutableJar.md) shows how to run a REST application with an embedded liberty runtime (runnable jar).
 
 
+
 Once comfortable with the environment and tools move on to the section of labs that most interest you.  
 - [Getting Started labs](../gettingStarted/README.md)
 - [Development labs](../development/README.md)
